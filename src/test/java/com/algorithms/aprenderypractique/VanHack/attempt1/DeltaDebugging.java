@@ -1,4 +1,4 @@
-package com.algorithms.aprenderypractique.VanHack;
+package com.algorithms.aprenderypractique.VanHack.attempt1;
 
 import com.algorithms.aprenderypractique.BaseTest;
 import org.junit.Test;
