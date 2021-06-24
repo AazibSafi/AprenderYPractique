@@ -13,8 +13,6 @@ public class Pascals extends BaseTest {
         printPascalsTriangle_N_Rows(5);
         System.out.println();
         printPascalsTriangle_Kth_Row(4);
-
-
     }
 
     void printPascalsTriangle_N_Rows(int n) {
