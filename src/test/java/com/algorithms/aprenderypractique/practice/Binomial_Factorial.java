@@ -6,7 +6,7 @@ import org.junit.Test;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-public class Binomial extends BaseTest {
+public class Binomial_Factorial extends BaseTest {
 
     @Test
     public void test() {
@@ -17,11 +17,7 @@ public class Binomial extends BaseTest {
 //        System.out.println(solution(3, 5));
 //        System.out.println(solution(2, 2));
 //        System.out.println(solution(6, 12));
-//        System.out.println(solution(12, 6));
-
-
-        initializeCacheFactorial();
-        System.out.println(factorial(3));
+        System.out.println(solution(12, 6));
     }
 
     Map<Integer, Integer> inMemoryFactorial;
@@ -40,9 +36,6 @@ public class Binomial extends BaseTest {
             catch (ArithmeticException e) {
                 result = -1;
             }
-//            catch (StackOverflowError e) {
-//                result = -1;
-//            }
         }
         return result;
     }

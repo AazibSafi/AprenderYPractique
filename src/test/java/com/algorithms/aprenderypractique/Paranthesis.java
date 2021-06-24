@@ -1,6 +1,5 @@
 package com.algorithms.aprenderypractique;
 
-import com.algorithms.aprenderypractique.BaseTest;
 import org.junit.Test;
 import org.springframework.util.CollectionUtils;
 

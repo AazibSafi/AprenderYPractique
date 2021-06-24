@@ -1,4 +1,4 @@
-package com.algorithms.aprenderypractique.practice;
+package com.algorithms.aprenderypractique.algorithm;
 
 import com.algorithms.aprenderypractique.BaseTest;
 import org.junit.Test;
@@ -6,7 +6,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DuplicateElements extends BaseTest {
+public class FirstDuplicateElement extends BaseTest {
 
     @Test
     public void solution() {

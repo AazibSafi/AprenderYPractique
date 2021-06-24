@@ -5,7 +5,7 @@ import org.junit.Test;
 
 public class Pascals extends BaseTest {
 
-    Binomial binomial = new Binomial();
+    Binomial_Factorial binomial = new Binomial_Factorial();
 
 
     @Test

@@ -1,5 +1,6 @@
-package com.algorithms.aprenderypractique;
+package com.algorithms.aprenderypractique.Nomads6;
 
+import com.algorithms.aprenderypractique.BaseTest;
 import org.junit.Test;
 
 import java.io.BufferedReader;
