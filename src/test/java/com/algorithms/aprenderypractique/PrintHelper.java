@@ -3,6 +3,7 @@ package com.algorithms.aprenderypractique;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 public class PrintHelper {
 
@@ -21,13 +22,16 @@ public class PrintHelper {
     }
 
     public static void print2DArray(int[][] arr) {
-        int n = arr.length;
         for (int[] row : arr) {
-            for (int j=0; j<n; j++) {
-                System.out.print(row[j]);
+            for(int cell : row) {
+                System.out.print(cell);
             }
             System.out.println();
         }
+    }
+
+    public static void printSet(Set set) {
+        set.forEach(System.out::println);
     }
 
 }
