@@ -1,7 +1,7 @@
 package com.algorithms.aprenderypractique.Klarna;
 
 import com.algorithms.aprenderypractique.BaseTest;
-import com.algorithms.aprenderypractique.PrintHelper;
+import com.algorithms.aprenderypractique.CommonHelper;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -17,7 +17,7 @@ public class Task2 extends BaseTest {
         List<String> transactions = Arrays.asList("John,Doe,john@doe.com,200,TR0001");
         List<String> rejectedTransactions = Task2.findRejectedTransactions(transactions, 200);
 
-        PrintHelper.printList(rejectedTransactions);
+        CommonHelper.printList(rejectedTransactions);
     }
 
     public static List<String> findRejectedTransactions(List<String> transactions, int creditLimit) {

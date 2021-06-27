@@ -1,11 +1,12 @@
 package com.algorithms.aprenderypractique;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-public class PrintHelper {
+public class CommonHelper {
 
     public static void printMap(Map<String, String> map) {
         if (map != null) {
@@ -32,6 +33,27 @@ public class PrintHelper {
 
     public static void printSet(Set set) {
         set.forEach(System.out::println);
+    }
+
+//    ignore all characters other than alphabets and space
+    public static String formatOnlyAlphabets(String str) {
+        return str.replaceAll("[^a-zA-Z\\s]","");
+    }
+
+    public static Map<Character,Integer> fillTableWithOccurrences(String T) {
+        Map<Character,Integer> table = new HashMap<>();
+        for(Character c : T.toCharArray()) {
+            table.put(c,table.getOrDefault(c,0)+1);
+        }
+        return table;
+    }
+
+    public static Map<String,Integer> fillTableWithOccurrences(String[] sentences) {
+        Map<String,Integer> table = new HashMap<>();
+        for(String word : sentences) {
+            table.put(word,table.getOrDefault(word,0)+1);
+        }
+        return table;
     }
 
 }

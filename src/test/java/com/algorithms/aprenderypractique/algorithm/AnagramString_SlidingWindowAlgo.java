@@ -1,7 +1,7 @@
 package com.algorithms.aprenderypractique.algorithm;
 
 import com.algorithms.aprenderypractique.BaseTest;
-import com.algorithms.aprenderypractique.PrintHelper;
+import com.algorithms.aprenderypractique.CommonHelper;
 import org.junit.Test;
 
 import java.util.HashMap;
@@ -21,7 +21,7 @@ public class AnagramString_SlidingWindowAlgo extends BaseTest {
         String str = "abcdebacb";
         String ptr = "cab";
 
-        PrintHelper.printSet(findAllAnagrams(str,ptr));
+        CommonHelper.printSet(findAllAnagrams(str,ptr));
     }
 
 //    O(N)
