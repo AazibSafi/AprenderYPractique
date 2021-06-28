@@ -1,6 +1,7 @@
 package com.algorithms.aprenderypractique.algorithm;
 
 import com.algorithms.aprenderypractique.BaseTest;
+import org.junit.Assert;
 import org.junit.Test;
 
 /*
@@ -15,8 +16,10 @@ public class LongestCommonSubstring extends BaseTest {
         String str2 = "aabcddbcdef";
         System.out.println(longestCommonSubstringLength(str1,str2));
         System.out.println(longestCommonSubstring(str1,str2));
+        Assert.assertEquals("bcdef",longestCommonSubstring(str1,str2));
     }
 
+//     O(N*M)
     public int longestCommonSubstringLength(String str1, String str2) {
         int iMax=0,jMax=0;
         int[][] T = new int[str1.length()][str2.length()];

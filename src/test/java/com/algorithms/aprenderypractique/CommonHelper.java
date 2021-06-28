@@ -8,7 +8,7 @@ import java.util.Set;
 
 public class CommonHelper {
 
-    public static void printMap(Map<String, String> map) {
+    public static void printMap(Map map) {
         if (map != null) {
             map.forEach((key,value)-> System.out.println(key+" "+value));
         }
@@ -18,14 +18,15 @@ public class CommonHelper {
         list.forEach(System.out::println);
     }
 
-    public void printArray(int[] arr) {
+    public static void printArray(int[] arr) {
         Arrays.stream(arr).forEach(System.out::println);
     }
 
     public static void print2DArray(int[][] arr) {
         for (int[] row : arr) {
-            for(int cell : row) {
+            for(int cell=0;cell<row.length; cell++) {
                 System.out.print(cell);
+                System.out.print(" ");
             }
             System.out.println();
         }
