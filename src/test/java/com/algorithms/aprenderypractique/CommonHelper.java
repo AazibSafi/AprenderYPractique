@@ -17,7 +17,14 @@ public class CommonHelper {
 
     public static void printList(List list) {
         Object str = list.stream().map(String::valueOf).collect(Collectors.joining(","));
-        System.out.print("\n[" + str + "]");
+        System.out.print("[" + str + "]");
+    }
+
+    public static void print2DList(List<List> list) {
+        list.forEach( nestedList -> {
+            Object str = nestedList.stream().map(String::valueOf).collect(Collectors.joining(","));
+            System.out.println("[" + str + "]");
+        });
     }
 
     public static void printArray(int[] arr) {
