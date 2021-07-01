@@ -28,6 +28,7 @@ public class LongestCommonSubstring extends BaseTest {
                 if(str1.charAt(i)==str2.charAt(j)) {
                     T[i][j] = i-1<0||j-1<0 ? 1: T[i-1][j-1]+1;
 
+// the element can directly be saved here instead of saving index -> MaxLength = T[i][j] and then return MaxLength in the end
                     if(T[iMax][jMax] < T[i][j]) {
                         iMax = i;
                         jMax = j;
@@ -38,7 +39,7 @@ public class LongestCommonSubstring extends BaseTest {
         return T[iMax][jMax];
     }
 
-//     O(N*M)
+//     O(N*M) -- Extension of above method
     public String longestCommonSubstring(String str1, String str2) {
         int iMax=0,jMax=0;
         int[][] T = new int[str1.length()][str2.length()];
