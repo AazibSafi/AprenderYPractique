@@ -7,7 +7,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Longest Palindrome Substring
+ * Length of Longest Palindrome Substring
+ * O(N 3)
+ *
+ * https://hackernoon.com/manachers-algorithm-explained-longest-palindromic-substring-22cb27a5e96f
  */
 public class LongestPalindromeSubstring extends BaseTest {
 
@@ -26,8 +29,10 @@ public class LongestPalindromeSubstring extends BaseTest {
         }
     }
 
+//    To avoid repeated calculation of already calculated lengths
     Map<SubstringIndex,Integer> subStringLengthCache = new HashMap<>();
 
+//  Time complexity: O(N 3)
     public int length_of_Longest_palindrome_substring(String str, int start, int end) {
         if(start>end) {
             return 0;

@@ -28,7 +28,8 @@ public class Low_HighIndex extends BaseTest {
 
         while(low<=high) {
 
-            middle = low + (high-low)/2;
+            //middle = low + (high-low)/2;
+            middle = (low+high)/2;
 
             if(key <= arr[middle]) {
                 high = middle-1;

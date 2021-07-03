@@ -13,7 +13,10 @@ public class FirstDuplicateElement extends BaseTest {
         System.out.println(firstDuplicate(new int[]{2,1,3,5,1,3,2}));
     }
 
-    //  O(N)
+/*
+    Time Complexity: O(N)
+    Space Complexity: O(1)
+ */
     int firstDuplicate(int[] a) {
         for(int i=0;i<a.length;i++) {
             if(a[Math.abs(a[i])-1]<0) {

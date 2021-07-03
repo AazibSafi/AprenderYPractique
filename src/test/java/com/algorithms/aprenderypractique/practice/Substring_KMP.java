@@ -10,12 +10,15 @@ public class Substring_KMP extends BaseTest {
         String str = "abcdfgcdeyz";
         String ptr = "cde";
         System.out.println(findSubString(str,ptr));
+
         str = "abcdfgcd";
         ptr = "cde";
         System.out.println(findSubString(str,ptr));
+
         str = "abcdfgyzcde";
         ptr = "cde";
         System.out.println(findSubString(str,ptr));
+
         str = "abcdcdcdegyzcde";
         ptr = "cdcde";
         System.out.println(findSubString(str,ptr));

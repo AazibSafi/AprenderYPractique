@@ -57,4 +57,9 @@ public class CommonHelper {
         return table;
     }
 
+    public static String modifyString(String str, String delimeter) {
+        return str.chars().mapToObj(c -> String.valueOf( (char) c))
+                .collect(Collectors.joining(delimeter,delimeter,delimeter));
+    }
+
 }
