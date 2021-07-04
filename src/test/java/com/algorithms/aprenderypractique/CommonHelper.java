@@ -1,7 +1,9 @@
 package com.algorithms.aprenderypractique;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -60,6 +62,17 @@ public class CommonHelper {
     public static String modifyString(String str, String delimeter) {
         return str.chars().mapToObj(c -> String.valueOf( (char) c))
                 .collect(Collectors.joining(delimeter,delimeter,delimeter));
+    }
+
+    public static Map<String, Integer> sortMap(Map<String, Integer> map) {
+        //LinkedHashMap preserve the ordering of elements in which they are inserted
+        LinkedHashMap<String, Integer> sortedMap = new LinkedHashMap<>();
+
+        map.entrySet().stream()
+                .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
+                .forEachOrdered(x -> sortedMap.put(x.getKey(),x.getValue()));
+
+        return sortedMap;
     }
 
 }
