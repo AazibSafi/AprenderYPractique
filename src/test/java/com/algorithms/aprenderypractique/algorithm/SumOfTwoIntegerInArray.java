@@ -1,4 +1,4 @@
-package com.algorithms.aprenderypractique.practice;
+package com.algorithms.aprenderypractique.algorithm;
 
 import com.algorithms.aprenderypractique.BaseTest;
 import com.algorithms.aprenderypractique.CommonHelper;

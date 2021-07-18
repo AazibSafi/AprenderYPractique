@@ -50,6 +50,9 @@ public class Binomial_Factorial extends BaseTest {
         return factorial(N) / (factorial(K) * factorial(N - K));
     }
 
+/*
+    Through Cache
+ */
     public int factorial(int n) {
         if (inMemoryFactorial.get(n) != null) {
             return inMemoryFactorial.get(n);
@@ -58,18 +61,6 @@ public class Binomial_Factorial extends BaseTest {
         int x = n * factorial(n - 1);
         inMemoryFactorial.put(n, x);
         return x;
-    }
-
-//  Dynamic Programming Approach - Non-Recursive
-    public int CalculateFibonacci(int n) {
-        int dp[] = new int[n+1];
-        dp[0] = 0;
-        dp[1] = 1;
-
-        for(int i=2; i<=n; i++)
-            dp[i] = dp[i-1] + dp[i-2];
-
-        return dp[n];
     }
 
 }

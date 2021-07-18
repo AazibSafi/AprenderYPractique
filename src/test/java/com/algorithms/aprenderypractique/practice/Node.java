@@ -1,6 +1,7 @@
 package com.algorithms.aprenderypractique.practice;
 
 public class Node {
+
     int x;
     Node next;
 

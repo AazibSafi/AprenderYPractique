@@ -2,8 +2,10 @@ package com.algorithms.aprenderypractique.algorithm;
 
 import com.algorithms.aprenderypractique.BaseTest;
 import com.algorithms.aprenderypractique.CommonHelper;
+import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -20,8 +22,15 @@ public class AnagramString_SlidingWindowAlgo extends BaseTest {
     public void solution() {
         String str = "abcdebacb";
         String ptr = "cab";
+        Set<Integer> result = findAllAnagrams(str,ptr);
+        CommonHelper.printSet(result);
+        Assert.assertEquals(new HashSet<>(Arrays.asList(0,5,6)),result);
 
-        CommonHelper.printSet(findAllAnagrams(str,ptr));
+        str = "babcabbacaabcbabcacbb";
+        ptr = "abbc";
+        result = findAllAnagrams(str,ptr);
+        CommonHelper.printSet(result);
+        Assert.assertEquals(new HashSet<>(Arrays.asList(0,2,3,5,10,11,12,13,17)),result);
     }
 
 //    O(N)
