@@ -1,6 +1,7 @@
 package com.algorithms.aprenderypractique.algorithm.strings;
 
 import com.algorithms.aprenderypractique.BaseTest;
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.LinkedHashMap;
@@ -14,20 +15,20 @@ public class FirstNonRepeatingCharacter extends BaseTest {
     @Test
     public void solution() {
 
-        System.out.println("------ Through Map");
-        System.out.println(firstNonRepeatingCharacterByMap("aaabcccdeeef"));
-        System.out.println(firstNonRepeatingCharacterByMap("abcbad"));
-        System.out.println(firstNonRepeatingCharacterByMap("abcabcabc"));
+//      Through Map
+        Assert.assertEquals(new Character('b'),firstNonRepeatingCharacterByMap("aaabcccdeeef"));
+        Assert.assertEquals(new Character('c'),firstNonRepeatingCharacterByMap("abcbad"));
+        Assert.assertEquals(new Character('_'),firstNonRepeatingCharacterByMap("abcabcabc"));
 
-        System.out.println("------ Through Int Array - ASCII");
-        System.out.println(firstNonRepeatingCharacterByIntArray("aaabcccdeeef"));
-        System.out.println(firstNonRepeatingCharacterByIntArray("abcbad"));
-        System.out.println(firstNonRepeatingCharacterByIntArray("abcabcabc"));
+//      Through Int Array - ASCII
+        Assert.assertEquals('b',firstNonRepeatingCharacterByIntArray("aaabcccdeeef"));
+        Assert.assertEquals('c',firstNonRepeatingCharacterByIntArray("abcbad"));
+        Assert.assertEquals('_',firstNonRepeatingCharacterByIntArray("abcabcabc"));
 
-        System.out.println("------ Through Index");
-        System.out.println(firstNonRepeatingCharacterByIndex("aaabcccdeeef"));
-        System.out.println(firstNonRepeatingCharacterByIndex("abcbad"));
-        System.out.println(firstNonRepeatingCharacterByIndex("abcabcabc"));
+//      Through Index
+        Assert.assertEquals('b',firstNonRepeatingCharacterByIndex("aaabcccdeeef"));
+        Assert.assertEquals('c',firstNonRepeatingCharacterByIndex("abcbad"));
+        Assert.assertEquals('_',firstNonRepeatingCharacterByIndex("abcabcabc"));
     }
 
 /*    Time Complexity
@@ -36,9 +37,8 @@ public class FirstNonRepeatingCharacter extends BaseTest {
 
       More Optimized, No space Complexity
 */
-    public Character firstNonRepeatingCharacterByIndex(String str) {
-
-        for(Character c : str.toCharArray()) {
+    public char firstNonRepeatingCharacterByIndex(String str) {
+        for(char c : str.toCharArray()) {
             if( str.indexOf(c) == str.lastIndexOf(c) ) {
                 return c;
             }
@@ -49,14 +49,14 @@ public class FirstNonRepeatingCharacter extends BaseTest {
 /*    Time Complexity:  O(N) + O(N)
       Space: O(26)
 */
-    public Character firstNonRepeatingCharacterByIntArray(String str) {
+    public char firstNonRepeatingCharacterByIntArray(String str) {
         int[] char_count = new int[26];
 
-        for(Character c : str.toCharArray()) {
+        for(char c : str.toCharArray()) {
             char_count[c - 'a']++;
         }
 
-        for(Character c : str.toCharArray()) {
+        for(char c : str.toCharArray()) {
             if( char_count[c - 'a'] == 1 )
                 return c;
         }

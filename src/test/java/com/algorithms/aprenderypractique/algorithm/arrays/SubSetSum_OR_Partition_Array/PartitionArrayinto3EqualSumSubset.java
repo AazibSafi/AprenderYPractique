@@ -1,16 +1,17 @@
-package com.algorithms.aprenderypractique.algorithm.arrays;
+package com.algorithms.aprenderypractique.algorithm.arrays.SubSetSum_OR_Partition_Array;
 
 import com.algorithms.aprenderypractique.BaseTest;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.Arrays;
+import java.util.stream.IntStream;
 
 /**
  *  https://www.interviewbit.com/problems/partitions/
  *  https://www.youtube.com/watch?v=31W_QU1xJcg
  */
-public class PartitionArrayInto3 extends BaseTest {
+public class PartitionArrayinto3EqualSumSubset extends BaseTest {
 
     @Test
     public void test() {

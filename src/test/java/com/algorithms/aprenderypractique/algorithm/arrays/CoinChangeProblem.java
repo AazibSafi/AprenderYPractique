@@ -1,11 +1,11 @@
 package com.algorithms.aprenderypractique.algorithm.arrays;
 
 import com.algorithms.aprenderypractique.BaseTest;
-import com.algorithms.aprenderypractique.CommonHelper;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -18,13 +18,23 @@ public class CoinChangeProblem extends BaseTest {
     public void test() {
         int[] coins = new int[]{1,5,6,8};
         List<Integer> minCoins= findMinCoinDenominations(coins,11);
-        CommonHelper.printList(minCoins);
-        Assert.assertEquals(2,minCoins.size());
+        Assert.assertTrue(Arrays.asList(5,6).containsAll(minCoins));
 
-        int[] coins2 = new int[]{7,2,3,6};
-        minCoins= findMinCoinDenominations(coins2,13);
-        CommonHelper.printList(minCoins);
-        Assert.assertEquals(2,minCoins.size());
+        coins = new int[]{7,2,3,6};
+        minCoins= findMinCoinDenominations(coins,13);
+        Assert.assertTrue(Arrays.asList(6,7).containsAll(minCoins));
+
+        coins = new int[]{1};
+        minCoins= findMinCoinDenominations(coins,5);
+        Assert.assertTrue(Arrays.asList(1,1,1,1,1).containsAll(minCoins));
+
+        coins = new int[]{1,5,10};
+        minCoins= findMinCoinDenominations(coins,51);
+        Assert.assertTrue(Arrays.asList(10,10,10,10,10,1).containsAll(minCoins));
+
+        coins = new int[]{1,5,10};
+        minCoins= findMinCoinDenominations(coins,47);
+        Assert.assertTrue(Arrays.asList(10,10,10,10,5,1,1).containsAll(minCoins));
     }
 
 /*
@@ -49,7 +59,6 @@ public class CoinChangeProblem extends BaseTest {
 
                     A[listIndex] = A[listIndex-coins[coinIndex]] + 1;
                     B[listIndex] = coinIndex;
-
                 }
             }
         }

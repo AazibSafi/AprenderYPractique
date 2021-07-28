@@ -1,11 +1,7 @@
 package com.algorithms.aprenderypractique.algorithm.arrays;
 
 import com.algorithms.aprenderypractique.BaseTest;
-import com.algorithms.aprenderypractique.CommonHelper;
 import org.junit.Test;
-
-import java.util.SortedSet;
-import java.util.TreeSet;
 
 /**
  *  https://www.interviewbit.com/problems/min-steps-in-infinite-grid/

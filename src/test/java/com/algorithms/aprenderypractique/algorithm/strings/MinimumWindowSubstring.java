@@ -20,9 +20,19 @@ public class MinimumWindowSubstring extends BaseTest {
     public void test() {
         String str = "ADOBECODEBANC";
         String T = "ABC";
-        String result = findMinimumWindowSubstring(str,T);
-        System.out.println(result);
-        Assert.assertEquals("BANC",result);
+        Assert.assertEquals("BANC",findMinimumWindowSubstring(str,T));
+
+        str = "AAABC";
+        T = "ABC";
+        Assert.assertEquals("ABC",findMinimumWindowSubstring(str,T));
+
+        str = "dcbefebce";
+        T = "fd";
+        Assert.assertEquals("dcbef",findMinimumWindowSubstring(str,T));
+
+        str = "bfbeadbcbcbfeaaeefcddcccbbbfaaafdbebedddf";
+        T = "cbccfafebccdccebdd";
+        Assert.assertEquals("bfbeadbcbcbfeaaeefcddcccbbbfaaafdbebedddf",findMinimumWindowSubstring(str,T));
     }
 
     public String findMinimumWindowSubstring(String str, String T) {
@@ -69,7 +79,7 @@ public class MinimumWindowSubstring extends BaseTest {
 
                 saveMinLengthResult(minLengthResult,leftPointer,currWindowEnd);
 
-                char c = str.charAt(leftPointer);
+                char c = str.charAt(leftPointer++);
 
                 if(table.containsKey(c)) {
                     table.put(c,table.get(c) + 1);
@@ -78,7 +88,6 @@ public class MinimumWindowSubstring extends BaseTest {
                         count--;
                     }
                 }
-                leftPointer++;
             }
 
         }

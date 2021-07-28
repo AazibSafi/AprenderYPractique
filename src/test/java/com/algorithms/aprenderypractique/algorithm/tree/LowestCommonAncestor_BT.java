@@ -21,21 +21,21 @@ public class LowestCommonAncestor_BT extends BaseTest {
      */
     }
 
-    class TreeNode {
+    class BinaryTree {
         int val;
-        TreeNode left;
-        TreeNode right;
-        TreeNode(int x) { val = x; }
+        BinaryTree left;
+        BinaryTree right;
+        BinaryTree(int x) { val = x; }
     }
 
-    TreeNode result;
+    BinaryTree result;
 
-    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+    public BinaryTree lowestCommonAncestor(BinaryTree root, BinaryTree p, BinaryTree q) {
         findAncestor(root,p,q);
         return result;
     }
 
-    public boolean findAncestor(TreeNode root, TreeNode p, TreeNode q) {
+    public boolean findAncestor(BinaryTree root, BinaryTree p, BinaryTree q) {
         if(root == null) return false;
 
         boolean left = findAncestor(root.left,p,q);

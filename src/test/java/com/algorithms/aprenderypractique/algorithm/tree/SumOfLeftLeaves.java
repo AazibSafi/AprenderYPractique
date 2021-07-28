@@ -11,13 +11,13 @@ import java.util.Queue;
  */
 public class SumOfLeftLeaves extends BaseTest {
 
-    public class TreeNode {
+    public class BinaryTree {
         int val;
-        TreeNode left;
-        TreeNode right;
-        TreeNode() {}
-        TreeNode(int val) { this.val = val; }
-        TreeNode(int val, TreeNode left, TreeNode right) {
+        BinaryTree left;
+        BinaryTree right;
+        BinaryTree() {}
+        BinaryTree(int val) { this.val = val; }
+        BinaryTree(int val, BinaryTree left, BinaryTree right) {
             this.val = val;
             this.left = left;
             this.right = right;
@@ -29,7 +29,7 @@ public class SumOfLeftLeaves extends BaseTest {
 
     }
 
-    public int sumOfLeftLeavesRec(TreeNode root) {
+    public int sumOfLeftLeavesRec(BinaryTree root) {
         if(root == null) return 0;
 
         int sum = 0;
@@ -44,15 +44,15 @@ public class SumOfLeftLeaves extends BaseTest {
         return sum;
     }
 
-    public int sumOfLeftLeaves(TreeNode root) {
+    public int sumOfLeftLeaves(BinaryTree root) {
         if(root == null)    return 0;
 
         int sum = 0;
-        Queue <TreeNode>queue = new LinkedList();
+        Queue <BinaryTree>queue = new LinkedList();
         queue.add(root);
 
         while(!queue.isEmpty()) {
-            TreeNode node = queue.poll();
+            BinaryTree node = queue.poll();
 
             if(node.left != null) {
                 if(isLeaf(node.left)) sum += node.left.val;
@@ -66,7 +66,7 @@ public class SumOfLeftLeaves extends BaseTest {
         return sum;
     }
 
-    public boolean isLeaf(TreeNode node) {
+    public boolean isLeaf(BinaryTree node) {
         return node.left == null && node.right == null;
     }
 

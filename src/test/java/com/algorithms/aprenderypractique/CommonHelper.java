@@ -1,6 +1,7 @@
 package com.algorithms.aprenderypractique;
 
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -73,6 +74,10 @@ public class CommonHelper {
                 .forEachOrdered(x -> sortedMap.put(x.getKey(),x.getValue()));
 
         return sortedMap;
+    }
+
+    public static boolean isEquals(Collection<?> a, Collection<?> b) {
+        return a.size() == b.size() && a.containsAll(b);
     }
 
 }

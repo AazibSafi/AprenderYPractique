@@ -2,6 +2,7 @@ package com.algorithms.aprenderypractique.algorithm.tree;
 
 import com.algorithms.aprenderypractique.BaseTest;
 import com.algorithms.aprenderypractique.CommonHelper;
+import com.algorithms.aprenderypractique.algorithm.tree.datastructure.BinaryTree;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -25,27 +26,27 @@ import java.util.Queue;
  *  Output:
  *  [4, 8, 6, 6, 2]
  */
-public class AverageOfTreeNodeLevels extends BaseTest {
+public class AverageOfBinaryTreeLevels extends BaseTest {
 
     @Test
     public void test() {
-        TreeNode tree = new TreeNode(4);
-        tree.left = new TreeNode(7);
-        tree.right = new TreeNode(9);
-        tree.left.left = new TreeNode(10);
-        tree.left.right = new TreeNode(2);
-        tree.right.right = new TreeNode(6);
-        tree.left.right.right = new TreeNode(6);
-        tree.left.right.right.left = new TreeNode(2);
+        BinaryTree tree = new BinaryTree(4);
+        tree.left = new BinaryTree(7);
+        tree.right = new BinaryTree(9);
+        tree.left.left = new BinaryTree(10);
+        tree.left.right = new BinaryTree(2);
+        tree.right.right = new BinaryTree(6);
+        tree.left.right.right = new BinaryTree(6);
+        tree.left.right.right.left = new BinaryTree(2);
 
         CommonHelper.printList( findAverage(tree) );
     }
 
-    public List<Integer> findAverage(TreeNode tree) {
+    public List<Integer> findAverage(BinaryTree tree) {
         if(tree == null) return null;
 
         List<Integer> result = new ArrayList<>();
-        Queue<TreeNode> queue = new LinkedList<>();
+        Queue<BinaryTree> queue = new LinkedList<>();
         int sum;
         int n;
 
@@ -56,7 +57,7 @@ public class AverageOfTreeNodeLevels extends BaseTest {
             n = queue.size();
 
             for(int i=0;i<n;i++) {
-                TreeNode node = queue.poll();
+                BinaryTree node = queue.poll();
                 sum += node.val;
 
                 if(node.left != null) queue.add(node.left);
