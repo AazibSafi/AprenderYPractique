@@ -10,7 +10,7 @@ import org.junit.Test;
  *
  *  HARD Problem
  *
- *  Other Solutions of this problem are O(n 3) or O(n 2)
+ *  Other Solutions of this problem are O(n^3) or O(n^2)
  *  but this Manacher's Algorithm is O(N) is Linear
  */
 public class LongestPalindromeSubstring_ManachersAlgorithm extends BaseTest {
@@ -18,24 +18,16 @@ public class LongestPalindromeSubstring_ManachersAlgorithm extends BaseTest {
     @Test
     public void test() {
         String str = "BABCBAB";
-        String LPS = LPS(str);
-        System.out.println(str + " --> " + LPS);
-        Assert.assertEquals("BABCBAB",LPS);
+        Assert.assertEquals("BABCBAB",LPS(str));
 
         str = "acaac";
-        LPS = LPS(str);
-        System.out.println(str + " --> " + LPS);
-        Assert.assertEquals("caac",LPS);
+        Assert.assertEquals("caac",LPS(str));
 
         str = "abacdfgdcabba";
-        LPS = LPS(str);
-        System.out.println(str + " --> " + LPS);
-        Assert.assertEquals("abba",LPS);
+        Assert.assertEquals("abba",LPS(str));
 
         str = "abacdedcaba";
-        LPS = LPS(str);
-        System.out.println(str + " --> " + LPS);
-        Assert.assertEquals("abacdedcaba",LPS);
+        Assert.assertEquals("abacdedcaba",LPS(str));
     }
 
 /*
@@ -79,7 +71,7 @@ public class LongestPalindromeSubstring_ManachersAlgorithm extends BaseTest {
                 R = i+P[i];
 
                 if(P[i] > P[maxLenIndex]) {
-                    maxLenIndex = i;
+                    maxLenIndex = i;        // Storing centre index
                 }
             }
 

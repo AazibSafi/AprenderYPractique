@@ -20,12 +20,12 @@ public class FreeMeetingSlot extends BaseTest {
         int[][] busySlots = new int[][]{{1,2},{1,3},{5,6},{4,10}};
         List<Integer[]> commonAvailableSlots = findAvailableSlots(busySlots,1);
 
-        commonAvailableSlots.forEach( slot -> System.out.println("{" + slot[0] + "," + slot[1] + "}"));
+        commonAvailableSlots.forEach( slot -> System.out.println("{" + slot[0] + "," + slot[1] + "}"));  //   { 3 , 4 }
     }
 
 /*
     Note: Assume the slots are in sorted form, otherwise busySlots needs to be sorted first
-    check if the busy slot endTime is less then the start time of the next busySlot,
+    check if the busy slot endTime is less than the start time of the next busySlot,
     and if the diff btw the start time of the next busySlot and endTime of current busy slot is greater or equal to newMeetingDuration
     Then we found the free slot
 

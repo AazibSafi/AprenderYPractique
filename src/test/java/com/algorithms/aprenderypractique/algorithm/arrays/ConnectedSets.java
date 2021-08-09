@@ -1,6 +1,7 @@
 package com.algorithms.aprenderypractique.algorithm.arrays;
 
 import com.algorithms.aprenderypractique.BaseTest;
+import org.junit.Assert;
 import org.junit.Test;
 
 /**
@@ -25,6 +26,7 @@ public class ConnectedSets extends BaseTest {
                 {0, 1, 0, 0},
                 {1, 1, 1, 1}
             };
+        Assert.assertEquals(1,findNoOfConnectSets(matrix));
 
         int[][] matrix1 = {
                 {1, 0, 0, 1},
@@ -32,6 +34,7 @@ public class ConnectedSets extends BaseTest {
                 {0, 1, 1, 0},
                 {1, 0, 0, 1}
         };
+        Assert.assertEquals(3,findNoOfConnectSets(matrix1));
 
         int[][] matrix2 = {
                 {1, 0, 0, 1, 1},
@@ -40,6 +43,7 @@ public class ConnectedSets extends BaseTest {
                 {1, 1, 1, 1, 1},
                 {0, 0, 0, 0, 0}
         };
+        Assert.assertEquals(3,findNoOfConnectSets(matrix2));
 
         int[][] matrix3 = {
                 {0, 0, 1, 0, 0, 1, 0, 0},
@@ -51,12 +55,14 @@ public class ConnectedSets extends BaseTest {
                 {1, 0, 1, 1, 0, 1, 1, 0},
                 {0, 0, 0, 0, 0, 0, 0, 0}
         };
-
-        System.out.println(findNoOfConnectSets(matrix));
-        System.out.println(findNoOfConnectSets(matrix1));
-        System.out.println(findNoOfConnectSets(matrix2));
-        System.out.println(findNoOfConnectSets(matrix3));
+        Assert.assertEquals(9,findNoOfConnectSets(matrix3));
     }
+
+    int[][] dir = {
+            {-1,-1}, {-1,0}, {-1,1},    // NW, N, NE
+            {0,-1}, {0,1},              // W, E
+            {1,-1}, {1,0}, {1,1}        // SW, S, SE
+    };
 
     public int findNoOfConnectSets(int[][] matrix) {
         int setCount = 0;
@@ -73,24 +79,20 @@ public class ConnectedSets extends BaseTest {
         return setCount;
     }
 
-    public void traverseNeighbor(int[][] matrix, int row, int col) {
+    void traverseNeighbor(int[][] matrix, int i, int j) {
+        if(withInBoundry(i,j, matrix.length, matrix[0].length) && matrix[i][j] == 1) {
 
-        if(row<0 || col<0 || row>=matrix.length || col>=matrix[0].length
-            || matrix[row][col] != 1) {
-            return;
+            matrix[i][j] = -1;  // Visited Cell
+
+            for(int d=0; d<dir.length; d++) {   //  Traverse All Given Directions and mark them visited
+                traverseNeighbor(matrix, i + dir[d][0], j + dir[d][1]);
+            }
+
         }
+    }
 
-        matrix[row][col] = -1; // Visited Cell
-
-        traverseNeighbor(matrix, row - 1, col - 1);
-        traverseNeighbor(matrix, row - 1, col);
-        traverseNeighbor(matrix, row - 1, col + 1);
-        traverseNeighbor(matrix, row, col - 1);
-        traverseNeighbor(matrix, row, col);
-        traverseNeighbor(matrix, row, col + 1);
-        traverseNeighbor(matrix, row+1, col - 1);
-        traverseNeighbor(matrix, row+1, col);
-        traverseNeighbor(matrix, row+1, col + 1);
+    boolean withInBoundry(int i, int j, int row, int col) {
+        return i>=0 && j>=0 && i<row && j<col;
     }
 
 }

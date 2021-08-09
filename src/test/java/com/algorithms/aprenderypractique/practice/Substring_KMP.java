@@ -1,6 +1,7 @@
 package com.algorithms.aprenderypractique.practice;
 
 import com.algorithms.aprenderypractique.BaseTest;
+import org.junit.Assert;
 import org.junit.Test;
 
 public class Substring_KMP extends BaseTest {
@@ -9,19 +10,19 @@ public class Substring_KMP extends BaseTest {
     public void test() {
         String str = "abcdfgcdeyz";
         String ptr = "cde";
-        System.out.println(findSubString(str,ptr));
+        Assert.assertEquals(6,findSubString(str,ptr));
 
         str = "abcdfgcd";
         ptr = "cde";
-        System.out.println(findSubString(str,ptr));
+        Assert.assertEquals(-1,findSubString(str,ptr));
 
         str = "abcdfgyzcde";
         ptr = "cde";
-        System.out.println(findSubString(str,ptr));
+        Assert.assertEquals(8,findSubString(str,ptr));
 
         str = "abcdcdcdegyzcde";
         ptr = "cdcde";
-        System.out.println(findSubString(str,ptr));
+        Assert.assertEquals(-1,findSubString(str,ptr));
     }
 
     int findSubString(String str, String subStr) {

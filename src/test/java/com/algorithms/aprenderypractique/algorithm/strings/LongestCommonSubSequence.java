@@ -16,7 +16,6 @@ public class LongestCommonSubSequence extends BaseTest {
         String str = "abcdaf";
         String ptr = "acbcf";
         int maxLCSLength = findLCS(str,ptr);
-        System.out.println(maxLCSLength);
         Assert.assertEquals(4,maxLCSLength);
     }
 

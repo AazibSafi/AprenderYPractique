@@ -22,8 +22,10 @@ public class KthPermutation_String extends BaseTest {
     loop through size of list till n-1
         get the index by formula
         check the boundary of index
+
         get the item from list at index
         add that item into finalResult
+
         remove that item from sequence list
         decrease size of sequence
         update the K val

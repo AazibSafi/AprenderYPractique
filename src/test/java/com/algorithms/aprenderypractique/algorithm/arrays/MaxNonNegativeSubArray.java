@@ -35,7 +35,7 @@ public class MaxNonNegativeSubArray extends BaseTest {
                 j++;
             }
 
-            if((sum > maxSum) || (sum == maxSum && j-i > endMax-startMax)) {
+            if((sum > maxSum) || (sum == maxSum && j-i > endMax-startMax)) {    // Edge case, for priority check condition
                 maxSum = sum;
                 startMax = i;
                 endMax = j;

@@ -20,6 +20,11 @@ public class LengthOfLongestSubstring_SlidingWindow extends BaseTest {
         System.out.println(length_of_LongestSubString(str));
     }
 
+// TODO
+// Recheck in video
+// there is a problem,
+// it is not calculating max
+
     // O(2N) --> O(N)
     public int length_of_LongestSubString(String str) {
 

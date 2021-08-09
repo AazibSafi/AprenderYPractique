@@ -41,8 +41,8 @@ public class SubSetSum_DP_2D_Array extends BaseTest {
         arr = new int[]{1, 8, 2, 5};
         Assert.assertTrue(CommonHelper.isEquals(new ArrayList<>(),subsetSum(arr,4)));
 
-        arr = new int[]{1, 8, 2, 5};
-        Assert.assertTrue(CommonHelper.isEquals(new ArrayList<>(),subsetSum(arr,4)));
+        arr = new int[]{2, 8, 2, 5};
+        Assert.assertTrue(CommonHelper.isEquals(Arrays.asList(2,2),subsetSum(arr,4)));
 
         arr = new int[]{12, 7, 6, 7, 6};
         Assert.assertTrue(CommonHelper.isEquals(Arrays.asList(12,7),subsetSum(arr,19)));

@@ -31,7 +31,7 @@ public class ReverseLinkedList extends BaseTest {
         else {
             LinkedList reversedList = reverseLL(head.next);
             head.next.next = head;
-            head.next = null;
+            head.next = null;       // Edge case: mostly people forget this, causes memory leak
             return reversedList;
         }
     }

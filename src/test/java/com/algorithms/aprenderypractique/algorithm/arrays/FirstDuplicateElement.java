@@ -1,16 +1,20 @@
 package com.algorithms.aprenderypractique.algorithm.arrays;
 
 import com.algorithms.aprenderypractique.BaseTest;
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+    All elements in the array are positive integers
+ */
 public class FirstDuplicateElement extends BaseTest {
 
     @Test
     public void solution() {
-        System.out.println(firstDuplicate(new int[]{2,1,3,5,1,3,2}));
+        Assert.assertEquals(1,firstDuplicate(new int[]{2,1,3,5,1,3,2}));
     }
 
 /*

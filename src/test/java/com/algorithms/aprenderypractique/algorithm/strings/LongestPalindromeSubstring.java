@@ -8,7 +8,7 @@ import java.util.Map;
 
 /**
  * Length of Longest Palindrome Substring
- * O(N 3)
+ * O(N^3)
  *
  * https://hackernoon.com/manachers-algorithm-explained-longest-palindromic-substring-22cb27a5e96f
  */
@@ -32,7 +32,7 @@ public class LongestPalindromeSubstring extends BaseTest {
 //    To avoid repeated calculation of already calculated lengths
     Map<SubstringIndex,Integer> subStringLengthCache = new HashMap<>();
 
-//  Time complexity: O(N 3)
+//  Time complexity: O(N^3)
     public int length_of_Longest_palindrome_substring(String str, int start, int end) {
         if(start>end) {
             return 0;
@@ -49,7 +49,7 @@ public class LongestPalindromeSubstring extends BaseTest {
         int subStringLength;
 
         if(str.charAt(start)==str.charAt(end)) {
-            subStringLength = length_of_Longest_palindrome_substring(str,start+1,end-1) +2;
+            subStringLength = length_of_Longest_palindrome_substring(str,start+1,end-1) + 2;
         }
         else {
             subStringLength = Math.max( length_of_Longest_palindrome_substring(str,start,end-1),

@@ -6,6 +6,7 @@ import org.junit.Test;
 
 /**
  *  https://www.facebookrecruiting.com/portal/coding_practice_question/?problem_id=192049171861831
+ *  https://www.facebookrecruiting.com/portal/coding_practice_question/?problem_id=192049171861831&c=207085731181336&practice_plan=0
  */
 public class RevenueMilestone extends BaseTest {
 

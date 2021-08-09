@@ -58,7 +58,6 @@ public class SubSetSum_Recursion extends BaseTest {
     }
 
 
-    //@Ignore
     @Test
     public void test2() {
         int[] arr = new int[]{2, 3, 7, 8, 10};
@@ -77,9 +76,6 @@ public class SubSetSum_Recursion extends BaseTest {
         Assert.assertTrue(subsetSum(arr,14));
     }
 
-/*
-    Currently not working properly
- */
     public boolean subsetSum(int[] arr, int total) {
         int[][] mem = new int[arr.length][total+1];
 

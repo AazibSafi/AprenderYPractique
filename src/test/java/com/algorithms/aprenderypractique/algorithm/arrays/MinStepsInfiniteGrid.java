@@ -18,14 +18,15 @@ public class MinStepsInfiniteGrid extends BaseTest {
 
 /*
     Time: O(N)
+    Using Distance Formula
  */
     public int coverPoints(int[] A, int[] B) {
         int steps = 0;
         int x, y;
 
         for(int i=0; i<A.length-1; i++) {
-            x = Math.abs(A[i] - A[i+1]);
-            y = Math.abs(B[i] - B[i+1]);
+            x = Math.abs(A[i] - A[i+1]);        //  |x1 - x2|
+            y = Math.abs(B[i] - B[i+1]);        //  |y1 - y2|
 
             steps += Math.max(x, y);
         }

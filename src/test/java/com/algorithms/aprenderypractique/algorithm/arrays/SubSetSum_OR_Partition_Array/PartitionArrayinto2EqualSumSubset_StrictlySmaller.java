@@ -64,7 +64,7 @@ public class PartitionArrayinto2EqualSumSubset_StrictlySmaller extends BaseTest 
         int len = arr.length;
         if (len == 0)   return false;
 
-        //Arrays.sort(arr); -- No Needed    -- it was written in internet code but here all test cases are pased without sorting
+        //Arrays.sort(arr); -- No Needed    -- it was written in internet code but here all test cases are passed without sorting
 
         int leftSum = 0;
         int rightsum = arr[len - 1];
