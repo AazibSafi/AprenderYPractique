@@ -1,7 +1,6 @@
 package com.algorithms.aprenderypractique.algorithm.strings;
 
 import com.algorithms.aprenderypractique.BaseTest;
-import org.assertj.core.internal.Integers;
 import org.junit.Assert;
 import org.junit.Test;
 

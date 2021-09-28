@@ -1,7 +1,6 @@
 package com.algorithms.aprenderypractique.algorithm.strings;
 
 import com.algorithms.aprenderypractique.BaseTest;
-import com.algorithms.aprenderypractique.CommonHelper;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -15,6 +14,7 @@ import java.util.Set;
  *     Find All Anagrams in a String | Sliding window
  *     Result: Set of First indices of all anagrams
  *     https://www.youtube.com/watch?v=fYgU6Bi2fRg
+ *     https://leetcode.com/problems/find-all-anagrams-in-a-string/
  */
 public class AnagramString_SlidingWindowAlgo extends BaseTest {
 
@@ -23,18 +23,31 @@ public class AnagramString_SlidingWindowAlgo extends BaseTest {
         String str = "abcdebacb";
         String ptr = "cab";
         Set<Integer> result = findAllAnagrams(str,ptr);
-        CommonHelper.printSet(result);
         Assert.assertEquals(new HashSet<>(Arrays.asList(0,5,6)),result);
 
         str = "babcabbacaabcbabcacbb";
         ptr = "abbc";
         result = findAllAnagrams(str,ptr);
-        CommonHelper.printSet(result);
         Assert.assertEquals(new HashSet<>(Arrays.asList(0,2,3,5,10,11,12,13,17)),result);
+
+        str = "abab";
+        ptr = "ab";
+        result = findAllAnagrams(str,ptr);
+        Assert.assertEquals(new HashSet<>(Arrays.asList(0,1,2)),result);
+
+//  Edge Case: if length of the ptr is greater than the str
+        str = "aaaaa";
+        ptr = "aaaaaaa";
+        result = findAllAnagrams(str,ptr);
+        Assert.assertEquals(new HashSet<>(),result);
     }
 
 //    O(N)
-    public Set findAllAnagrams(String str, String ptr) {
+    public Set<Integer> findAllAnagrams(String str, String ptr) {
+
+        if(ptr.length() > str.length())    // Edge Case: if length of the ptr is greater than the str
+            return new HashSet<>();
+
         Map<Character,Integer> anagramWindow = new HashMap<>();
         Map<Character,Integer> ptrOccurrences = new HashMap<>();    // All occurrences of characters in ptr
 
@@ -49,7 +62,7 @@ public class AnagramString_SlidingWindowAlgo extends BaseTest {
             char ptrChar = ptr.charAt(i);
             ptrOccurrences.put(ptrChar,ptrOccurrences.getOrDefault(ptrChar,0)+1);
 
-            if(i != ptr.length()-1) {
+            if(i != ptr.length()-1) {       // Do not add the last character of PTR in Map
                 char strChar = str.charAt(i);
                 anagramWindow.put(strChar, anagramWindow.getOrDefault(strChar, 0) + 1);
             }

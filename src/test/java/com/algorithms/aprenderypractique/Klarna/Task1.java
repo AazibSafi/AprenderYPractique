@@ -1,6 +1,7 @@
 package com.algorithms.aprenderypractique.Klarna;
 
 import com.algorithms.aprenderypractique.BaseTest;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -13,6 +14,7 @@ import java.util.stream.Collectors;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
+@Ignore
 public class Task1 extends BaseTest {
 
     @Test

@@ -1,4 +1,4 @@
-package com.algorithms.aprenderypractique.Amazon.Demo;
+package com.algorithms.aprenderypractique.Demo;
 
 import com.algorithms.aprenderypractique.BaseTest;
 import org.junit.Test;

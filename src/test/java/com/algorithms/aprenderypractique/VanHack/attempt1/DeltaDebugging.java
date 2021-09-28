@@ -1,6 +1,7 @@
 package com.algorithms.aprenderypractique.VanHack.attempt1;
 
 import com.algorithms.aprenderypractique.BaseTest;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.io.FileNotFoundException;
@@ -11,6 +12,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+@Ignore
 public class DeltaDebugging extends BaseTest {
 
     @Test

@@ -1,4 +1,4 @@
-package com.algorithms.aprenderypractique.algorithm.arrays;
+package com.algorithms.aprenderypractique.algorithm.arrays.coinDenomination;
 
 import com.algorithms.aprenderypractique.BaseTest;
 import org.junit.Assert;

@@ -1,4 +1,4 @@
-package com.algorithms.aprenderypractique.Toptal;
+package com.algorithms.aprenderypractique.Toptal.attemp1;
 
 public class Node {
     Character key;

@@ -1,7 +1,6 @@
 package com.algorithms.aprenderypractique.algorithm.arrays;
 
 import com.algorithms.aprenderypractique.BaseTest;
-import com.algorithms.aprenderypractique.CommonHelper;
 import org.junit.Assert;
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package com.algorithms.aprenderypractique.Toptal;
+package com.algorithms.aprenderypractique.Toptal.attemp1;
 
 import com.algorithms.aprenderypractique.BaseTest;
 import org.junit.Test;

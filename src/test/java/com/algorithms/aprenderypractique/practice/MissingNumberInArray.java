@@ -3,8 +3,6 @@ package com.algorithms.aprenderypractique.practice;
 import com.algorithms.aprenderypractique.BaseTest;
 import org.junit.Test;
 
-import java.util.Arrays;
-
 /**
  *  Find the missing number in the array
  *  an array of positive numbers from 1 to n

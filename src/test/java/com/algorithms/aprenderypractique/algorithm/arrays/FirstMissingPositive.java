@@ -30,13 +30,15 @@ public class FirstMissingPositive extends BaseTest {
     int firstMissingPositive(int[] nums) {
         if(nums.length == 0)        return 1;
 
-        if(!containsOne(nums))      return 1;       // if there is any element with value 1
+        if(!containsOne(nums))      return 1;       // Step - 1 -- if there is any element with value 1
 
-        markOne_ForAllNegativeAndOutOfRangeElements(nums);      // Step - 1
+// step 1 and 2 can be done togethor in single iteration
 
-        markEachElementVisited(nums);       // Step - 2
+        markOne_ForAllNegativeAndOutOfRangeElements(nums);      // Step - 2
 
-        int firstPositiveElementIndex = findFirstPositiveElement(nums);     //  Step - 3
+        markEachElementVisited(nums);       // Step - 3
+
+        int firstPositiveElementIndex = findFirstPositiveElement(nums);     //  Step - 4
 
         if(firstPositiveElementIndex != -1)
             return firstPositiveElementIndex;

@@ -5,7 +5,6 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.Arrays;
-import java.util.stream.IntStream;
 
 /**
  *  https://www.interviewbit.com/problems/partitions/
