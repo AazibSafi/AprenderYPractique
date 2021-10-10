@@ -1,4 +1,4 @@
-package com.algorithms.aprenderypractique.algorithm.strings;
+package com.algorithms.aprenderypractique.algorithm.strings.Parenthesis;
 
 import com.algorithms.aprenderypractique.BaseTest;
 import org.junit.Assert;
@@ -11,6 +11,7 @@ import java.util.Stack;
 
 /**
  *  https://www.facebookrecruiting.com/portal/coding_practice_question/?problem_id=211548593612944&c=207085731181336
+ *  https://leetcode.com/problems/valid-parentheses/
  */
 public class BalanceBrackets extends BaseTest {
 
@@ -54,6 +55,39 @@ public class BalanceBrackets extends BaseTest {
             }
             else {
                 return false;
+            }
+        }
+        return true;
+    }
+
+    @Test
+    public void testSingleBracket() {
+        String str = "((()))";
+        Assert.assertTrue(areSingleBracketsBalanced(str));
+
+        str = "()()";
+        Assert.assertTrue(areSingleBracketsBalanced(str));
+
+        str = "";
+        Assert.assertTrue(areSingleBracketsBalanced(str));
+
+        str = "))((";
+        Assert.assertFalse(areSingleBracketsBalanced(str));
+    }
+
+/*
+    if only one type of brace exist in the string
+ */
+    public boolean areSingleBracketsBalanced(String str) {
+        if(StringUtils.isEmpty(str))    return true;
+
+        int open=0;
+
+        for(char c : str.toCharArray()) {
+            if(c == '(')    open++;
+            else if(c == ')') {
+                if(open == 0)   return false;
+                open--;
             }
         }
         return true;

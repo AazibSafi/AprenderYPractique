@@ -14,10 +14,10 @@ import java.util.Arrays;
  *
  * https://www.youtube.com/watch?v=obhWqDfzwQQ
  *
- * Given an array is it possible to split it up into 2 equal
- * sum partitions. Partition need not be equal sized. Just equal sum
+ * Given an array is it possible to split it up into 2 equal sum partitions.
+ * Partition need not be equal sized. Just equal sum
  *
- *  NOTE: all of the integers in A array are NOT strictly smaller than all of the integers in B array
+ *  NOTE: All of the integers in A array are NOT strictly smaller than all of the integers in B array
  *
  *  Extension of  SubSetSum Problem
  */
@@ -43,7 +43,7 @@ public class PartitionArrayinto2EqualSumSubset_NotStrictly extends BaseTest {
  *      Time complexity - O(array_size * partitionalSum)     -- O(n*sum)
  *      Space complexity - O(total_sum)    -- bcz of 1-D Array
 
-     Here we can use SubSet Sum Problem to check if we it is possible to get the partitionalSum in the array
+     Here we can use SubSet Sum Problem to check if it is possible to get the partitionalSum in the array
      if any subset has the partitionalSum that means the rest of the array must have other partitionalSum which makes it totalSum
  */
     public boolean canPartition(int[] arr) {

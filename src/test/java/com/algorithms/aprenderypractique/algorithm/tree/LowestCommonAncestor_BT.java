@@ -5,7 +5,7 @@ import org.junit.Test;
 
 /**
  *  https://www.youtube.com/watch?v=xuvw11Ucqs8&list=PLtQWXpf5JNGJagakc_kBtOH5-gd8btjEW&index=16
- *  https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/submissions/
+ *  https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/
  */
 public class LowestCommonAncestor_BT extends BaseTest {
 
@@ -40,7 +40,7 @@ public class LowestCommonAncestor_BT extends BaseTest {
 
         boolean left = findAncestor(root.left,p,q);
         boolean right = findAncestor(root.right,p,q);
-        boolean curr = root == p || root == q;
+        boolean curr = root.val == p.val || root.val == q.val;
 
         if((left && right) || (left && curr) || (right && curr))
             result = root;

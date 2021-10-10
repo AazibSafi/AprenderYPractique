@@ -12,6 +12,7 @@ import java.util.Map;
  * Sliding Window Algorithm
  * Find a substring that contains all the character from T string at-least once in the str String
  *
+ * https://leetcode.com/problems/minimum-window-substring/
  * https://www.youtube.com/watch?v=nMaKzLWceFg
  */
 public class MinimumWindowSubstring extends BaseTest {
@@ -20,89 +21,110 @@ public class MinimumWindowSubstring extends BaseTest {
     public void test() {
         String str = "ADOBECODEBANC";
         String T = "ABC";
-        Assert.assertEquals("BANC",findMinimumWindowSubstring(str,T));
+        Assert.assertEquals("BANC", minimumWindowSubstring(str,T));
 
         str = "AAABC";
         T = "ABC";
-        Assert.assertEquals("ABC",findMinimumWindowSubstring(str,T));
+        Assert.assertEquals("ABC", minimumWindowSubstring(str,T));
 
         str = "dcbefebce";
         T = "fd";
-        Assert.assertEquals("dcbef",findMinimumWindowSubstring(str,T));
+        Assert.assertEquals("dcbef", minimumWindowSubstring(str,T));
 
-        str = "bfbeadbcbcbfeaaeefcddcccbbbfaaafdbebedddf";
-        T = "cbccfafebccdccebdd";
-        Assert.assertEquals("bfbeadbcbcbfeaaeefcddcccbbbfaaafdbebedddf",findMinimumWindowSubstring(str,T));
+        str = "zabcdcabf";
+        T = "abcdfz";
+        Assert.assertEquals("zabcdcabf", minimumWindowSubstring(str,T));
+
+        str = "a";      // Edge Case: When T has more length
+        T = "bb";
+        Assert.assertEquals("", minimumWindowSubstring(str,T));
+
+        str = "aaa";    // When no substring is found
+        T = "bb";
+        Assert.assertEquals("", minimumWindowSubstring(str,T));
+
+        str = "aaab";
+        T = "b";
+        Assert.assertEquals("b", minimumWindowSubstring(str,T));
+
+        str = "a";
+        T = "a";
+        Assert.assertEquals("a", minimumWindowSubstring(str,T));
+
+        str = "";
+        T = "bb";
+        Assert.assertEquals("", minimumWindowSubstring(str,T));
+
+        str = "aa";
+        T = "";
+        Assert.assertEquals("", minimumWindowSubstring(str,T));
     }
 
-    public String findMinimumWindowSubstring(String str, String T) {
+    public String minimumWindowSubstring(String str, String T) {
+        if(str==null || str.length()==0 || T==null || T.length()==0 || str.length()<T.length())
+            return "";
 
         Map<Character,Integer> table = CommonHelper.fillTableWithOccurrences(T);
 
         int count = 0;
-        int[] minLengthResult = new int[]{-1,0}; // {minLength and startIndex} of substring window
-        int rightPointer=0, leftPointer=0;
+        int[] minLengthResult = new int[]{0, Integer.MAX_VALUE}; // {startIndex and minLength} of substring window
+        int leftPointer=0;
 
-        while(rightPointer<str.length()) {
+        for(int rightPointer=0; rightPointer<str.length(); rightPointer++) {
 
 /*
-    Move the right pointer until count = T length
-    Means current substring window contains all the characters from T
     if the current pointer item is found in the table, decrease its count as it has been used.
-    increase the count as we the current window has the required item
+    increase the count as the current window has the required item
  */
-            while(count != T.length() && rightPointer<str.length()) {
-                char c = str.charAt(rightPointer++);
+            char c = str.charAt(rightPointer);
 
-                if(table.containsKey(c)) {
-                    table.put(c,table.get(c) - 1);
+            if (table.containsKey(c)) {
+                table.put(c, table.get(c) - 1);
 
-                    if(table.get(c) >=0) {
-                        count++;
-                    }
+                if (table.get(c) >= 0) {
+                    count++;
                 }
             }
 
-            int currWindowEnd = rightPointer-1;
-
 /*
-    save current window's length and start index if it is minimum than previous
+    When count = T length
+    Means current substring window contains all the characters from T
+
+    Now its time to make current substring window in-eligible
+    by removing 1 required character from the substring
  */
-            saveMinLengthResult(minLengthResult,leftPointer,currWindowEnd);
+            while (count == T.length()) {
+                saveMinLengthResult(minLengthResult, leftPointer, rightPointer);
 
-/*
-    Move the left pointer until we remove an eligible character from the window
-    if count decreases means we have removed an eligible item from the window and the window is missing that item now.
-    if the current pointer item is found in the table, increase its count as it is again required in the window because it was removed.
- */
-            while(count==T.length() && leftPointer<currWindowEnd) {
+                c = str.charAt(leftPointer);
+                if (table.containsKey(c)) {
+                    table.put(c, table.get(c) + 1);
 
-                saveMinLengthResult(minLengthResult,leftPointer,currWindowEnd);
-
-                char c = str.charAt(leftPointer++);
-
-                if(table.containsKey(c)) {
-                    table.put(c,table.get(c) + 1);
-
-                    if(table.get(c) > 0) {
+                    if (table.get(c) > 0) {
                         count--;
                     }
                 }
-            }
 
+                leftPointer++;
+            }
         }
-        return str.substring(minLengthResult[1], minLengthResult[1] + minLengthResult[0]);
+
+        return getSubtring(str, minLengthResult);
     }
 
-/*
-    if the new Length
- */
+    /*
+        If no such substring is found, return empty string
+    */
+    String getSubtring(String str, int[] minLengthResult) {
+        if(minLengthResult[1] == Integer.MAX_VALUE)     return "";
+        return str.substring(minLengthResult[0], minLengthResult[0] + minLengthResult[1]);
+    }
+
     public void saveMinLengthResult(int[] minLengthResult, int start, int end) {
         int newLength = end-start+1;
-        if(minLengthResult[0] == -1 ||          // if first time assignment
-                newLength < minLengthResult[0]) {       // if new Length is smaller than the previously stored length
-            minLengthResult[0] = newLength;
-            minLengthResult[1] = start;
+        if(newLength < minLengthResult[1]) {       // if new Length is smaller than the previously stored length
+            minLengthResult[0] = start;
+            minLengthResult[1] = newLength;
         }
     }
 

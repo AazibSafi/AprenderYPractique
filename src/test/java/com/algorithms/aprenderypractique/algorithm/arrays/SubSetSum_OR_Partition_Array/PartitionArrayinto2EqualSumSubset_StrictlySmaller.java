@@ -12,10 +12,10 @@ import org.junit.Test;
  *
  * https://www.youtube.com/watch?v=obhWqDfzwQQ
  *
- * Given an array is it possible to split it up into 2 equal
- * sum partitions. Partition need not be equal sized. Just equal sum
+ * Given an array is it possible to split it up into 2 equal sum partitions.
+ * Partition need not be equal sized. Just equal sum
  *
- *  NOTE: all of the integers in A array are STRICTLY smaller than all of the integers in B array
+ *  NOTE: All of the integers in A array are STRICTLY smaller than all of the integers in B array
  *
  *  Extension of  SubSetSum Problem
  */

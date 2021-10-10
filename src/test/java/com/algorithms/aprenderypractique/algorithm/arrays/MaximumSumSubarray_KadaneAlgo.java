@@ -18,14 +18,23 @@ public class MaximumSumSubarray_KadaneAlgo extends BaseTest {
         int[] array = new int[] {-2,2,5,-11,6};
         Assert.assertEquals(7,maximumSumOfSubarray(array));
 
+        array = new int[] {-2,1,-3,4,-1,2,1,-5,4};
+        Assert.assertEquals(6,maximumSumOfSubarray(array));
+
+        array = new int[] {-1};
+        Assert.assertEquals(-1,maximumSumOfSubarray(array));
+
 //      Testing subArray
         array = new int[] {-2,2,5,-11,6};
-        Assert.assertArrayEquals(new int[]{1, 2}, maximumSumSubarray(array));
+        Assert.assertArrayEquals(new int[]{1, 2}, maximumSumSubarray(array));       //  { maxStart , maxEnd }
+
+        array = new int[] {-2,1,-3,4,-1,2,1,-5,4};
+        Assert.assertArrayEquals(new int[]{3, 6}, maximumSumSubarray(array));
     }
 
 /*
     Return the Sum of maximum subarray
-        O(N)
+    Time Complexity: O(N)
  */
     public int maximumSumOfSubarray(int[] arr) {
         int currSum = arr[0];
@@ -33,7 +42,7 @@ public class MaximumSumSubarray_KadaneAlgo extends BaseTest {
 
         for(int i=1;i<arr.length;i++) {
             currSum = Math.max(currSum + arr[i], arr[i]);
-            maxSum = Math.max(currSum,maxSum);
+            maxSum = Math.max(currSum, maxSum);
         }
 
         return maxSum;
@@ -42,7 +51,7 @@ public class MaximumSumSubarray_KadaneAlgo extends BaseTest {
 /*
     Return the subarray that has maximum sum
     Extension of above method
-        O(N)
+    Time Complexity: O(N)
  */
     public int[] maximumSumSubarray(int[] arr) {
         int i=0;
@@ -67,7 +76,7 @@ public class MaximumSumSubarray_KadaneAlgo extends BaseTest {
             }
         }
 
-        return new int[]{maxStart,maxEnd};
+        return new int[]{maxStart, maxEnd};
     }
 
 }

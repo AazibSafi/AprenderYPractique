@@ -95,16 +95,16 @@ public class SubSetSum_Recursion extends BaseTest {
         if(total==0)    return  1;  // true
         if(i>=arr.length || total<0)   return 0;        // false
 
-// If the value is not -1 it means it
-// already call the function
-// with the same value.
+// If the value is not -1 it means it already call the function with the same value.
 // it will save our from the repetition.
         if(mem[i][total] != -1)       return mem[i][total];
 
-        if(arr[i] > total)        isPossible_Memoization(arr, i+1, total, mem);
+        if(arr[i] > total)
+            mem[i][total] = isPossible_Memoization(arr, i+1, total, mem);
+        else
+            mem[i][total] = OR( isPossible_Memoization(arr,i+1,total-arr[i],mem), isPossible_Memoization(arr,i+1,total,mem) );
 
-        return mem[i][total] = OR( isPossible_Memoization(arr,i+1,total-arr[i],mem),
-                                    isPossible_Memoization(arr,i+1,total,mem) );
+        return mem[i][total];
     }
 
     private int OR(int a, int b) {

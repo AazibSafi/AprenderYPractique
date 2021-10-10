@@ -3,6 +3,7 @@ package com.algorithms.aprenderypractique.algorithm.strings;
 import com.algorithms.aprenderypractique.BaseTest;
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.platform.commons.util.StringUtils;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -45,7 +46,7 @@ public class AnagramString_SlidingWindowAlgo extends BaseTest {
 //    O(N)
     public Set<Integer> findAllAnagrams(String str, String ptr) {
 
-        if(ptr.length() > str.length())    // Edge Case: if length of the ptr is greater than the str
+        if(StringUtils.isBlank(str) || StringUtils.isBlank(ptr) || ptr.length() > str.length())    // Edge Case: if length of the ptr is greater than the str
             return new HashSet<>();
 
         Map<Character,Integer> anagramWindow = new HashMap<>();
