@@ -39,7 +39,7 @@ public class InsertInterval extends BaseTest {
             insertedInterval[i] = intervals[i-1];
         }
 
-        return new MergeOverlapIntervels().merge(insertedInterval);
+        return new Union_MergeOverlapIntervels().merge(insertedInterval);
     }
 
 }

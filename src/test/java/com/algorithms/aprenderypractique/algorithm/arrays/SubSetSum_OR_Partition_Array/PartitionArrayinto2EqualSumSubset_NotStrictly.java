@@ -39,7 +39,7 @@ public class PartitionArrayinto2EqualSumSubset_NotStrictly extends BaseTest {
     }
 
 /*
-        from SubSetSum_DP_1D_Array Algorithm
+        @see SubSetSum_DP_1D_Array Algorithm
  *      Time complexity - O(array_size * partitionalSum)     -- O(n*sum)
  *      Space complexity - O(total_sum)    -- bcz of 1-D Array
 
@@ -52,8 +52,8 @@ public class PartitionArrayinto2EqualSumSubset_NotStrictly extends BaseTest {
 
         int partitionalSum = totalSum/2;
 
-        SubSetSum_DP_1D_Array algorithm = new SubSetSum_DP_1D_Array();
-        return algorithm.isSubSetSumPossible(arr,partitionalSum);
+        SubSetSum_Recursion algorithm = new SubSetSum_Recursion();
+        return algorithm.subsetSum(arr, partitionalSum);
     }
 
 }

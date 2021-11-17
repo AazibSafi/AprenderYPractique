@@ -48,9 +48,8 @@ public class Low_HighIndex extends BaseTest {
 
         return (low < arr.length && arr[low] == key) ? low : -1;
     }
-/*
-    Only diff is Equal check in both low and high functions
- */
+
+//      Only diff is EQUAL CHECK in both low and high functions
     public int findHighIndex(int[] arr, int key) {
 
         int low = 0, high = arr.length-1;

@@ -27,25 +27,25 @@ public class SubSetSum_DP_2D_Array extends BaseTest {
     @Test
     public void test() {
         int[] arr = new int[]{2, 3, 7, 8, 10};
-        Assert.assertTrue(CommonHelper.isEquals(Arrays.asList(3,8),subsetSum(arr,11)));
+        Assert.assertTrue(CommonHelper.isEquals(Arrays.asList(3,8), subsetSum(arr,11)));
 
         arr = new int[]{1, 2, 3};
-        Assert.assertTrue(CommonHelper.isEquals(Arrays.asList(2,3),subsetSum(arr,5)));
+        Assert.assertTrue(CommonHelper.isEquals(Arrays.asList(2,3), subsetSum(arr,5)));
 
         arr = new int[]{3, 34, 4, 12, 5, 2};
-        Assert.assertTrue(CommonHelper.isEquals(Arrays.asList(4,5),subsetSum(arr,9)));
+        Assert.assertTrue(CommonHelper.isEquals(Arrays.asList(4,5), subsetSum(arr,9)));
 
         arr = new int[]{3, 34, 4, 12, 5, 2};
-        Assert.assertTrue(CommonHelper.isEquals(new ArrayList<>(),subsetSum(arr,30)));
+        Assert.assertTrue(CommonHelper.isEquals(new ArrayList<>(), subsetSum(arr,30)));
 
         arr = new int[]{1, 8, 2, 5};
-        Assert.assertTrue(CommonHelper.isEquals(new ArrayList<>(),subsetSum(arr,4)));
+        Assert.assertTrue(CommonHelper.isEquals(new ArrayList<>(), subsetSum(arr,4)));
 
         arr = new int[]{2, 8, 2, 5};
-        Assert.assertTrue(CommonHelper.isEquals(Arrays.asList(2,2),subsetSum(arr,4)));
+        Assert.assertTrue(CommonHelper.isEquals(Arrays.asList(2,2), subsetSum(arr,4)));
 
         arr = new int[]{12, 7, 6, 7, 6};
-        Assert.assertTrue(CommonHelper.isEquals(Arrays.asList(12,7),subsetSum(arr,19)));
+        Assert.assertTrue(CommonHelper.isEquals(Arrays.asList(12,7), subsetSum(arr,19)));
     }
 
 /*
@@ -65,6 +65,7 @@ public class SubSetSum_DP_2D_Array extends BaseTest {
 //      return dp[dp.length-1][dp[0].length-1];
     }
 
+//  Formula:    T[i][j] || T[i][j-arr[i]]    -->   T || F
     private boolean[][] isSubSetSumPossible(int[] arr, int total) {
         boolean[][] dp = new boolean[arr.length+1][total+1];
 

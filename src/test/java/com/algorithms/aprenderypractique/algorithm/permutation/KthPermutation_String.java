@@ -1,6 +1,7 @@
-package com.algorithms.aprenderypractique.algorithm;
+package com.algorithms.aprenderypractique.algorithm.permutation;
 
 import com.algorithms.aprenderypractique.BaseTest;
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.List;
@@ -15,7 +16,7 @@ public class KthPermutation_String extends BaseTest {
     @Test
     public void test() {
         String sequence = "ABCD";
-        System.out.println(findKthPermutation(sequence,6));
+        Assert.assertEquals("ADCB", findKthPermutation(sequence,6));
     }
 
 /*
@@ -43,11 +44,12 @@ public class KthPermutation_String extends BaseTest {
 
         while(n > 1) {
             int index = k/fact(n-1);
+
             if(k % fact(n-1) == 0) {
                 index--;
             }
 
-            kthPermutation = addInTheResultPermutation(kthPermutation, sequenceList.get(index) );
+            kthPermutation.append(sequenceList.get(index));
 
             sequenceList.remove(index);
 
@@ -55,16 +57,10 @@ public class KthPermutation_String extends BaseTest {
             n--;
         }
 
-        kthPermutation = addInTheResultPermutation(kthPermutation, sequenceList.get(0));
+        kthPermutation.append(sequenceList.get(0));
 
         return kthPermutation.toString();
     }
-
-    private StringBuilder addInTheResultPermutation(StringBuilder kthPermutation, Character item) {
-        kthPermutation.append(item);
-        return kthPermutation;
-    }
-
 
     private List<Character> breakTheSequence(String sequence) {
         return sequence.chars().mapToObj(elm -> (char) elm).collect(Collectors.toList());

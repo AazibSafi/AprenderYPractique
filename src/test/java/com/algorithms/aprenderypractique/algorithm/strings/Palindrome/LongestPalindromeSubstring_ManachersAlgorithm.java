@@ -1,4 +1,4 @@
-package com.algorithms.aprenderypractique.algorithm.strings;
+package com.algorithms.aprenderypractique.algorithm.strings.Palindrome;
 
 import com.algorithms.aprenderypractique.BaseTest;
 import com.algorithms.aprenderypractique.CommonHelper;
@@ -11,23 +11,18 @@ import org.junit.Test;
  *  HARD Problem
  *
  *  Other Solutions of this problem are O(n^3) or O(n^2)
- *  but this Manacher's Algorithm is O(N) is Linear
+ *  But this Manacher's Algorithm is O(N) is Linear
+ *
+ *  https://hackernoon.com/manachers-algorithm-explained-longest-palindromic-substring-22cb27a5e96f
  */
 public class LongestPalindromeSubstring_ManachersAlgorithm extends BaseTest {
 
     @Test
     public void test() {
-        String str = "BABCBAB";
-        Assert.assertEquals("BABCBAB",LPS(str));
-
-        str = "acaac";
-        Assert.assertEquals("caac",LPS(str));
-
-        str = "abacdfgdcabba";
-        Assert.assertEquals("abba",LPS(str));
-
-        str = "abacdedcaba";
-        Assert.assertEquals("abacdedcaba",LPS(str));
+        Assert.assertEquals("BABCBAB",LPS("BABCBAB"));
+        Assert.assertEquals("caac",LPS("acaac"));
+        Assert.assertEquals("abba",LPS("abacdfgdcabba"));
+        Assert.assertEquals("abacdedcaba",LPS("abacdedcaba"));
     }
 
 /*
@@ -41,14 +36,14 @@ public class LongestPalindromeSubstring_ManachersAlgorithm extends BaseTest {
 
         int[] P = new int[LPS.length()];
 
-        int C = 0;  // stores the center of the longest palindromic substring until now
-        int R = 0;  // stores the right boundary of the longest palindromic substring until now
+        int C = 0;      // stores the center of the longest palindromic substring until now
+        int R = 0;      // stores the right boundary of the longest palindromic substring until now
         int iMirror;
-        int maxLenIndex = 0;    // stores the centre of Max Palindrome String Length
+        int maxLenIndex = 0;        // stores the centre of Max Palindrome String Length
 
         for(int i=0; i< LPS.length(); i++) {
 
-            iMirror = 2*C -i;   // get mirror index of i
+            iMirror = 2*C -i;       // get mirror index of i
 
             if(R > i) {
                 P[i] = Math.min(R-i, P[iMirror]);

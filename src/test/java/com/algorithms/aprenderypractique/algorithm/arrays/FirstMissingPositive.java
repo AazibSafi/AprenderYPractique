@@ -32,7 +32,7 @@ public class FirstMissingPositive extends BaseTest {
 
         if(!containsOne(nums))      return 1;       // Step - 1 -- if there is any element with value 1
 
-// step 1 and 2 can be done togethor in single iteration
+// step 1 and 2 can be done together in single iteration
 
         markOne_ForAllNegativeAndOutOfRangeElements(nums);      // Step - 2
 

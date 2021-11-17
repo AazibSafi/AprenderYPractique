@@ -25,9 +25,7 @@ public class ContiguousSubarrays extends BaseTest {
         Assert.assertArrayEquals(new int[]{1, 2, 6, 1, 3, 1},countSubArrays(arr));
     }
 
-/*
-    Time: O(n^2)
- */
+//  Time: O(n^2)
     int[] countSubArrays(int[] arr) {
         int[] R = new int[arr.length];
 

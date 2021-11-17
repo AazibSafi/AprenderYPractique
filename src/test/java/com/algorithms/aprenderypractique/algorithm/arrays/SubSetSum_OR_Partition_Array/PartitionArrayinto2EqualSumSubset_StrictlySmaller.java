@@ -29,11 +29,14 @@ public class PartitionArrayinto2EqualSumSubset_StrictlySmaller extends BaseTest 
         arr = new int[]{1,2,3,6};       //  {1 2 3} {6}
         Assert.assertTrue(canPartition(arr));
 
-        arr = new int[]{2, 1, 2, 5};    // {2 1 2}{5}
+        arr = new int[]{2, 1, 2, 5};    // {2 1 2} {5}
         Assert.assertTrue(canPartition(arr));
 
         arr = new int[]{1, 5, 1, 7};    // {1 5 1} {7}
         Assert.assertTrue(canPartition(arr));
+
+        arr = new int[]{1, 5, 1, 4, 3};    // {1 5 1} {3 4}
+        Assert.assertTrue(canPartition(arr));       //  Doubt: bcz not every element in A is smaller than elements in B
 
         arr = new int[]{1,5,11,5};
         Assert.assertFalse(canPartition(arr));
@@ -73,8 +76,11 @@ public class PartitionArrayinto2EqualSumSubset_StrictlySmaller extends BaseTest 
         }
 
         for (int i = len - 2; i >= 0; i--) {
-            if (leftSum == rightsum && arr[i] < arr[i + 1]) return true;
-            if (leftSum < rightsum) break;
+            if (leftSum == rightsum && arr[i] < arr[i + 1])
+                return true;
+
+            if (leftSum < rightsum)
+                break;
 
             leftSum -= arr[i];
             rightsum += arr[i];

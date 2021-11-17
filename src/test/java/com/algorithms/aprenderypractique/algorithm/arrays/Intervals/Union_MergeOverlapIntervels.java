@@ -13,9 +13,13 @@ import java.util.List;
  *  https://leetcode.com/problems/merge-intervals/
  *  https://www.youtube.com/watch?v=qKczfGUrFY4&t=564s
  *
+ *  https://leetcode.com/discuss/interview-question/338948/Facebook-or-Onsite-or-Schedule-of-Tasks
+ *
  *  Merge all overlapping intervals, and return an array of the non-overlapping intervals that cover all the intervals in the input.
+ *
+ *  In Other Words: Union of Interval
  */
-public class MergeOverlapIntervels extends BaseTest {
+public class Union_MergeOverlapIntervels extends BaseTest {
 
     @Test
     public void test() {
@@ -29,6 +33,7 @@ public class MergeOverlapIntervels extends BaseTest {
     public int[][] merge(int[][] intervals) {
         if(intervals.length <= 1)   return intervals;
 
+//  if the input intervals are not already sorted
         Arrays.sort(intervals, Comparator.comparingInt(arr -> arr[0]));
 
         List<int[]> output = new ArrayList<>();

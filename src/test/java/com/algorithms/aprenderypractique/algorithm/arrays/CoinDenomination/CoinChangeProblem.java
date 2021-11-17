@@ -1,4 +1,4 @@
-package com.algorithms.aprenderypractique.algorithm.arrays.coinDenomination;
+package com.algorithms.aprenderypractique.algorithm.arrays.CoinDenomination;
 
 import com.algorithms.aprenderypractique.BaseTest;
 import org.junit.Assert;
@@ -38,7 +38,9 @@ public class CoinChangeProblem extends BaseTest {
     }
 
 /*
-    O(N*M)
+    Formula:    T[i] = min(T[i], 1 + T[i-coin[j]])
+
+    Time Complexity: O(N*M)
  */
     public List<Integer> findMinCoinDenominations(int[] coins, int amount) {
         int[] A = new int[amount+1];        // To find the min number of coins - Length Only

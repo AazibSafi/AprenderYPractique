@@ -1,4 +1,4 @@
-package com.algorithms.aprenderypractique.algorithm.arrays.coinDenomination;
+package com.algorithms.aprenderypractique.algorithm.arrays.CoinDenomination;
 
 import com.algorithms.aprenderypractique.BaseTest;
 import org.junit.Assert;
@@ -38,10 +38,11 @@ public class ChangeForiegnCurrency extends BaseTest {
 
     boolean canGetExactChange(int targetMoney, int[] denominations) {
         for(int i=denominations.length-1; i>=0; i--) {
-            if(targetMoney % denominations[i] == 0) {
+            int remainder = targetMoney % denominations[i];
+            if(remainder == 0) {
                 return true;
             }
-            targetMoney = targetMoney % denominations[i];
+            targetMoney = remainder;
         }
         return false;
     }

@@ -11,7 +11,7 @@ import java.util.Arrays;
  *  https://www.youtube.com/watch?v=s6FhG--P7z0
  *  https://github.com/mission-peace/interview/blob/master/src/com/interview/dynamic/SubsetSum.java
  *
- *  Given an array of non negative numbers and a total, is there subset of numbers in this array which adds up
+ *  Given an array of non-negative numbers and a total, is there subset of numbers in this array which adds up
  *  to given total.
  *
  *  https://www.geeksforgeeks.org/subset-sum-problem-dp-25/
@@ -47,7 +47,7 @@ public class SubSetSum_Recursion extends BaseTest {
         if(total==0)    return  true;
         if(n==0)   return false;
 
-// If last element is greater than sum then exclude it.
+// If current element is greater than sum then exclude it.
         if(arr[n-1] > total)
             isSubsetSumPossible(arr,n-1,total);
 
@@ -91,12 +91,12 @@ public class SubSetSum_Recursion extends BaseTest {
     Auxiliary Space: O(sum*n), as the size of 2-D array is sum*n.
     Memoization Optimal Solution
  */
-    public int isPossible_Memoization(int[] arr, int i, int total, int[][] mem) {
+    private int isPossible_Memoization(int[] arr, int i, int total, int[][] mem) {
         if(total==0)    return  1;  // true
-        if(i>=arr.length || total<0)   return 0;        // false
+        if(i>=arr.length)   return 0;        // false        -- // On Internet condition is (i>=arr.length || total<0))
 
 // If the value is not -1 it means it already call the function with the same value.
-// it will save our from the repetition.
+// it will save us from the repetition.
         if(mem[i][total] != -1)       return mem[i][total];
 
         if(arr[i] > total)

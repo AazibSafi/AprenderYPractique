@@ -20,9 +20,7 @@ public class MaxAbsoluteDifference extends BaseTest {
         Assert.assertEquals(2, maxArr(array));
     }
 
-/*
-    O(N)
- */
+//      O(N)
     public int maxArr(int[] A) {
         int max1 = Integer.MIN_VALUE;
         int min1 = Integer.MAX_VALUE;
@@ -39,9 +37,8 @@ public class MaxAbsoluteDifference extends BaseTest {
 
         return Math.max(max1-min1,max2-min2);
     }
-/*
-    Brute Force O(n 2)
- */
+
+//      Brute Force O(n^2)
     public int maxArr2(int[] A) {
         int max = 0;
         int curr;

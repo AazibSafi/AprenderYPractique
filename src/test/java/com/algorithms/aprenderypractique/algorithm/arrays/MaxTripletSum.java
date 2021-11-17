@@ -37,19 +37,18 @@ public class MaxTripletSum extends BaseTest {
     Space: O(N)     -- For using another array and set
  */
     public int findMaxTripletSum(int[] A) {
-        int[] B = fillRightMax(A);   // O(n)
+        int[] rightArr = fillRightMax(A);   // O(n)
 
         int sum = Integer.MIN_VALUE;
-        TreeSet<Integer> set = new TreeSet();
+        TreeSet<Integer> set = new TreeSet<>();
         set.add(A[0]);
 
-        Integer right, left;
+        Integer left;
         for(int j=1;j<A.length-1;j++) {     // O(n)
-            right = B[j];
             left = set.lower(A[j]);     // O(logN)
 
-            if(right > A[j] && left != null) {
-                sum = Math.max(sum, left + A[j] + right);
+            if(rightArr[j] > A[j] && left != null) {
+                sum = Math.max(sum, left + A[j] + rightArr[j]);
             }
             set.add(A[j]);
         }

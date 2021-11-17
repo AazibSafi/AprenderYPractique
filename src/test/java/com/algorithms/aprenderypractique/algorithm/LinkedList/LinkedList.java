@@ -9,4 +9,9 @@ public class LinkedList {
         this.x = x;
     }
 
+    public LinkedList(int x, LinkedList next) {
+        this.x = x;
+        this.next = next;
+    }
+
 }

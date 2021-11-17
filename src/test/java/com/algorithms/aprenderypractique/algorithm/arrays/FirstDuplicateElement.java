@@ -9,6 +9,7 @@ import java.util.List;
 
 /*
     All elements in the array are positive integers
+    Find First Duplicate element
  */
 public class FirstDuplicateElement extends BaseTest {
 
@@ -33,7 +34,7 @@ public class FirstDuplicateElement extends BaseTest {
         return -1;
     }
 
-    //   O(N) + Space Complexity
+//   O(N) + Space Complexity
     int firstDuplicate2(int[] a) {
         List list = new ArrayList<>();
 

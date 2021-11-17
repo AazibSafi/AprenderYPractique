@@ -1,4 +1,4 @@
-package com.algorithms.aprenderypractique.algorithm;
+package com.algorithms.aprenderypractique.algorithm.graph;
 
 import com.algorithms.aprenderypractique.BaseTest;
 import org.junit.Assert;

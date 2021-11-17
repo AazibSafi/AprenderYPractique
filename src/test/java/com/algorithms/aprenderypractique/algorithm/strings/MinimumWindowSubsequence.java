@@ -53,6 +53,7 @@ public class MinimumWindowSubsequence extends BaseTest {
 
         Arrays.fill(dp[0], -1);     // first row elements are -1
 
+//  STEP#1
 //      fill the first column. if the character matches, store the current index or else copy the value from above table cell
         for(int i=0; i<m; i++) {
             if(S.charAt(i) == T.charAt(0)) {
@@ -63,7 +64,8 @@ public class MinimumWindowSubsequence extends BaseTest {
             }
         }
 
-//      fill the dp table. if character matches get the diagonal value or else get the above table cell
+//  STEP#2
+//      fill the dp table. if character matches get the DIAGONAL value or else get the UPPER value
         for(int i=1; i<m; i++) {
             for(int j=1; j<n; j++) {
                 if(S.charAt(i) == T.charAt(j)) {
@@ -75,10 +77,11 @@ public class MinimumWindowSubsequence extends BaseTest {
             }
         }
 
+//  STEP#3
         int[] minSubsequence = getMinLength(dp);     // {startIndex, length}
 
-        return minSubsequence[0] == -1 ? ""
-                : S.substring(minSubsequence[0], minSubsequence[0]+minSubsequence[1]);
+        return minSubsequence[0] == -1 ? "" :
+                S.substring(minSubsequence[0], minSubsequence[0]+minSubsequence[1]);
     }
 
     int[] getMinLength(int[][] dp) {

@@ -14,7 +14,7 @@ import java.util.List;
  *  https://www.youtube.com/watch?v=s6FhG--P7z0
  *  https://github.com/mission-peace/interview/blob/master/src/com/interview/dynamic/SubsetSum.java
  *
- *  Given an array of non negative numbers and a total, is there subset of numbers in this array which adds up
+ *  Given an array of non-negative numbers and a total, is there subset of numbers in this array which adds up
  *  to given total.
  *
  *  Another variation is given an array is it possible to split it up into 2 equal
@@ -88,6 +88,8 @@ public class SubSetSum_DP_1D_Array extends BaseTest {
 /*
  *      Time complexity - O(array_size * total_sum)     -- O(n*sum)
  *      Space complexity - O(array_size * total_sum)    -- bcz 2 Arrays are used
+ *
+ *      Formula:    T[i][j] || T[i][j-arr[i]]    -->   T || F
  */
     private List<Integer> findPossibleSubsetSum(int[] arr, int total) {
         boolean[] dp = new boolean[total+1];

@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.stream.IntStream;
 
 /**
- *  Facebook Recuitment Mock Interview
+ *  Facebook Recruitment Mock Interview
  *  https://leetcode.com/discuss/interview-question/892956/above-average-subarrays-can-we-do-better-than-o2
  */
 public class AboveAverageSubarrays extends BaseTest {
@@ -20,9 +20,7 @@ public class AboveAverageSubarrays extends BaseTest {
         Assert.assertArrayEquals(new Integer[][]{{1,2},{1,3},{2,2}}, aboveAverageSubArrays(arr));
     }
 
-/*
-     Time: O(n^2)
- */
+//      Time: O(n^2)
     Integer[][] aboveAverageSubArrays(int[] arr) {
         int n = arr.length;
         List<Integer[]> resultList = new ArrayList<>();
@@ -37,7 +35,7 @@ public class AboveAverageSubarrays extends BaseTest {
 
                 int currSubArrayLen = j - i + 1;            // using 1-Based index
                 float avgLeft = (float) sumCurrent / currSubArrayLen;
-                float avgRight = Integer.MIN_VALUE; // in case that the whole array is considered in the left subArray, and no element is remaining for right subaraay
+                float avgRight = Integer.MIN_VALUE;     // in case that the whole array is considered in the left subArray, and no element is remaining for right subarray
 
                 if(currSubArrayLen != n) {
                     avgRight = (float) (totalSum - sumCurrent) / (n - currSubArrayLen);

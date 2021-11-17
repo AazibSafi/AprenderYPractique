@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class CommonHelper {
 
@@ -60,6 +61,12 @@ public class CommonHelper {
         return table;
     }
 
+    public static int[] fillArrayFrequencies(String T) {
+        int[] alphabets = new int[26];
+        for(char c : T.toCharArray())       alphabets[c - 'a']++;
+        return alphabets;
+    }
+
     public static String modifyString(String str, String delimeter) {
         return str.chars().mapToObj(c -> String.valueOf( (char) c))
                 .collect(Collectors.joining(delimeter,delimeter,delimeter));
@@ -78,6 +85,11 @@ public class CommonHelper {
 
     public static boolean isEquals(Collection<?> a, Collection<?> b) {
         return a.size() == b.size() && a.containsAll(b);
+    }
+
+    public static int combineArrayElements(int[] arr) {
+        String result = IntStream.of(arr).boxed().map(String::valueOf).collect(Collectors.joining());
+        return Integer.parseInt(result);
     }
 
 }

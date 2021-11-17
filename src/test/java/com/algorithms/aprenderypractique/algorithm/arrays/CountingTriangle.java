@@ -30,7 +30,7 @@ public class CountingTriangle extends BaseTest {
     }
 
     int countDistinctTriangles(ArrayList<Sides> arr) {
-        return new HashSet(arr).size();
+        return new HashSet<>(arr).size();
     }
 
     class Sides {

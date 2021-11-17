@@ -5,7 +5,7 @@ import com.algorithms.aprenderypractique.algorithm.tree.datastructure.BinaryTree
 import org.junit.Test;
 
 /**
- *
+ *  https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/
  */
 public class LowestCommonAncestor_BST extends BaseTest {
 

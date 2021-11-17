@@ -1,4 +1,4 @@
-package com.algorithms.aprenderypractique.algorithm.arrays.coinDenomination;
+package com.algorithms.aprenderypractique.algorithm.arrays.CoinDenomination;
 
 import com.algorithms.aprenderypractique.BaseTest;
 import org.junit.Assert;
@@ -17,19 +17,19 @@ public class VendingMachine extends BaseTest {
     public void test_Dollar_And_Cents_Mix() {
         int[] denominations = new int[]{1,5,10,25,50,100};    // 5c, 10c, 25c, 50c, and $1
 
-        Assert.assertArrayEquals(new int[]{1,0,0,0,0,4},getChange(5f, 0.99f,denominations));
-        Assert.assertArrayEquals(new int[]{0,1,1,0,0,1},getChange(3.14f,1.99f,denominations));
-        Assert.assertArrayEquals(new int[]{4,0,2,1,1,2},getChange(3f, 0.01f,denominations));
-        Assert.assertArrayEquals(new int[]{1,0,1,1,1,0},getChange(4f, 3.14f,denominations));
-        Assert.assertArrayEquals(new int[]{1,0,1,0,0,0},getChange(0.45f, 0.34f,denominations));
+        Assert.assertArrayEquals(new int[]{1,0,0,0,0,4}, getChange(5f, 0.99f,denominations));
+        Assert.assertArrayEquals(new int[]{0,1,1,0,0,1}, getChange(3.14f,1.99f,denominations));
+        Assert.assertArrayEquals(new int[]{4,0,2,1,1,2}, getChange(3f, 0.01f,denominations));
+        Assert.assertArrayEquals(new int[]{1,0,1,1,1,0}, getChange(4f, 3.14f,denominations));
+        Assert.assertArrayEquals(new int[]{1,0,1,0,0,0}, getChange(0.45f, 0.34f,denominations));
     }
 
     int[] getChange(float M, float P, int[] denominations)  {
         int totalMoney = convertToCents(M);
         int itemPrice = convertToCents(P);
-        int changeRequired = totalMoney - itemPrice;
+        int changeToReturn = totalMoney - itemPrice;
 
-        return getExactChange(changeRequired, denominations);
+        return getExactChange(changeToReturn, denominations);
     }
 
     int[] getExactChange(int targetMoney, int[] denominations) {

@@ -9,6 +9,8 @@ import java.util.List;
 
 /**
  *  https://leetcode.com/problems/interval-list-intersections/
+ *  https://leetcode.com/discuss/interview-question/338948/Facebook-or-Onsite-or-Schedule-of-Tasks
+ *
  *  https://www.youtube.com/watch?v=Qh8ZjL1RpLI&ab_channel=TECHDOSE
  */
 public class IntersectionsIntervals extends BaseTest {
@@ -45,13 +47,11 @@ Logic
         int i=0, j=0;
 
         while(i<firstList.length && j<secondList.length) {
-            int s1 = firstList[i][0];
-            int e1 = firstList[i][1];
-            int s2 = secondList[j][0];
-            int e2 = secondList[j][1];
+            int s1 = firstList[i][0] , e1 = firstList[i][1];
+            int s2 = secondList[j][0] , e2 = secondList[j][1];
 
             if(e2 >= s1 && e1 >= s2) {
-                result.add(new int[]{Math.max(s1,s2),Math.min(e1,e2)});
+                result.add(new int[]{Math.max(s1,s2), Math.min(e1,e2)});
             }
 
             if(e1 < e2)     i++;

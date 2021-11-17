@@ -25,6 +25,22 @@ public class ReverseLinkedList extends BaseTest {
     }
 
     LinkedList reverseLL(LinkedList head) {
+        LinkedList prev = null;
+        LinkedList current = head;
+        LinkedList next = null;
+
+        while(current != null) {
+            next = current.next;
+            current.next = prev;
+            prev = current;
+            current = next;
+        }
+
+        head = prev;
+        return head;
+    }
+
+    LinkedList reverseLL2(LinkedList head) {
         if(head == null || head.next == null) {
             return head;
         }
