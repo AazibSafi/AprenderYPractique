@@ -19,7 +19,7 @@ import java.util.Arrays;
  *
  *  NOTE: All of the integers in A array are NOT strictly smaller than all of the integers in B array
  *
- *  Extension of  SubSetSum Problem
+ *  Extension of SubSetSum Problem
  */
 public class PartitionArrayinto2EqualSumSubset_NotStrictly extends BaseTest {
 

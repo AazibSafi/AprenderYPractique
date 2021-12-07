@@ -1,4 +1,4 @@
-package com.algorithms.aprenderypractique.algorithm.arrays;
+package com.algorithms.aprenderypractique.algorithm.arrays.SubSetSum_OR_Partition_Array;
 
 import com.algorithms.aprenderypractique.BaseTest;
 import org.junit.Assert;
@@ -9,7 +9,7 @@ import java.util.Map;
 
 /**
  *  https://leetcode.com/problems/subarray-sum-equals-k/
- *  https://www.youtube.com/watch?v=AmlVSNBHzJg&t=3s
+ *  https://www.youtube.com/watch?v=AmlVSNBHzJg&t
  */
 public class SubarraySumEqualK extends BaseTest {
 

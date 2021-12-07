@@ -6,6 +6,7 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.IntStream;
 
@@ -24,36 +25,36 @@ public class LongestIncreasingSubsequence extends BaseTest {
     @Test
     public void test() {
         int[] arr = {2,5,1,8,3};
-        Assert.assertTrue(Arrays.asList(2,5,8).containsAll(longestIncreamentSubsequence(arr)));
+        Assert.assertTrue(Arrays.asList(2,5,8).containsAll(longestIncreasingSubsequence(arr)));
 
         arr = new int[]{3,4,-1,0,6,2,3};
-        Assert.assertTrue(Arrays.asList(-1,0,2,3).containsAll(longestIncreamentSubsequence(arr)));
+        Assert.assertTrue(Arrays.asList(-1,0,2,3).containsAll(longestIncreasingSubsequence(arr)));
 
         arr = new int[]{5,8,7,1,9};
-        List result = longestIncreamentSubsequence(arr);
+        List<Integer> result = longestIncreasingSubsequence(arr);
         Assert.assertTrue(Arrays.asList(5,7,9).containsAll(result) || Arrays.asList(5,8,9).containsAll(result));
 
         arr = new int[]{3,4,-1,5,8,2,3,12,7,9,10};
-        result = longestIncreamentSubsequence(arr);
+        result = longestIncreasingSubsequence(arr);
         Assert.assertTrue(Arrays.asList(-1,2,3,7,9,10).containsAll(result) || Arrays.asList(3,4,5,8,9,10).containsAll(result)
                     || Arrays.asList(3,4,5,7,9,10).containsAll(result));
 
         arr = new int[]{10,9,2,5,3,7,101,18};
-        result = longestIncreamentSubsequence(arr);
+        result = longestIncreasingSubsequence(arr);
         Assert.assertTrue(Arrays.asList(2,3,7,101).containsAll(result) || Arrays.asList(2,5,7,101).containsAll(result));
 
         arr = new int[]{84,80,27};
-        Assert.assertTrue(Arrays.asList(84).containsAll(longestIncreamentSubsequence(arr)));
+        Assert.assertTrue(Collections.singletonList(84).containsAll(longestIncreasingSubsequence(arr)));
 
         arr = new int[]{1};
-        Assert.assertTrue(Arrays.asList(1).containsAll(longestIncreamentSubsequence(arr)));
+        Assert.assertTrue(Collections.singletonList(1).containsAll(longestIncreasingSubsequence(arr)));
     }
 
 /*
-    Time complexit: O(n^2)
+    Time complexity: O(n^2)
     Space complexity: O(n)
  */
-    public List<Integer> longestIncreamentSubsequence(int[] arr) {
+    public List<Integer> longestIncreasingSubsequence(int[] arr) {
         int[] dp = new int[arr.length];
         int[] solution = IntStream.rangeClosed(0, arr.length-1).toArray();
 
@@ -65,7 +66,7 @@ public class LongestIncreasingSubsequence extends BaseTest {
 
 //      dp[iMax] is the length of longest Increasing Subsequence
 
-        return getTheSubSequence(arr,solution,iMax);
+        return getTheSubSequence(arr, solution, iMax);
     }
 
     private void dynamicProgrammingLogic(int[] arr, int[] dp, int[] solution) {

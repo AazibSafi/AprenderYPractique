@@ -1,4 +1,4 @@
-package com.algorithms.aprenderypractique.algorithm.tree.datastructure;
+package com.algorithms.aprenderypractique.algorithm.datastructure;
 
 import java.util.ArrayList;
 import java.util.List;

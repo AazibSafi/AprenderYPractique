@@ -5,7 +5,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 /**
- *  https://leetcode.com/problems/add-binary/submissions/
+ *  https://leetcode.com/problems/add-binary/
  */
 public class AddBinaryNumbers extends BaseTest {
 

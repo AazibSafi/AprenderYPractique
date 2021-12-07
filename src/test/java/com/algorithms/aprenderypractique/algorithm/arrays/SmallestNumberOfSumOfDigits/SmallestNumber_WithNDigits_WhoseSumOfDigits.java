@@ -1,14 +1,13 @@
 package com.algorithms.aprenderypractique.algorithm.arrays.SmallestNumberOfSumOfDigits;
 
-import com.algorithms.aprenderypractique.BaseTest;
+import  com.algorithms.aprenderypractique.BaseTest;
 import com.algorithms.aprenderypractique.CommonHelper;
-import com.sun.javafx.geom.Edge;
 import org.junit.Assert;
 import org.junit.Test;
 
 /**
  *  https://www.youtube.com/watch?v=H7iqIjbWty4&ab_channel=CodeLibrary
- *  Find smallest number with given number of digits and sum of digits
+ *  Find the smallest number with given number of digits and sum of digits
  */
 public class SmallestNumber_WithNDigits_WhoseSumOfDigits extends BaseTest {
 

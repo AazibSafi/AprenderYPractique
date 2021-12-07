@@ -11,7 +11,10 @@ public class Low_HighIndex extends BaseTest {
 
     @Test
     public void test() {
-        int[] arr = new int[]{1,2,5,5,5,5,5,5,5,5,20};
+        int[] arr = new int[]{1,2,3,3,3};
+        Assert.assertArrayEquals(new int[]{2,4}, findLowHighIndex(arr,3));
+
+        arr = new int[]{1,2,5,5,5,5,5,5,5,5,20};
         Assert.assertArrayEquals(new int[]{10,10}, findLowHighIndex(arr,20));
 
         arr = new int[]{1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6, 6, 6};
@@ -30,18 +33,18 @@ public class Low_HighIndex extends BaseTest {
     public int findLowIndex(int[] arr, int key) {
 
         int low = 0, high = arr.length-1;
-        int middle;
+        int mid;
 
         while(low<=high) {
 
             //middle = low + (high-low)/2;
-            middle = (low+high)/2;
+            mid = (low+high)/2;
 
-            if(key <= arr[middle]) {
-                high = middle-1;
+            if(key <= arr[mid]) {
+                high = mid-1;
             }
             else {
-                low = middle+1;     // if key is less than middle
+                low = mid+1;     // if key is greater than middle
             }
 
         }
@@ -53,17 +56,17 @@ public class Low_HighIndex extends BaseTest {
     public int findHighIndex(int[] arr, int key) {
 
         int low = 0, high = arr.length-1;
-        int middle;
+        int mid;
 
         while(low<=high) {
 
-            middle = low + (high-low)/2;
+            mid = low + (high-low)/2;
 
-            if(key < arr[middle]) {
-                high = middle-1;
+            if(key < arr[mid]) {
+                high = mid-1;
             }
             else {
-                low = middle+1;     // if key is less or equal than middle
+                low = mid+1;     // if key is greater or equal than middle
             }
 
         }

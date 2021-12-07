@@ -18,43 +18,38 @@ public class BalanceBrackets extends BaseTest {
     @Test
     public void test() {
         String str = "{[()]}";
-        Assert.assertTrue(areBracketsBalanced(str));
+        Assert.assertTrue(isValid(str));
 
         str = "{}()";
-        Assert.assertTrue(areBracketsBalanced(str));
+        Assert.assertTrue(isValid(str));
 
         str = "";
-        Assert.assertTrue(areBracketsBalanced(str));
+        Assert.assertTrue(isValid(str));
 
         str = null;
-        Assert.assertTrue(areBracketsBalanced(str));
+        Assert.assertTrue(isValid(str));
 
         str = "{(})";
-        Assert.assertFalse(areBracketsBalanced(str));
+        Assert.assertFalse(isValid(str));
 
         str = ")";
-        Assert.assertFalse(areBracketsBalanced(str));
+        Assert.assertFalse(isValid(str));
     }
 
-    public boolean areBracketsBalanced(String str) {
-        if(StringUtils.isEmpty(str))    return true;
+    public boolean isValid(String str) {
+        if(StringUtils.isEmpty(str))        return true;
+
+        Map<Character,Character> bracket = new HashMap<>();
+        bracket.put('(',')');   bracket.put('[',']');   bracket.put('{','}');
 
         Stack<Character> stack = new Stack<>();
 
-        Map<Character,Character> map = new HashMap<>();
-        map.put('(',')');   map.put('[',']');   map.put('{','}');
-
         for(char c : str.toCharArray()) {
-            if(map.containsKey(c)) {
-                stack.add(c);
-            }
-            else if(stack.size() > 0) {
-                char b = stack.pop();
-                if(map.get(b) != c)
-                    return false;
-            }
+            if(bracket.containsKey(c))        stack.push(c);
             else {
-                return false;
+                if(stack.isEmpty() || bracket.get(stack.peek()) != c)
+                    return false;
+                stack.pop();
             }
         }
         return true;
@@ -63,26 +58,26 @@ public class BalanceBrackets extends BaseTest {
     @Test
     public void testSingleBracket() {
         String str = "((()))";
-        Assert.assertTrue(areSingleBracketsBalanced(str));
+        Assert.assertTrue(isValidSingleBraces(str));
 
         str = "()()";
-        Assert.assertTrue(areSingleBracketsBalanced(str));
+        Assert.assertTrue(isValidSingleBraces(str));
 
         str = "";
-        Assert.assertTrue(areSingleBracketsBalanced(str));
+        Assert.assertTrue(isValidSingleBraces(str));
 
         str = "))((";
-        Assert.assertFalse(areSingleBracketsBalanced(str));
+        Assert.assertFalse(isValidSingleBraces(str));
+
+        str = "x(";
+        Assert.assertFalse(isValidSingleBraces(str));
     }
 
 /*
     if only one type of brace exist in the string
  */
-    public boolean areSingleBracketsBalanced(String str) {
-        if(StringUtils.isEmpty(str))    return true;
-
+    public boolean isValidSingleBraces(String str) {
         int open=0;
-
         for(char c : str.toCharArray()) {
             if(c == '(')    open++;
             else if(c == ')') {
@@ -90,7 +85,7 @@ public class BalanceBrackets extends BaseTest {
                 open--;
             }
         }
-        return true;
+        return open == 0;
     }
 
 }

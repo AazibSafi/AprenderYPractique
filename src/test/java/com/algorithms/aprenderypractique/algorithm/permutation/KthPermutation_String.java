@@ -53,7 +53,7 @@ public class KthPermutation_String extends BaseTest {
 
             sequenceList.remove(index);
 
-            k = k - fact(n-1)*index;
+            k = k - fact(n-1) * index;
             n--;
         }
 
@@ -67,10 +67,7 @@ public class KthPermutation_String extends BaseTest {
     }
 
     private int fact(int x) {
-        if(x == 0 || x == 1) {
-            return 1;
-        }
-        return x*fact(x-1);
+        return (x == 0 || x == 1) ? 1 : x*fact(x-1);
     }
 
 }

@@ -19,25 +19,25 @@ public class LongestPalindromeSubstring extends BaseTest {
     @Test
     public void test() {
         String str = "BABCBAB";
-        Assert.assertEquals(7, length_of_Longest_palindrome_substring(str));
+        Assert.assertEquals(7, longestPalindromeLength(str));
 
         str = "abacabacabb";        //   bacabacab
-        Assert.assertEquals(9, length_of_Longest_palindrome_substring(str));
+        Assert.assertEquals(9, longestPalindromeLength(str));
 
 //    below test is failing
         str = "acacacb";            //      acaca or cacac
-//        Assert.assertEquals(5, length_of_Longest_palindrome_substring(str));
+        //Assert.assertEquals(5, longestPalindromeLength(str));
     }
 
-    public int length_of_Longest_palindrome_substring(String str) {
-        return length_of_Longest_palindrome_substring(str,0,str.length()-1);
+    public int longestPalindromeLength(String str) {
+        return longestPalindromeLength(str,0,str.length()-1);
     }
 
 //    To avoid repeated calculation of already calculated lengths
     Map<SubstringIndex,Integer> subStringLengthCache = new HashMap<>();
 
 //  Time complexity: O(N^3)
-    public int length_of_Longest_palindrome_substring(String str, int start, int end) {
+    public int longestPalindromeLength(String str, int start, int end) {
         if(start > end)       return 0;
 
         if(start == end)      return 1;
@@ -49,12 +49,12 @@ public class LongestPalindromeSubstring extends BaseTest {
         int subStringLength;
 
         if(str.charAt(start) == str.charAt(end)) {
-            subStringLength = length_of_Longest_palindrome_substring(str,start+1,end-1) + 2;
+            subStringLength = longestPalindromeLength(str,start+1,end-1) + 2;
         }
         else {
             subStringLength = Math.max(
-                        length_of_Longest_palindrome_substring(str,start,end-1),
-                        length_of_Longest_palindrome_substring(str,start+1,end) );
+                    longestPalindromeLength(str,start,end-1),
+                    longestPalindromeLength(str,start+1,end) );
         }
 
         subStringLengthCache.put(new SubstringIndex(start,end),subStringLength);

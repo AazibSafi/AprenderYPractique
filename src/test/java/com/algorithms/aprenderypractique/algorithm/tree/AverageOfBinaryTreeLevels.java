@@ -2,10 +2,12 @@ package com.algorithms.aprenderypractique.algorithm.tree;
 
 import com.algorithms.aprenderypractique.BaseTest;
 import com.algorithms.aprenderypractique.CommonHelper;
-import com.algorithms.aprenderypractique.algorithm.tree.datastructure.BinaryTree;
+import com.algorithms.aprenderypractique.algorithm.datastructure.BinaryTree;
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
@@ -38,8 +40,7 @@ public class AverageOfBinaryTreeLevels extends BaseTest {
         tree.right.right = new BinaryTree(6);
         tree.left.right.right = new BinaryTree(6);
         tree.left.right.right.left = new BinaryTree(2);
-
-        CommonHelper.printList( findAverage(tree) );
+        Assert.assertTrue(CommonHelper.isEquals(Arrays.asList(4, 8, 6, 6, 2), findAverage(tree)));
     }
 
     public List<Integer> findAverage(BinaryTree tree) {
@@ -56,7 +57,7 @@ public class AverageOfBinaryTreeLevels extends BaseTest {
             sum = 0;
             n = queue.size();
 
-            for(int i=0;i<n;i++) {
+            for(int i=0; i<n; i++) {
                 BinaryTree node = queue.poll();
                 sum += node.val;
 

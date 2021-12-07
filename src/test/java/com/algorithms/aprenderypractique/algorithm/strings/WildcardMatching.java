@@ -37,7 +37,7 @@ public class WildcardMatching extends BaseTest {
  */
     public boolean isMatch(String s, String p) {
         Boolean[][] memoization = new Boolean[s.length()][p.length()];      // To Handle Time Limit Exceeded
-        return isMatch(0,0,s,p, memoization);
+        return isMatch(0, 0, s, p, memoization);
     }
 
     public boolean isMatch(int i, int j, String s, String p, Boolean[][] memo) {

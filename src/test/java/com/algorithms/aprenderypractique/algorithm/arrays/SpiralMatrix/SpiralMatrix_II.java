@@ -1,18 +1,25 @@
-package com.algorithms.aprenderypractique.algorithm.arrays;
+package com.algorithms.aprenderypractique.algorithm.arrays.SpiralMatrix;
 
 import com.algorithms.aprenderypractique.BaseTest;
-import com.algorithms.aprenderypractique.CommonHelper;
+import org.junit.Assert;
 import org.junit.Test;
 
 /**
- *  Find the pattern and complete the function
+ *  Given a positive integer n, generate an n x n matrix filled with elements from 1 to n2 in spiral order.
+ *  https://leetcode.com/problems/spiral-matrix-ii/
  *  https://www.youtube.com/watch?v=1ZGJzvkcLsA
+ *
+ *  Here i have implemented m*n version instead of n^2
  */
-public class SpiralArray2D extends BaseTest {
+public class SpiralMatrix_II extends BaseTest {
 
     @Test
     public void test() {
-        CommonHelper.print2DArray(spiralOrder(5,5));
+        int[][] matrix = new int[][]{{1,2,3},{8,9,4},{7,6,5}};
+        Assert.assertArrayEquals(matrix, spiralOrder(3,3));
+
+        matrix = new int[][]{{1}};
+        Assert.assertArrayEquals(matrix, spiralOrder(1,1));
     }
 
     public int[][] spiralOrder(int m, int n) {
@@ -22,8 +29,7 @@ public class SpiralArray2D extends BaseTest {
         int top = 0;    int down = m-1;   int left = 0;   int right = n-1;
         int dir = 0;
 
-        while(left<=right && top<=down) {
-
+        while(left <= right && top <= down) {
             if(dir == 0) {
                 for(int i=left; i<=right; i++) {
                     A[top][i] = x++;

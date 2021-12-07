@@ -1,6 +1,7 @@
 package com.algorithms.aprenderypractique.algorithm.tree;
 
 import com.algorithms.aprenderypractique.BaseTest;
+import com.algorithms.aprenderypractique.algorithm.datastructure.BinaryTree;
 import org.junit.Test;
 
 /**
@@ -21,25 +22,18 @@ public class LowestCommonAncestor_BT extends BaseTest {
      */
     }
 
-    class BinaryTree {
-        int val;
-        BinaryTree left;
-        BinaryTree right;
-        BinaryTree(int x) { val = x; }
-    }
-
     BinaryTree result;
 
     public BinaryTree lowestCommonAncestor(BinaryTree root, BinaryTree p, BinaryTree q) {
-        findAncestor(root,p,q);
+        findAncestor(root, p, q);
         return result;
     }
 
     public boolean findAncestor(BinaryTree root, BinaryTree p, BinaryTree q) {
-        if(root == null) return false;
+        if(root == null)        return false;
 
-        boolean left = findAncestor(root.left,p,q);
-        boolean right = findAncestor(root.right,p,q);
+        boolean left = findAncestor(root.left, p, q);
+        boolean right = findAncestor(root.right, p, q);
         boolean curr = root.val == p.val || root.val == q.val;
 
         if((left && right) || (left && curr) || (right && curr))

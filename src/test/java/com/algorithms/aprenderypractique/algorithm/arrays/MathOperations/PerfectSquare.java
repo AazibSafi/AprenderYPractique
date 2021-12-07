@@ -5,8 +5,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 /**
- *      https://leetcode.com/problems/sqrtx/
- *      https://www.youtube.com/watch?v=VYtEKhxKd1Q&ab_channel=TerribleWhiteboard
+ *
  */
 public class PerfectSquare extends BaseTest {
 

@@ -24,29 +24,38 @@ public class RemoveMinBraces extends BaseTest {
 
         str = "(a(b(c)d)";
         Assert.assertEquals("a(b(c)d)",minRemoveToMakeValid(str));
+
+        str = "()())()";
+        Assert.assertEquals("()()()",minRemoveToMakeValid(str));
+
+        str = "(((())";
+        Assert.assertEquals("(())",minRemoveToMakeValid(str));
+
+        str = ")(";
+        Assert.assertEquals("",minRemoveToMakeValid(str));
     }
 
     public String minRemoveToMakeValid(String str) {
-        StringBuilder sb = new StringBuilder();
-        int sbIndex=0;
+        StringBuilder builder = new StringBuilder();
         Stack<Integer> stack = new Stack<>();
 
-        for(int i=0; i<str.length(); i++) {
-            if(str.charAt(i) == '(') {
-                stack.push(sbIndex);
+        int index = 0;
+        for(char c : str.toCharArray()) {
+            if(c == '(') {
+                stack.push(index);
             }
-            else if(str.charAt(i) == ')') {
-                if(stack.isEmpty())     continue;
+            else if(c == ')') {
+                if(stack.isEmpty())      continue;
                 else stack.pop();
             }
-            sb.append(str.charAt(i));
-            sbIndex++;
+            builder.append(c);
+            index++;
         }
 
         StringBuilder result = new StringBuilder();
-        for(int i=0;i<sb.length();i++) {
+        for(int i=0; i<builder.length(); i++) {
             if( !stack.contains(i) )
-                result.append(sb.charAt(i));
+                result.append(builder.charAt(i));
         }
 
         return result.toString();

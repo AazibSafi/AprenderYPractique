@@ -92,20 +92,20 @@ public class SudokuValidator extends BaseTest {
     Space: O(n)     --- One HashSet
  */
     boolean isGridSquareValid(char[][] board) {
-        int gridSquareSize = (int) Math.sqrt(board.length);      // Note: Grid size must be a Perfect Square
+        int m = (int) Math.sqrt(board.length);      // Note: Grid size must be a Perfect Square
 
-        for(int gridSquareX=0; gridSquareX<gridSquareSize; gridSquareX++) {
-            for(int gridSquareY=0; gridSquareY<gridSquareSize; gridSquareY++) {
+        for(int gridSquareX = 0; gridSquareX < m; gridSquareX++) {
+            for(int gridSquareY = 0; gridSquareY < m; gridSquareY++) {
 
-                int gridSquareRowStart = gridSquareX * gridSquareSize;
-                int gridSquareColStart = gridSquareY * gridSquareSize;
-                int gridSquareRowEnd = gridSquareRowStart + gridSquareSize;
-                int gridSquareColEnd = gridSquareColStart + gridSquareSize;
+                int gridSquareRowStart = gridSquareX * m;
+                int gridSquareColStart = gridSquareY * m;
+                int gridSquareRowEnd = gridSquareRowStart + m;
+                int gridSquareColEnd = gridSquareColStart + m;
 
                 Set<Character> set = new HashSet<>();
 
-                for(int row=gridSquareRowStart; row<gridSquareRowEnd; row++) {
-                    for(int col=gridSquareColStart; col<gridSquareColEnd; col++) {
+                for(int row = gridSquareRowStart; row < gridSquareRowEnd; row++) {
+                    for(int col = gridSquareColStart; col < gridSquareColEnd; col++) {
                         char cell = board[row][col];
                         if(set.contains(cell))          return false;
                         else if(cell != '.')            set.add(cell);

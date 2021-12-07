@@ -1,4 +1,4 @@
-package com.algorithms.aprenderypractique.algorithm.tree.datastructure;
+package com.algorithms.aprenderypractique.algorithm.datastructure;
 
 public class BinaryTree {
 

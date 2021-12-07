@@ -39,7 +39,7 @@ public class PrefixString extends BaseTest {
             return;
         }
 
-        if(trie.children.get(word.charAt(0)) == null) {
+        if(!trie.children.containsKey(word.charAt(0))) {
             trie.children.put(word.charAt(0),new Trie());
             trie.endOfWord = false;
         }
@@ -52,7 +52,7 @@ public class PrefixString extends BaseTest {
             return true;
         }
 
-        if(trie.children.get(word.charAt(0)) == null) {
+        if(!trie.children.containsKey(word.charAt(0))) {
             return false;
         }
 

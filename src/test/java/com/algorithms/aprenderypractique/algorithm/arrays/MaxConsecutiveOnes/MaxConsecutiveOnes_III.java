@@ -4,8 +4,6 @@ import com.algorithms.aprenderypractique.BaseTest;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.util.stream.IntStream;
-
 /**
  * https://leetcode.com/problems/max-consecutive-ones-iii/
  * https://www.youtube.com/watch?v=97oTiOCuxho
@@ -33,12 +31,11 @@ public class MaxConsecutiveOnes_III extends BaseTest {
         if(nums.length == 1)        return 1;
 
         int maxOnes = 0, zeroCount = 0;
+        int left = 0;
 
-        int left = 0, right = 0;
-
-        while(right<nums.length) {
-
-            if(nums[right] == 0)    zeroCount++;
+        for(int right = 0; right<nums.length; right++) {
+            if(nums[right] == 0)
+                zeroCount++;
 
             while(zeroCount > k) {
                 if(nums[left] == 0)     zeroCount--;
@@ -46,7 +43,6 @@ public class MaxConsecutiveOnes_III extends BaseTest {
             }
 
             maxOnes = Math.max(maxOnes , right-left+1);
-            right++;
         }
         return maxOnes;
     }

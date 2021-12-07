@@ -13,7 +13,7 @@ import java.util.Set;
  *
  *  Flood Fill Technique
  *
- *  Note: Only Two islands exist in the Grid - No less - no more
+ *  Note: Exactly Only Two islands exist in the Grid - No less - no more
  */
 public class ShortestBridgeIsland  extends BaseTest {
 
@@ -63,6 +63,8 @@ public class ShortestBridgeIsland  extends BaseTest {
                 store their coordinates into to a set
                 mark the element as -1
      Calculate Min Distance between A and B
+
+     Time: O(n*m + A*B)
  */
     int shortestBridge(int[][] grid) {
         Set<Integer[]> A = new HashSet<>();

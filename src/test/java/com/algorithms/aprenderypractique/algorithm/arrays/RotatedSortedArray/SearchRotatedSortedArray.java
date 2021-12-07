@@ -42,7 +42,7 @@ public class SearchRotatedSortedArray extends BaseTest {
                     left = mid+1;
             }
             else {  //  If right half is sorted
-                if(target>=nums[mid] && target<=nums[right])
+                if(target >= nums[mid] && target <= nums[right])
                     left = mid+1;
                 else
                     right = mid-1;

@@ -1,6 +1,7 @@
 package com.algorithms.aprenderypractique.algorithm.LinkedList;
 
 import com.algorithms.aprenderypractique.BaseTest;
+import com.algorithms.aprenderypractique.algorithm.datastructure.LinkedList;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -21,7 +22,7 @@ public class ReverseLinkedList extends BaseTest {
 
         LinkedList reversedList = reverseLL(list);
 
-        Assert.assertEquals(3,reversedList.x);
+        Assert.assertEquals(3,reversedList.val);
     }
 
     LinkedList reverseLL(LinkedList head) {

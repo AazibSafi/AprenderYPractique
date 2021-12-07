@@ -59,6 +59,7 @@ public class WordSearch_I extends BaseTest {
             int adjCol = col + adjCell[1];
 
             if (searchWord(board, adjRow, adjCol, word, wordIndex + 1)) {
+                board[row][col] = temp;     // Not necessary for WORD_SEARCH_I, bcz after returning true.. the program will completed and exit. // This is necessary for WORD_SEARCH_II
                 return true;
             }
         }

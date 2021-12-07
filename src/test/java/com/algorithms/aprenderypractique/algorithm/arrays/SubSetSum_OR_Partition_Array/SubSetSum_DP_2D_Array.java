@@ -65,7 +65,7 @@ public class SubSetSum_DP_2D_Array extends BaseTest {
 //      return dp[dp.length-1][dp[0].length-1];
     }
 
-//  Formula:    T[i][j] || T[i][j-arr[i]]    -->   T || F
+//  Formula:    T[i-1][j] || T[i-1][j-arr[i]]    -->   T || F
     private boolean[][] isSubSetSumPossible(int[] arr, int total) {
         boolean[][] dp = new boolean[arr.length+1][total+1];
 

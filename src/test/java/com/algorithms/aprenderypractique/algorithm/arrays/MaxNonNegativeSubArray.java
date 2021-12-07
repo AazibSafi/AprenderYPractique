@@ -14,10 +14,10 @@ public class MaxNonNegativeSubArray extends BaseTest {
     @Test
     public void test() {
         int[] arr = new int[]{1, 2, 5, -7, 2, 3};
-        Assert.assertArrayEquals(new int[]{1,2,5},maxSet(arr));
+        Assert.assertArrayEquals(new int[]{1,2,5}, maxSet(arr));
 
         arr = new int[]{10, -1, 2, 3, -4, 100};
-        Assert.assertArrayEquals(new int[]{100},maxSet(arr));
+        Assert.assertArrayEquals(new int[]{100}, maxSet(arr));
     }
 
 /*

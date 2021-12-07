@@ -52,8 +52,8 @@ public class SudokuValidator_OneIteration extends BaseTest {
     }
 
 /*
-    Time: O(n^2)  -- iterating all elements in the board
-    Space: O(n^2)
+    Time: O(n*n) -- O(n^2)  -- iterating all elements in the board
+    Space: O(n^2) -- Strogin each element in the Set
  */
     public boolean isValidSudoku(char[][] board) {
         int size = board.length;
@@ -65,9 +65,9 @@ public class SudokuValidator_OneIteration extends BaseTest {
                 char cell = board[row][col];
 
                 if(cell != '.') {
-                    if(!set.add("Row:"+row+",cell:"+cell) ||
-                        !set.add("Col:"+col+",cell:"+cell) ||
-                        !set.add("Box:"+((row/3)*3 + col/3)+",cell:"+cell))
+                    if(!set.add("Row:"+row + ",cell:"+cell) ||
+                        !set.add("Col:"+col + ",cell:"+cell) ||
+                        !set.add("Box:"+((row/3)*3 + col/3) + ",cell:"+cell))
                         return false;
                 }
 

@@ -24,12 +24,14 @@ public class LongestCommonSubstring extends BaseTest {
         diagonal + 1
  */
     public String longestCommonSubstring(String str1, String str2) {
-        int iMax=0,jMax=0;
-        int[][] dp = new int[str1.length()][str2.length()];
-        for(int i=0;i<str1.length();i++) {
-            for(int j=0;j<str2.length();j++) {
-                if(str1.charAt(i)==str2.charAt(j)) {
-                    dp[i][j] = i-1<0||j-1<0 ? 1: dp[i-1][j-1]+1;
+        int n = str1.length(), m = str2.length();
+        int iMax=0,  jMax=0;
+
+        int[][] dp = new int[n][m];
+        for(int i=0; i<n; i++) {
+            for(int j=0; j<m; j++) {
+                if(str1.charAt(i) == str2.charAt(j)) {
+                    dp[i][j] = (i-1<0 || j-1<0) ? 1 : dp[i-1][j-1] + 1;
 
                     if(dp[iMax][jMax] < dp[i][j]) {
                         iMax = i;

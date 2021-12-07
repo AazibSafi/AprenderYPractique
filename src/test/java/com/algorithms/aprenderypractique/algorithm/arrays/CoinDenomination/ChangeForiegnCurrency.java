@@ -7,6 +7,7 @@ import org.junit.Test;
 /**
  *  https://www.facebookrecruiting.com/portal/coding_practice_question/?problem_id=2903692913051025
  *  https://leetcode.com/discuss/interview-question/999637/facebook-online-change-in-a-foreign-currency
+ *  https://leetcode.com/discuss/interview-question/999637/facebook-online-change-in-a-foreign-currency
  */
 public class ChangeForiegnCurrency extends BaseTest {
 

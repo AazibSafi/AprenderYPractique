@@ -29,18 +29,18 @@ public class ContinousSubarraySum extends BaseTest {
     @Test
     public void test() {
         int[] arr = new int[]{23,2,4,6,7};
-        Assert.assertTrue(checkSubarraySum(arr,6));
+//        Assert.assertTrue(checkSubarraySum(arr,6));
+//
+//        arr = new int[]{23,2,6,4,7};
+//        Assert.assertTrue(checkSubarraySum(arr,6));
+//
+//        arr = new int[]{23,2,4,6,6};      // Edge Case: Where mod 0 (35%7) comes only once in the map (To fulfill the math formula described)
+//        Assert.assertTrue(checkSubarraySum(arr,7));
+//
+//        arr = new int[]{23,2,6,4,7};
+//        Assert.assertFalse(checkSubarraySum(arr,13));
 
-        arr = new int[]{23,2,6,4,7};
-        Assert.assertTrue(checkSubarraySum(arr,6));
-
-        arr = new int[]{23,2,4,6,6};      // Edge Case: Where mod 0 (35%7) comes only once in the map (To fulfill the math formula described)
-        Assert.assertTrue(checkSubarraySum(arr,7));
-
-        arr = new int[]{23,2,6,4,7};
-        Assert.assertFalse(checkSubarraySum(arr,13));
-
-        arr = new int[]{1,0};
+        arr = new int[]{1,0,0};
         Assert.assertFalse(checkSubarraySum(arr,2));
     }
 

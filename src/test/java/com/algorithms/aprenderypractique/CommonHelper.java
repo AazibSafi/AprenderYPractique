@@ -56,7 +56,7 @@ public class CommonHelper {
     public static Map<Character,Integer> fillTableWithOccurrences(String T) {
         Map<Character,Integer> table = new HashMap<>();
         for(Character c : T.toCharArray()) {
-            table.put(c,table.getOrDefault(c,0)+1);
+            table.put(c, table.getOrDefault(c,0)+1);
         }
         return table;
     }

@@ -1,6 +1,7 @@
 package com.algorithms.aprenderypractique.algorithm.LinkedList;
 
 import com.algorithms.aprenderypractique.BaseTest;
+import com.algorithms.aprenderypractique.algorithm.datastructure.LinkedList;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -18,19 +19,19 @@ public class ReverseOperations extends BaseTest {
         int[] expected = {1, 8, 2, 9, 16, 12};
         LinkedList head = createLinkedList(arr);
         LinkedList expectedHead = createLinkedList(expected);
-        Assert.assertEquals(expectedHead.x,reverse(head).x);
+        Assert.assertEquals(expectedHead.val,reverse(head).val);
 
         arr = new int[]{2, 18, 24, 3, 5, 7, 9, 6, 12};
         expected = new int[]{24, 18, 2, 3, 5, 7, 9, 12, 6};
         head = createLinkedList(arr);
         expectedHead = createLinkedList(expected);
-        Assert.assertEquals(expectedHead.x,reverse(head).x);
+        Assert.assertEquals(expectedHead.val,reverse(head).val);
 
         arr = new int[]{2, 18, 24, 14, 3, 5, 7, 9, 6, 12};
         expected = new int[]{14, 24, 18, 2, 3, 5, 7, 9, 12, 6};
         head = createLinkedList(arr);
         expectedHead = createLinkedList(expected);
-        Assert.assertEquals(expectedHead.x,reverse(head).x);
+        Assert.assertEquals(expectedHead.val,reverse(head).val);
     }
 
 /*
@@ -42,7 +43,7 @@ public class ReverseOperations extends BaseTest {
         Stack<LinkedList> stack = new Stack();
 
         while(head != null && tail != null) {
-            if(tail.x%2 == 0) {
+            if(tail.val %2 == 0) {
                 stack.push(tail);
                 tail = tail.next;
             }
@@ -73,9 +74,9 @@ public class ReverseOperations extends BaseTest {
     }
 
     void swap(LinkedList head, LinkedList node) {
-        int temp = head.x;
-        head.x = node.x;
-        node.x = temp;
+        int temp = head.val;
+        head.val = node.val;
+        node.val = temp;
     }
 
     LinkedList createLinkedList(int[] arr) {

@@ -47,7 +47,7 @@ public class Union_MergeOverlapIntervels extends BaseTest {
             int nextEnd = interval[1];
 
             if(currentEnd >= nextStart) {
-                currentInterval[1] = Math.max(currentEnd,nextEnd);
+                currentInterval[1] = Math.max(currentEnd, nextEnd);
             }
             else {
                 currentInterval = interval;

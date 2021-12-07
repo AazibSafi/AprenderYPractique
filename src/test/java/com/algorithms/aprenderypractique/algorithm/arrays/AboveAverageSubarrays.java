@@ -17,13 +17,13 @@ public class AboveAverageSubarrays extends BaseTest {
     @Test
     public void test() {
         int[] arr = {3 ,4 ,2};
-        Assert.assertArrayEquals(new Integer[][]{{1,2},{1,3},{2,2}}, aboveAverageSubArrays(arr));
+        Assert.assertArrayEquals(new int[][]{{1,2},{1,3},{2,2}}, aboveAverageSubArrays(arr));
     }
 
 //      Time: O(n^2)
-    Integer[][] aboveAverageSubArrays(int[] arr) {
+    int[][] aboveAverageSubArrays(int[] arr) {
         int n = arr.length;
-        List<Integer[]> resultList = new ArrayList<>();
+        List<int[]> resultList = new ArrayList<>();
 
         int totalSum = IntStream.of(arr).sum();
 
@@ -42,11 +42,11 @@ public class AboveAverageSubarrays extends BaseTest {
                 }
 
                 if (avgLeft > avgRight) {
-                    resultList.add(new Integer[]{i + 1, j + 1});    // Storing 1-Based index
+                    resultList.add(new int[]{i + 1, j + 1});    // Storing 1-Based index
                 }
             }
         }
 
-        return resultList.toArray(new Integer[0][0]);
+        return resultList.toArray(new int[0][0]);
     }
 }

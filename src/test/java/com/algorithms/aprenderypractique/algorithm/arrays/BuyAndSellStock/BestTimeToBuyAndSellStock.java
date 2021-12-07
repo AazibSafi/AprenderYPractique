@@ -1,13 +1,13 @@
-package com.algorithms.aprenderypractique.algorithm.arrays;
+package com.algorithms.aprenderypractique.algorithm.arrays.BuyAndSellStock;
 
 import com.algorithms.aprenderypractique.BaseTest;
 import org.junit.Assert;
 import org.junit.Test;
 
 /**
+ *  https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
  *  https://www.youtube.com/watch?v=mj7N8pLCJ6w&ab_channel=KevinNaughtonJr.
  *  https://www.youtube.com/watch?v=1pkOgXD63yU&ab_channel=NeetCode
- *  https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
  */
 public class BestTimeToBuyAndSellStock  extends BaseTest {
 
@@ -18,19 +18,23 @@ public class BestTimeToBuyAndSellStock  extends BaseTest {
     }
 
 /*
-    Time: O(n)  --  Only a single pass is needed.
-    Space: O(1) --  Only two variables are used.
+    Time: O(n)    --  Only a single pass is needed.
+    Space: O(1)   --  Only two variables are used.
  */
     public int maxProfit(int[] prices) {
         int minPrice = Integer.MAX_VALUE;
         int maxProfit = 0;
 
         for (int price : prices) {
-            if (price < minPrice)
-                minPrice = price;
+//            if (price < minPrice)
+//                minPrice = price;
+//
+//            else if ((price - minPrice) > maxProfit)
+//                maxProfit = (price - minPrice);
 
-            else if (price - minPrice > maxProfit)
-                maxProfit = price - minPrice;
+
+            minPrice = Math.min(price, minPrice);
+            maxProfit = Math.max(price - minPrice, maxProfit);
         }
 
         return maxProfit;
@@ -46,7 +50,7 @@ public class BestTimeToBuyAndSellStock  extends BaseTest {
         int left = 0, right = 1;
 
         while(right < prices.length) {
-            if(prices[right] < prices[left]) {
+            if(prices[left] > prices[right]) {
                 left++;
             }
             else {

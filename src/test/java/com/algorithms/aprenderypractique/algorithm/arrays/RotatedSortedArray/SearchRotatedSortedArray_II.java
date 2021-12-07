@@ -25,6 +25,7 @@ public class SearchRotatedSortedArray_II extends BaseTest {
 
 //  Time: O(logN)
 //  Logical condition not completely understood
+//  But Now i understood :p
     public boolean search(int[] nums, int target) {
         int left = 0, right = nums.length-1;
 

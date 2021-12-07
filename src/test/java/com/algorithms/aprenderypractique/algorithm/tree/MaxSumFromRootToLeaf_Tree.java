@@ -1,7 +1,7 @@
 package com.algorithms.aprenderypractique.algorithm.tree;
 
 import com.algorithms.aprenderypractique.BaseTest;
-import com.algorithms.aprenderypractique.algorithm.tree.datastructure.BinaryTree;
+import com.algorithms.aprenderypractique.algorithm.datastructure.BinaryTree;
 import org.junit.Assert;
 import org.junit.Test;
 

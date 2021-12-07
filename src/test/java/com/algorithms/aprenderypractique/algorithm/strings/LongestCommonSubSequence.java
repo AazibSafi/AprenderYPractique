@@ -35,19 +35,21 @@ Formula:
         Max of Left and Upper Value
  */
     public int findLCS(String str, String ptr) {
-        int[][] dp = new int[str.length()+1][ptr.length()+1];
+        int n = str.length(), m = ptr.length();
+
+        int[][] dp = new int[n][m];
         int left, upper, maxLength=0;
 
-        for(int i=1;i<dp.length;i++) {
-            for(int j=1;j<dp[0].length;j++) {
+        for(int i=1; i<n; i++) {
+            for(int j=1; j<m; j++) {
 
                 if(str.charAt(i-1) == ptr.charAt(j-1)) {        // -1 bcz actual string starts from 0 index
-                    dp[i][j] = dp[i-1][j-1]+1;
+                    dp[i][j] = dp[i-1][j-1] + 1;
                 }
                 else {
                     left = dp[i][j-1];
                     upper = dp[i-1][j];
-                    dp[i][j] = Math.max(left,upper);
+                    dp[i][j] = Math.max(left, upper);
                 }
 
                 maxLength = Math.max(maxLength, dp[i][j]);

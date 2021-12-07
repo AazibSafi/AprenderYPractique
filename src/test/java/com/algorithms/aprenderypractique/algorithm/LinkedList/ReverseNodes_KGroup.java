@@ -1,6 +1,7 @@
 package com.algorithms.aprenderypractique.algorithm.LinkedList;
 
 import com.algorithms.aprenderypractique.BaseTest;
+import com.algorithms.aprenderypractique.algorithm.datastructure.LinkedList;
 import org.junit.Test;
 
 /**

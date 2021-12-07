@@ -18,40 +18,42 @@ public class SlidingWindowMaximum  extends BaseTest {
     @Test
     public void test() {
         int[] nums = new int[]{1,3,-1,-3,5,3,6,7};
-        Assert.assertArrayEquals(new int[]{3,3,5,5,6,7},maxSlidingWindow(nums,3));
+        Assert.assertArrayEquals(new int[]{3,3,5,5,6,7}, maxSlidingWindow(nums,3));
 
         nums = new int[]{2,9,3,8,1,7,12,6,14,4,32,0,7,19,8,12,6};
-        Assert.assertArrayEquals(new int[]{9,9,8,12,12,14,14,32,32,32,32,19,19,19},maxSlidingWindow(nums,4));
+        Assert.assertArrayEquals(new int[]{9,9,8,12,12,14,14,32,32,32,32,19,19,19}, maxSlidingWindow(nums,4));
 
         nums = new int[]{1,2,3,4};
-        Assert.assertArrayEquals(new int[]{3,4},maxSlidingWindow(nums,3));
+        Assert.assertArrayEquals(new int[]{3,4}, maxSlidingWindow(nums,3));
 
         nums = new int[]{8,7,6,9};
-        Assert.assertArrayEquals(new int[]{8,7,9},maxSlidingWindow(nums,2));
+        Assert.assertArrayEquals(new int[]{8,7,9}, maxSlidingWindow(nums,2));
 
         nums = new int[]{8,7,5,6};
-        Assert.assertArrayEquals(new int[]{8,7,6},maxSlidingWindow(nums,2));
+        Assert.assertArrayEquals(new int[]{8,7,6}, maxSlidingWindow(nums,2));
 
         nums = new int[]{1,1,1,1,1,4,5};
-        Assert.assertArrayEquals(new int[]{4,5},maxSlidingWindow(nums,6));
+        Assert.assertArrayEquals(new int[]{4,5}, maxSlidingWindow(nums,6));
 
         nums = new int[]{5,1,1,1,1,4,4};
-        Assert.assertArrayEquals(new int[]{5,4},maxSlidingWindow(nums,6));
+        Assert.assertArrayEquals(new int[]{5,4}, maxSlidingWindow(nums,6));
 
         nums = new int[]{1,-1};
-        Assert.assertArrayEquals(new int[]{1,-1},maxSlidingWindow(nums,1));
+        Assert.assertArrayEquals(new int[]{1,-1}, maxSlidingWindow(nums,1));
 
         nums = new int[]{4,-2};
-        Assert.assertArrayEquals(new int[]{4},maxSlidingWindow(nums,2));
+        Assert.assertArrayEquals(new int[]{4}, maxSlidingWindow(nums,2));
 
         nums = new int[]{};
-        Assert.assertArrayEquals(new int[0],maxSlidingWindow(nums,2));
+        Assert.assertArrayEquals(new int[0], maxSlidingWindow(nums,2));
     }
 
 /*
     Efficient Algorithm in Linear complexity
     Time Complexity: O(n)
     Space Complexity: O(n)
+
+    Deque -- Doubly Linked List
  */
     public int[] maxSlidingWindow(int[] nums, int k) {
         int n=nums.length;
@@ -67,6 +69,7 @@ public class SlidingWindowMaximum  extends BaseTest {
                 deque.pollFirst();      // Remove elements from front of deque whose index is out of window - Remove index with out of bound
             }
 
+//  Maintaining the Dequeue in DESC order
             while(!deque.isEmpty() && nums[i] > nums[deque.peekLast()]) {
                 deque.pollLast();       // Remove all the elements  from deque last who are smaller then the current element
             }

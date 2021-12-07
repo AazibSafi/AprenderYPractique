@@ -46,7 +46,7 @@ public class MergeSort extends BaseTest {
         int[] tempArray = new int[end-start+1];
 
         while(i <= middle && j <= end) {
-            tempArray[ind++] = A[i] <= A[j] ? A[i++] : A[j++];
+            tempArray[ind++] = (A[i] <= A[j]) ? A[i++] : A[j++];
         }
 
         while(i <= middle) {
@@ -57,10 +57,10 @@ public class MergeSort extends BaseTest {
             tempArray[ind++] = A[j++];
         }
 
-        copyArray(A,tempArray,start,middle,end);
+        copyArray(A, tempArray, start);
     }
 
-    public void copyArray(int[] A, int[] tempArray, int start, int middle, int end) {
+    public void copyArray(int[] A, int[] tempArray, int start) {
         for(int i=0;i<tempArray.length;i++) {
             A[start+i] = tempArray[i];
         }

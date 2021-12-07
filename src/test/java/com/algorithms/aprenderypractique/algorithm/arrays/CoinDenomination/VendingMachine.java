@@ -37,10 +37,10 @@ public class VendingMachine extends BaseTest {
 
         for(int i=denominations.length-1; i>=0; i--) {
 
-            if(denominations[i] <= targetMoney) {
+            //if(denominations[i] <= targetMoney) {         // not necessary bcz target/den will give 0 if the target is less. and we we want in the output array.
                 output[i] = targetMoney / denominations[i];
                 targetMoney = targetMoney % denominations[i];
-            }
+            //}
 
         }
         return output;

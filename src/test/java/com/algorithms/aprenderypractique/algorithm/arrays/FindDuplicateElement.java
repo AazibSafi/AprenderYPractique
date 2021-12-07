@@ -21,11 +21,19 @@ public class FindDuplicateElement extends BaseTest {
         Assert.assertEquals(2,findDuplicate(new int[]{2,2,2}));
     }
 
+    public int findDuplicate(int[] nums) {
+        for(int x : nums) {
+            int n = Math.abs(x);
+            if(nums[n-1] < 0) return n;
+            nums[n-1] = -nums[n-1];
+        }
+        return -1;
+    }
 /*
     Time: O(n)
     Space: O(1)
  */
-    public int findDuplicate(int[] nums) {
+    public int findDuplicate2(int[] nums) {
         if(nums==null || nums.length==0)     return 0;
 
         int slow = nums[0];
@@ -40,7 +48,7 @@ public class FindDuplicateElement extends BaseTest {
         slow = nums[0];                     //  Reset the pointer to the beginning
         while(slow != fast) {
             slow = nums[slow];
-            fast = nums[fast];              //  Decrease the speed of fast pointer
+            fast = nums[fast];              //  Move both pointers by 1 now
         }
 
         return slow;

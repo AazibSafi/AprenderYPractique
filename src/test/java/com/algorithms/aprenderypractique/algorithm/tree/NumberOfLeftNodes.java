@@ -1,9 +1,12 @@
 package com.algorithms.aprenderypractique.algorithm.tree;
 
 import com.algorithms.aprenderypractique.BaseTest;
-import com.algorithms.aprenderypractique.algorithm.tree.datastructure.BinaryTree;
+import com.algorithms.aprenderypractique.algorithm.datastructure.BinaryTree;
 import org.junit.Assert;
 import org.junit.Test;
+
+import java.util.ArrayDeque;
+import java.util.Queue;
 
 /**
  *  https://www.facebookrecruiting.com/portal/coding_practice_question/?problem_id=495004218121393
@@ -18,7 +21,25 @@ import org.junit.Test;
  *          4   7  13
  */
 public class NumberOfLeftNodes extends BaseTest {
+    public String serialize(BinaryTree root) {
+        StringBuilder serialize = new StringBuilder();
+        Queue<BinaryTree> queue = new ArrayDeque<>();
+        queue.add(root);
 
+        while(!queue.isEmpty()) {
+            BinaryTree node = queue.poll();
+
+            if(node != null) {
+                serialize.append(node.val + ',');
+                if(node.left != null) queue.add(node.left);
+                if(node.right != null) queue.add(node.right);
+            }
+            else {
+                serialize.append("null,");
+            }
+        }
+        return serialize.toString();
+    }
     @Test
     public void test() {
         BinaryTree root = new BinaryTree(8);

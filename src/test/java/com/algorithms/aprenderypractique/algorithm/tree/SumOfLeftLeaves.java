@@ -1,33 +1,16 @@
 package com.algorithms.aprenderypractique.algorithm.tree;
 
 import com.algorithms.aprenderypractique.BaseTest;
+import com.algorithms.aprenderypractique.algorithm.datastructure.BinaryTree;
 import org.junit.Test;
 
 import java.util.LinkedList;
 import java.util.Queue;
 
-/**
- *
- */
 public class SumOfLeftLeaves extends BaseTest {
 
-    public class BinaryTree {
-        int val;
-        BinaryTree left;
-        BinaryTree right;
-        BinaryTree() {}
-        BinaryTree(int val) { this.val = val; }
-        BinaryTree(int val, BinaryTree left, BinaryTree right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
-    }
-
     @Test
-    public void solution() {
-
-    }
+    public void solution() {}
 
     public int sumOfLeftLeavesRec(BinaryTree root) {
         if(root == null) return 0;

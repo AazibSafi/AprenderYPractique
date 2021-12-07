@@ -1,4 +1,4 @@
-package com.algorithms.aprenderypractique.algorithm.strings;
+package com.algorithms.aprenderypractique.algorithm.strings.Palindrome;
 
 import com.algorithms.aprenderypractique.BaseTest;
 import org.junit.Assert;
@@ -10,7 +10,7 @@ import org.junit.Test;
  *
  *  Given a string s, return true if the s can be palindrome after deleting at most one character from it.
  */
-public class ValidPalindrome_deleteChar extends BaseTest {
+public class ValidPalindrome_II_deleteChar extends BaseTest {
 
     @Test
     public void test() {
@@ -35,14 +35,12 @@ public class ValidPalindrome_deleteChar extends BaseTest {
 
 //  Time: O(N)
     public boolean validPalindrome(String s) {
-        int i=0, j=s.length()-1;
+        int n = s.length();
 
-        while(i<j) {
+        for(int i=0, j=n-1; i<j; i++, j--) {
             if(s.charAt(i) != s.charAt(j)) {
-                return isPalindrome(s,i+1,j) || isPalindrome(s,i,j-1);
+                return isPalindrome(s,i, j-1) || isPalindrome(s,i+1, j);
             }
-            i++;
-            j--;
         }
         return true;
     }

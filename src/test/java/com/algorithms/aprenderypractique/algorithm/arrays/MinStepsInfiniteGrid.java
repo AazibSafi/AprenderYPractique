@@ -1,6 +1,7 @@
 package com.algorithms.aprenderypractique.algorithm.arrays;
 
 import com.algorithms.aprenderypractique.BaseTest;
+import org.junit.Assert;
 import org.junit.Test;
 
 /**
@@ -10,10 +11,10 @@ public class MinStepsInfiniteGrid extends BaseTest {
 
     @Test
     public void test() {
+//        It takes 1 step to move from (0, 0) to (1, 1). It takes one more step to move from (1, 1) to (1, 2).
         int[] A = new int[]{0,1,1};
         int[] B = new int[]{0,1,2};
-//        It takes 1 step to move from (0, 0) to (1, 1). It takes one more step to move from (1, 1) to (1, 2).
-        System.out.println(coverPoints(A,B));
+        Assert.assertEquals(2, coverPoints(A, B));
     }
 
 /*

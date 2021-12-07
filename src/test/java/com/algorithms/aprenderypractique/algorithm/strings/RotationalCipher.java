@@ -12,10 +12,10 @@ public class RotationalCipher extends BaseTest {
     @Test
     public void test() {
         String str = "Zebra-493?";
-        Assert.assertEquals("Cheud-726?",rotationalCipher(str,3));
+        Assert.assertEquals("Cheud-726?", rotationalCipher(str,3));
 
         str = "abcdefghijklmNOPQRSTUVWXYZ0123456789";
-        Assert.assertEquals("nopqrstuvwxyzABCDEFGHIJKLM9012345678",rotationalCipher(str,39));
+        Assert.assertEquals("nopqrstuvwxyzABCDEFGHIJKLM9012345678", rotationalCipher(str,39));
     }
 
     public String rotationalCipher(String input, int rotationFactor) {

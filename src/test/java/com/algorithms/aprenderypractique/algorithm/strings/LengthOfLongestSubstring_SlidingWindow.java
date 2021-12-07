@@ -1,8 +1,8 @@
 package com.algorithms.aprenderypractique.algorithm.strings;
 
 import com.algorithms.aprenderypractique.BaseTest;
+import org.junit.Assert;
 import org.junit.Test;
-import org.junit.platform.commons.util.StringUtils;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -11,38 +11,34 @@ import java.util.Set;
  * Sliding Window Algorithm
  * Longest Substring Without Repeating Characters
  * https://www.youtube.com/watch?v=4i6-9IzQHwo&ab_channel=MichaelMuinos
+ * https://leetcode.com/problems/longest-substring-without-repeating-characters/
  */
 public class LengthOfLongestSubstring_SlidingWindow extends BaseTest {
 
     @Test
     public void test() {
-        String str = "PWWKEW";
-        System.out.println(length_of_LongestSubString(str));
+        Assert.assertEquals(3, lengthOfLongestSubstring("PWWKEW"));     //  wke
+        Assert.assertEquals(3, lengthOfLongestSubstring("abcabcbb"));   //  abc
+        Assert.assertEquals(1, lengthOfLongestSubstring("bbbbb"));      //  b
+        Assert.assertEquals(0, lengthOfLongestSubstring(""));
     }
 
-// TODO
-// Recheck in video
-// there is a problem,
-// it is not calculating max
+    public int lengthOfLongestSubstring(String str) {
+        Set<Character> set = new HashSet<>();
 
-    // O(2N) --> O(N)
-    public int length_of_LongestSubString(String str) {
+        int left = 0,  max = 0;
+        for(int right=0; right<str.length(); right++) {
+            char c = str.charAt(right);
 
-        if(StringUtils.isBlank(str)) {
-            return 0;
-        }
-
-        Set<Character> substringChars = new HashSet<>();
-
-        int j=0;
-        for(int i=0;i<str.length();i++) {
-            while(substringChars.contains(str.charAt(i))) {
-                substringChars.remove(str.charAt(j));
-                j++;
+            while(set.contains(c)) {
+                set.remove(str.charAt(left));
+                left++;
             }
-            substringChars.add(str.charAt(i));
+
+            max = Math.max(max, right - left + 1);
+            set.add(c);
         }
-        return substringChars.size();
+        return max;
     }
 
 }

@@ -21,7 +21,7 @@ public class AllPermutations_String extends BaseTest {
         List<String> permutations = Arrays.asList("ABC","ACB","BAC","BCA","CAB","CBA");
         Assert.assertTrue(permutations.containsAll( permute("ABC") ));
 
-            permutations = Arrays.asList("geek","geke","gkee","egek","egke","eegk","eekg","ekge","ekeg","kgee","kege","keeg");
+        permutations = Arrays.asList("geek","geke","gkee","egek","egke","eegk","eekg","ekge","ekeg","kgee","kege","keeg");
         Assert.assertTrue(permutations.containsAll( permute("geek") ));
 
         permutations = Arrays.asList("abb","abb","bab","bba","bab","bba");

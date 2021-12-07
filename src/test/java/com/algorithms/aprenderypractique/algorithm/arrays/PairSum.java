@@ -19,16 +19,16 @@ public class PairSum extends BaseTest {
     @Test
     public void test() {
         int[] arr = new int[]{1, 2, 3, 4, 3};
-        Assert.assertEquals(2,numberOfWays(arr,6));
+        Assert.assertEquals(2, numberOfWays(arr,6));
 
         arr = new int[]{1, 5, 3, 3, 3};
-        Assert.assertEquals(4,numberOfWays(arr,6));
+        Assert.assertEquals(4, numberOfWays(arr,6));
 
         arr = new int[]{1, 5, 3, 3, 3, 5};
-        Assert.assertEquals(5,numberOfWays(arr,6));
+        Assert.assertEquals(5, numberOfWays(arr,6));
 
         arr = new int[]{1, 2, 3, 4, 3};
-        Assert.assertEquals(0,numberOfWays(arr,2));
+        Assert.assertEquals(0, numberOfWays(arr,2));
     }
 
     int numberOfWays(int[] arr, int k) {
@@ -37,10 +37,10 @@ public class PairSum extends BaseTest {
         Map<Integer,Integer> map = new HashMap<>();
 
         for(int x : arr) {
-            if(map.containsKey(x)) {
-                count += map.get(x);
+            if(map.containsKey(k-x)) {
+                count += map.get(k-x);
             }
-            map.put(k - x,map.getOrDefault(k-x,0)+1);
+            map.put(x, map.getOrDefault(x,0)+1);
         }
 
         return count;

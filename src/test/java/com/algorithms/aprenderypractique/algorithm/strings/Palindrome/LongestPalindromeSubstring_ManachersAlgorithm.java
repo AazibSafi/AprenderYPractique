@@ -19,10 +19,12 @@ public class LongestPalindromeSubstring_ManachersAlgorithm extends BaseTest {
 
     @Test
     public void test() {
-        Assert.assertEquals("BABCBAB",LPS("BABCBAB"));
-        Assert.assertEquals("caac",LPS("acaac"));
-        Assert.assertEquals("abba",LPS("abacdfgdcabba"));
-        Assert.assertEquals("abacdedcaba",LPS("abacdedcaba"));
+        Assert.assertEquals("BABCBAB", longestPalindrome("BABCBAB"));
+        Assert.assertEquals("caac", longestPalindrome("acaac"));
+        Assert.assertEquals("abba", longestPalindrome("abacdfgdcabba"));
+        Assert.assertEquals("abacdedcaba", longestPalindrome("abacdedcaba"));
+        Assert.assertEquals("a", longestPalindrome("a"));
+        Assert.assertEquals("a", longestPalindrome("ac"));
     }
 
 /*
@@ -30,8 +32,7 @@ public class LongestPalindromeSubstring_ManachersAlgorithm extends BaseTest {
     Time Complexity: O(N)
     Space Complexity: O(N)
  */
-    public String LPS(String str) {
-
+    public String longestPalindrome(String str) {
         String LPS = CommonHelper.modifyString(str,"#");
 
         int[] P = new int[LPS.length()];
@@ -43,27 +44,27 @@ public class LongestPalindromeSubstring_ManachersAlgorithm extends BaseTest {
 
         for(int i=0; i< LPS.length(); i++) {
 
-            iMirror = 2*C -i;       // get mirror index of i
+            iMirror = 2*C - i;       // get mirror index of i
 
             if(R > i) {
                 P[i] = Math.min(R-i, P[iMirror]);
             }
 
 //  expand at i towards left and right
-            int left = i-1-P[i];
-            int right = i+1+P[i];
+            int left = i - 1 - P[i];
+            int right = i + 1 + P[i];
             while( left>=0 && right<LPS.length() &&
                     LPS.charAt(left) == LPS.charAt(right) ) {
 
                 P[i]++;
-                left = i-1-P[i];
-                right = i+1+P[i];
+                left = i - 1 - P[i];
+                right = i + 1 + P[i];
 
             }
 
             if( i+P[i] > R ) {
                 C = i;         // the new center is i
-                R = i+P[i];
+                R = i + P[i];
 
                 if(P[i] > P[maxLenIndex]) {
                     maxLenIndex = i;        // Storing centre index
