@@ -64,7 +64,7 @@ OR
         }
 
         if(ind != numCourses)       // ind should be equal to total number of courses
-            return new int[]{};     // Graph contains a cycle
+            return new int[0];     // Graph contains a cycle
 
 //        for(int inDegree : inDegrees) {
 //            if(inDegree != 0)               // Graph contains a cycle

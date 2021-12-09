@@ -51,7 +51,7 @@ OR
             int pre_course = zeroDegree.poll();
             ArrayList<Integer> outDegree = outDegrees[pre_course];
 
-            for(int course : outDegree) {
+            for(int course : outDegree) {       // adjacents
                 inDegrees[course]--;
 
                 if(inDegrees[course] == 0)

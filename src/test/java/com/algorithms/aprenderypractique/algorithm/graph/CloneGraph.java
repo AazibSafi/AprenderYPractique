@@ -1,12 +1,10 @@
 package com.algorithms.aprenderypractique.algorithm.graph;
 
 import com.algorithms.aprenderypractique.BaseTest;
-import org.junit.Assert;
+import com.algorithms.aprenderypractique.algorithm.datastructure.GraphNode;
 import org.junit.Test;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -23,39 +21,22 @@ public class CloneGraph extends BaseTest {
 
     }
 
-    public Node cloneGraph(Node node) {
+    public GraphNode cloneGraph(GraphNode node) {
         if(node == null)        return null;
-        Map<Integer,Node> map = new HashMap<>();
+        Map<Integer, GraphNode> map = new HashMap<>();
         return cloneGraph(node, map);
     }
 
-    public Node cloneGraph(Node node, Map<Integer,Node> map) {
+    public GraphNode cloneGraph(GraphNode node, Map<Integer, GraphNode> map) {
         if(map.containsKey(node.val))   return map.get(node.val);
 
-        Node copy = new Node(node.val);
+        GraphNode copy = new GraphNode(node.val);
         map.put(copy.val, copy);
 
-        for(Node neighbor : node.neighbors)
-            copy.neighbors.add(cloneGraph(neighbor,map));
+        for(GraphNode neighbor : node.neighbors)
+            copy.neighbors.add(cloneGraph(neighbor, map));
 
         return copy;
-    }
-
-    class Node {
-        public int val;
-        public List<Node> neighbors;
-        public Node() {
-            val = 0;
-            neighbors = new ArrayList<Node>();
-        }
-        public Node(int _val) {
-            val = _val;
-            neighbors = new ArrayList<Node>();
-        }
-        public Node(int _val, ArrayList<Node> _neighbors) {
-            val = _val;
-            neighbors = _neighbors;
-        }
     }
 
 }

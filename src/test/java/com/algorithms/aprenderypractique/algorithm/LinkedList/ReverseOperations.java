@@ -35,7 +35,7 @@ public class ReverseOperations extends BaseTest {
     }
 
 /*
-    push the node in stack if it is even
+    push the GraphNode in stack if it is even
     when odd node is found, start swapping the items from head to the start of stack till half size of stack.
  */
     LinkedList reverse(LinkedList head) {

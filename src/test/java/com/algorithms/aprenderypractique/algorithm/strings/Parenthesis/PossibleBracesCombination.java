@@ -1,4 +1,4 @@
-package com.algorithms.aprenderypractique.algorithm;
+package com.algorithms.aprenderypractique.algorithm.strings.Parenthesis;
 
 import com.algorithms.aprenderypractique.BaseTest;
 import org.junit.Test;
@@ -25,7 +25,7 @@ public class PossibleBracesCombination extends BaseTest {
  */
     public List<String> findBraceCombinations(int n) {
         List<String> combinations = new ArrayList<>();
-        possibleBraces(n,0,0,new StringBuilder(),combinations);
+        possibleBraces(n,0,0, new StringBuilder(), combinations);
         return combinations;
     }
 

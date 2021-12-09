@@ -1,4 +1,4 @@
-package com.algorithms.aprenderypractique.algorithm.arrays.SubSetSum_OR_Partition_Array;
+package com.algorithms.aprenderypractique.algorithm.arrays;
 
 import com.algorithms.aprenderypractique.BaseTest;
 import org.junit.Assert;

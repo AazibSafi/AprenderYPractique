@@ -4,11 +4,6 @@ import com.algorithms.aprenderypractique.BaseTest;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 /**
  *  https://leetcode.com/problems/maximal-network-rank/
  *  https://www.youtube.com/watch?v=lXiv1sw58d0&ab_channel=NeetCode

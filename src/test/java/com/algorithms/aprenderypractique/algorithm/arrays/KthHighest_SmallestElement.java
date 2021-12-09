@@ -7,13 +7,22 @@ import org.junit.Test;
 import java.util.Collections;
 import java.util.PriorityQueue;
 
+/**
+ *  https://leetcode.com/problems/kth-largest-element-in-an-array/
+ *
+ *  Note: Some confusion in Time Complexity
+ *
+ *  Asked in Facebook Final Round
+ *
+ *  TODO: Learn for Quick Select approach for more efficient solution
+ */
 public class KthHighest_SmallestElement extends BaseTest {
 
     @Test
     public void test() {
         int[] array = new int[] {2,8,5,3,9,1};
-        Assert.assertEquals(8,findKthLargest(array, 2));
-        Assert.assertEquals(2,findKthSmallest(array, 2));
+        Assert.assertEquals(8, findKthLargest(array, 2));
+        Assert.assertEquals(2, findKthSmallest(array, 2));
     }
 
     public int findKthLargest(int[] nums, int k) {

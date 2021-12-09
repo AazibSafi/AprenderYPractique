@@ -10,6 +10,10 @@ import java.util.PriorityQueue;
  *  https://leetcode.com/problems/k-closest-points-to-origin/
  *  https://www.youtube.com/watch?v=VORIA407dB4&ab_channel=TECHDOSE
  *  https://www.youtube.com/watch?v=1rEUgAG7f_c&ab_channel=KevinNaughtonJr.
+ *
+ *  Note: Some confusion in Time Complexity
+ *
+ *  Asked in Facebook Final Round
  */
 public class K_ClosestPointToOrigin extends BaseTest {
 
