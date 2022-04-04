@@ -9,7 +9,7 @@ import org.junit.Test;
  *  https://www.youtube.com/watch?v=mj7N8pLCJ6w&ab_channel=KevinNaughtonJr.
  *  https://www.youtube.com/watch?v=1pkOgXD63yU&ab_channel=NeetCode
  */
-public class BestTimeToBuyAndSellStock  extends BaseTest {
+public class BestTimeToBuyAndSellStock extends BaseTest {
 
     @Test
     public void solution() {
@@ -19,7 +19,7 @@ public class BestTimeToBuyAndSellStock  extends BaseTest {
 
 /*
     Time: O(n)    --  Only a single pass is needed.
-    Space: O(1)   --  Only two variables are used.
+    Space: O(1)   --  Only two variables are used - No extra space
  */
     public int maxProfit(int[] prices) {
         int minPrice = Integer.MAX_VALUE;

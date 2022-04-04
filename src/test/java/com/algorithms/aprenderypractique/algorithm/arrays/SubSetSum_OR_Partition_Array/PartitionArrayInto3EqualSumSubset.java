@@ -10,12 +10,17 @@ import java.util.Arrays;
  *  https://www.interviewbit.com/problems/partitions/
  *  https://www.youtube.com/watch?v=31W_QU1xJcg
  */
-public class PartitionArrayinto3EqualSumSubset extends BaseTest {
+public class PartitionArrayInto3EqualSumSubset extends BaseTest {
 
     @Test
     public void test() {
         int[] array = new int[]{1, 2, 3, 0, 3};
         Assert.assertEquals(2, partition(array));
+/*
+    There are no 2 ways to make partitions -
+     1. (1,2)+(3)+(0,3).
+     2. (1,2)+(3,0)+(3).
+ */
 
         array = new int[]{0,0,0,0};
         Assert.assertEquals(3, partition(array));

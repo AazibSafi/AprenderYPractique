@@ -11,8 +11,6 @@ import java.util.List;
 /**
  *  Given the busy slots of each employees with start and end time
  *  Find the common free slots for everyone to schedule a new meeting
- *  https://www.youtube.com/watch?v=tafUkDPWIbM
- *  https://leetcode.com/problems/employee-free-time/description/
  */
 public class FreeMeetingSlot extends BaseTest {
 

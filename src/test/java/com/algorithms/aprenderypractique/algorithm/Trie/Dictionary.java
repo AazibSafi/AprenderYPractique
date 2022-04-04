@@ -68,7 +68,7 @@ public class Dictionary {
     }
 
 /*
-    Check if a given word contains a substring prefix that is present in dictionary AS A COMPLETE WORLD
+    Check if a given word contains a substring prefix that is present in dictionary AS A COMPLETE WORD
     Returns the shortest prefix if exist
  */
     public String findShortestPrefix(String word) {

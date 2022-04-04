@@ -48,13 +48,14 @@ public class BinaryTreeWithFactors extends BaseTest {
                     count += map.get(leftChild) * map.get(rightChild);
                 }
             }
+
             map.put(arr[i], count);
         }
 
 //  sum of all NoOfTree of each item
         AtomicInteger totalTrees = new AtomicInteger();
         map.forEach((x,y) -> totalTrees.addAndGet(y.intValue()));
-        return totalTrees.get() % (1000000000 + 7);             //   From Question: The answer may be too large so return the answer modulo 109 + 7.
+        return totalTrees.get() % (1000000000 + 7);             //   From Question: The answer may be too large so return the answer modulo 10^9 + 7.
     }
 
 }

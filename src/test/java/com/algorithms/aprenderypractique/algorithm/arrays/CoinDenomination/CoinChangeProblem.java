@@ -11,6 +11,8 @@ import java.util.List;
 /**
  *  Coin Changing Minimum Coins Dynamic Programming
  *  https://www.youtube.com/watch?v=NJuKJ8sasGk
+ *
+ *  What is the minimum number of coins it takes to make a total of given amount
  */
 public class CoinChangeProblem extends BaseTest {
 
@@ -38,7 +40,9 @@ public class CoinChangeProblem extends BaseTest {
     }
 
 /*
-    Formula:    T[i] = min(T[i], 1 + T[i-coin[j]])
+    Formula:    T[i] = min( T[i], 1 + T[i-coin[j]] )
+            T[i] --> without picking jth coin
+            T[i-coin[j]] --> picking jth coin
 
     Time Complexity: O(N*M)
  */

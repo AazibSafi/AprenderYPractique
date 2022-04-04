@@ -35,7 +35,7 @@ public class MaxAbsoluteDifference extends BaseTest {
             min2 = Math.min(min2, A[i]-i);
         }
 
-        return Math.max(max1-min1,max2-min2);
+        return Math.max(max1-min1, max2-min2);
     }
 
 //      Brute Force O(n^2)

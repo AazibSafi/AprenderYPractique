@@ -80,18 +80,18 @@ public class ConnectedSets extends BaseTest {
     }
 
     void traverseNeighbor(int[][] matrix, int i, int j) {
-        if(withInBoundry(i,j, matrix.length, matrix[0].length) && matrix[i][j] == 1) {
+        if(withInBoundary(i,j, matrix.length, matrix[0].length) && matrix[i][j] == 1) {
 
             matrix[i][j] = -1;  // Visited Cell
 
-            for(int d=0; d<dir.length; d++) {   //  Traverse All Given Directions and mark them visited
-                traverseNeighbor(matrix, i + dir[d][0], j + dir[d][1]);
+            for (int[] cord : dir) {   //  Traverse All Given Directions and mark them visited
+                traverseNeighbor(matrix, i + cord[0], j + cord[1]);
             }
 
         }
     }
 
-    boolean withInBoundry(int i, int j, int row, int col) {
+    boolean withInBoundary(int i, int j, int row, int col) {
         return i>=0 && j>=0 && i<row && j<col;
     }
 

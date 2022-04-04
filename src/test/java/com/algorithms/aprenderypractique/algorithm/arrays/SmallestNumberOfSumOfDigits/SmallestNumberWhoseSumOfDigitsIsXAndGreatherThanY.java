@@ -18,12 +18,18 @@ public class SmallestNumberWhoseSumOfDigitsIsXAndGreatherThanY extends BaseTest 
     @Test
     public void solution() {
         Assert.assertEquals("189", findMin(18,99));
+        Assert.assertEquals("75", findMin(12,72));
     }
 
-// Function to find the smallest
-// number greater than Y
-// whose sum of digits is X
-    String findMin(int x, int Y) {
+/*
+    Function to find the smallest
+    number greater than Y
+    whose sum of digits is X
+
+    Time Complexity: O(log10Y)
+    Auxiliary Space: O(log10Y)
+ */
+    String findMin(int X, int Y) {
 
         // Convert number y to String
         String y = Integer.toString(Y);
@@ -66,11 +72,11 @@ public class SmallestNumberWhoseSumOfDigitsIsXAndGreatherThanY extends BaseTest 
 
                 // Return answer if remaining
                 // sum can be obtained in suffix
-                if (x - r >= 0 && x - r <= 9 * k) {
+                if (X - r >= 0 && X - r <= 9 * k) {
 
                     // Find suffix of length k
-                    // having sum of digits x-r
-                    String suf = helper(k, x - r);
+                    // having sum of digits X-r
+                    String suf = helper(k, X - r);
 
                     String pre = "";
 

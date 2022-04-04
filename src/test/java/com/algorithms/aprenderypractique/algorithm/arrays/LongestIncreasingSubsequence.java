@@ -13,11 +13,12 @@ import java.util.stream.IntStream;
 /**
  *  Longest Increasing Subsequence
  *  https://www.interviewbit.com/problems/longest-increasing-subsequence/
+ *  https://leetcode.com/problems/longest-increasing-subsequence/
  *
  *  https://www.youtube.com/watch?v=CE2b_-XfVDk&t=41s
  *  https://github.com/mission-peace/interview/blob/master/src/com/interview/dynamic/LongestIncreasingSubsequence.java
  *
- *     Time complexit: O(n^2).
+ *     Time complexity: O(n^2).
  *     Space complexity: O(n)
  */
 public class LongestIncreasingSubsequence extends BaseTest {
@@ -42,6 +43,14 @@ public class LongestIncreasingSubsequence extends BaseTest {
         arr = new int[]{10,9,2,5,3,7,101,18};
         result = longestIncreasingSubsequence(arr);
         Assert.assertTrue(Arrays.asList(2,3,7,101).containsAll(result) || Arrays.asList(2,5,7,101).containsAll(result));
+
+        arr = new int[]{0,1,0,3,2,3};
+        result = longestIncreasingSubsequence(arr);
+        Assert.assertTrue(Arrays.asList(0,1,2,3).containsAll(result) || Arrays.asList(2,5,7,101).containsAll(result));
+
+        arr = new int[]{7,7,7,7,7,7,7};
+        result = longestIncreasingSubsequence(arr);
+        Assert.assertTrue(Arrays.asList(7).containsAll(result) || Arrays.asList(2,5,7,101).containsAll(result));
 
         arr = new int[]{84,80,27};
         Assert.assertTrue(Collections.singletonList(84).containsAll(longestIncreasingSubsequence(arr)));

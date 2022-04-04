@@ -21,7 +21,7 @@ import java.util.Arrays;
  *
  *  Extension of SubSetSum Problem
  */
-public class PartitionArrayinto2EqualSumSubset_NotStrictly extends BaseTest {
+public class PartitionArrayInto2EqualSumSubset_NotStrictly extends BaseTest {
 
     @Test
     public void test() {

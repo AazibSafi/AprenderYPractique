@@ -27,9 +27,9 @@ public class ReplaceWords_Successor extends BaseTest {
         String[] words = sentence.split(" ");
 
         for(int i=0; i<words.length; i++) {
-            String successor = dictionaryData.findShortestPrefix(words[i]);
-            if(!successor.isEmpty())
-                words[i] = successor;
+            String root = dictionaryData.findShortestPrefix(words[i]);
+            if(!root.isEmpty())
+                words[i] = root;
         }
 
         return String.join(" ",words);

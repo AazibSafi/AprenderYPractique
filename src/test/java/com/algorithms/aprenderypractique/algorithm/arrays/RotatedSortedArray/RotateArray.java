@@ -21,7 +21,7 @@ public class RotateArray extends BaseTest {
         rotate(nums, 2);
         Assert.assertArrayEquals(new int[]{3,99,-1,-100}, nums);
 
-        nums = new int[]{-1};       // Edge Case
+        nums = new int[]{-1};       // Edge Case: if k is greater than the size of array
         rotate(nums, 2);
         Assert.assertArrayEquals(new int[]{-1}, nums);
     }

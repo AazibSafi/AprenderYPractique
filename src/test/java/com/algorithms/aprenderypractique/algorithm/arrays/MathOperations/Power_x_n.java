@@ -34,17 +34,17 @@ COMPARING DOUBLE WITH PRECISION
     Time: O(logN)
     Using Binary Search Technique
  */
-    public double myPow(double x, int n) {
-        double result = power(x, Math.abs(n));
-        return n < 0 ? 1/result : result;
+    public double myPow(double x, int p) {
+        double result = power(x, Math.abs(p));
+        return p < 0 ? 1/result : result;
     }
 
-    public double power(double x, int n) {
-        if(n==0) return 1;
-        if(n==1) return x;
+    public double power(double x, int p) {
+        if(p==0) return 1;
+        if(p==1) return x;
 
-        double prod = power(x,n/2);
-        return n%2==0 ? (prod * prod) : (x * prod * prod);
+        double prod = power(x,p/2);
+        return p%2==0 ? (prod * prod) : (x * prod * prod);
     }
 
 }

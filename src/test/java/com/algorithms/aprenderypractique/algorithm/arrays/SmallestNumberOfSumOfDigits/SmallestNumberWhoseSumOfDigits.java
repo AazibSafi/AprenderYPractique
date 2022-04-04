@@ -12,9 +12,9 @@ public class SmallestNumberWhoseSumOfDigits extends BaseTest {
 
     @Test
     public void solution() {
-        /*Assert.assertEquals(19, smallestNumber(10));
+        Assert.assertEquals(19, smallestNumber(10));
         Assert.assertEquals(99, smallestNumber(18));
-        Assert.assertEquals(599, smallestNumber(23));*/
+        Assert.assertEquals(599, smallestNumber(23));
         Assert.assertEquals(9, smallestNumber(9));
         Assert.assertEquals(0, smallestNumber(0));
     }
@@ -34,7 +34,6 @@ public class SmallestNumberWhoseSumOfDigits extends BaseTest {
         }
 
         s.insert(0, N);
-
         return Integer.parseInt(s.toString());
     }
 

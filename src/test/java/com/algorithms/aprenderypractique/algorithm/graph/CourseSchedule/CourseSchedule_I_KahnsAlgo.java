@@ -19,7 +19,7 @@ import java.util.Queue;
  *  Topological Sort is only possible if the graph is DAG
  *  Topological orderings are NOT unique
  *
- *  Kahn's Algorithm is a simple topological sort algorithm that cn find a topological ordering in O(V+E) time!
+ *  Kahn's Algorithm is a simple topological sort algorithm that can find a topological ordering in O(V+E) time!
  */
 public class CourseSchedule_I_KahnsAlgo extends BaseTest {
 

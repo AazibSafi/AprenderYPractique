@@ -7,7 +7,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 
 /**
- *  https://leetcode.com/problems/is-graph-bipartite/
+ *  https://leetcode.com/problems/possible-bipartition/
  *  https://www.youtube.com/watch?v=-SpTh4AEZrk
  */
 public class PossibleBipartition extends BaseTest {
@@ -15,13 +15,13 @@ public class PossibleBipartition extends BaseTest {
     @Test
     public void solution() {
         int[][] graph = new int[][]{{1,2},{1,3},{2,4}};
-        Assert.assertTrue(possibleBipartition(4,graph));
+        Assert.assertTrue(possibleBipartition(4, graph));
 
         graph = new int[][]{{1,2},{1,3},{2,3}};
-        Assert.assertFalse(possibleBipartition(3,graph));
+        Assert.assertFalse(possibleBipartition(3, graph));
 
         graph = new int[][]{{1,2},{2,3},{3,4},{4,5},{1,5}};
-        Assert.assertFalse(possibleBipartition(5,graph));
+        Assert.assertFalse(possibleBipartition(5, graph));
     }
 
     public boolean possibleBipartition(int n, int[][] dislikes) {
@@ -52,7 +52,7 @@ public class PossibleBipartition extends BaseTest {
     }
 
 /**
- * @see GraphBipartite same logic of appliColor - only ArrayList<Integer>[] graph, is different
+ * @see GraphBipartite same logic of applyColor - only ArrayList<Integer>[] graph, is different
  *  We can also use Union Find Strategy
  */
     public boolean fillColor(int[] colorApplied, ArrayList<Integer>[] graph, int person, int color) {

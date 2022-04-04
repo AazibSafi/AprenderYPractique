@@ -30,8 +30,7 @@ public class SmallestNumber_WithNDigits_WhoseSumOfDigits extends BaseTest {
 
 //  If sum of digits is 0, then a number is possible only if number of digits is 1
         if(sum == 0) {
-            if(d == 1)      return 0;
-            else            return -1;
+            return d == 1 ? 0 : -1;
         }
 
 //  if we put all the digits as 9, and the sums of that number is still less than the required sum,

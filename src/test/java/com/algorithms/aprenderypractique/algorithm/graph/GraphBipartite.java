@@ -25,7 +25,7 @@ public class GraphBipartite extends BaseTest {
 /*
     0 - NO COLOR
     1 - RED
-    2 - BLUE
+   -1 - BLUE
  */
 /*
     Time: O(V+E)

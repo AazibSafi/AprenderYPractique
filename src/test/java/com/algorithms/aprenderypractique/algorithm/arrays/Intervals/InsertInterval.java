@@ -27,10 +27,11 @@ public class InsertInterval extends BaseTest {
         Assert.assertArrayEquals(new int[][]{{1,7}}, insert(intervals, new int[]{2,7}));
     }
 
-/*
+/**
     We can insert the newInterval at any place in the intervals
     Then this will become Merge Interval Problem
- */
+    @see Union_MergeOverlapIntervels
+ **/
     public int[][] insert(int[][] intervals, int[] newInterval) {
         int[][] insertedInterval = new int[intervals.length+1][];
 

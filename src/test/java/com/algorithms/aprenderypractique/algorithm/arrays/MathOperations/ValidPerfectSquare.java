@@ -5,9 +5,9 @@ import org.junit.Assert;
 import org.junit.Test;
 
 /**
- *
+ *  https://leetcode.com/problems/valid-perfect-square/
  */
-public class PerfectSquare extends BaseTest {
+public class ValidPerfectSquare extends BaseTest {
 
     @Test
     public void test() {
