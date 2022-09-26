@@ -1,4 +1,4 @@
-package com.algorithms.aprenderypractique.algorithm.strings;
+package com.algorithms.aprenderypractique.algorithm.strings.Anagram;
 
 import com.algorithms.aprenderypractique.BaseTest;
 import org.junit.Assert;

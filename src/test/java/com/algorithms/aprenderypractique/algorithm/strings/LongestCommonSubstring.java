@@ -1,7 +1,6 @@
 package com.algorithms.aprenderypractique.algorithm.strings;
 
 import com.algorithms.aprenderypractique.BaseTest;
-import jdk.nashorn.internal.runtime.regexp.joni.constants.Traverse;
 import org.junit.Assert;
 import org.junit.Test;
 

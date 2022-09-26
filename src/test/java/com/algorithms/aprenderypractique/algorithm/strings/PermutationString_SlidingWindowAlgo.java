@@ -2,6 +2,7 @@ package com.algorithms.aprenderypractique.algorithm.strings;
 
 import com.algorithms.aprenderypractique.BaseTest;
 import com.algorithms.aprenderypractique.CommonHelper;
+import com.algorithms.aprenderypractique.algorithm.strings.Anagram.AnagramString_SlidingWindowAlgo;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.platform.commons.util.StringUtils;
