@@ -8,7 +8,7 @@ import java.util.stream.IntStream;
 
 /**
  *  https://leetcode.com/problems/first-missing-positive
- *  https://www.youtube.com/watch?v=9SnkdYXNIzM&list=PLtQWXpf5JNGJagakc_kBtOH5-gd8btjEW&index=14
+ *  https://www.youtube.com/watch?v=9SnkdYXNIzM&list=PLtQWXpf5JNGJagakc_kBtOH5-gd8btjEW
  *
  *  Time Complexity: O(N)
  *  Space complexity: O(1) -- No extra memory
@@ -24,6 +24,12 @@ public class FirstMissingPositive extends BaseTest {
         Assert.assertEquals(2,firstMissingPositive(nums));
 
         nums = new int[]{7,8,9,11,12};
+        Assert.assertEquals(1,firstMissingPositive(nums));
+
+        nums = new int[]{2, 7, 11, 15};
+        Assert.assertEquals(1,firstMissingPositive(nums));
+
+        nums = new int[]{};
         Assert.assertEquals(1,firstMissingPositive(nums));
     }
 
@@ -50,8 +56,8 @@ public class FirstMissingPositive extends BaseTest {
 
 //      Marking with 1, for all elements in the array that are negative and greater than the N
     void markOne_ForAllNegativeAndOutOfRangeElements(int[] nums) {
-        for(int i=0;i<nums.length;i++) {
-            if(nums[i] > nums.length || nums[i] <= 0)
+        for(int i=0; i<nums.length; i++) {
+            if(nums[i] <= 0 || nums[i] > nums.length)
                 nums[i] = 1;
         }
     }
@@ -68,7 +74,7 @@ public class FirstMissingPositive extends BaseTest {
 
 //      Find first positive number in the array, That index+1 is the missing number
     int findFirstPositiveElement(int[] nums) {
-        for(int i=0;i<nums.length;i++) {
+        for(int i=0; i<nums.length; i++) {
             if(nums[i] > 0) {
                 return i+1;
             }

@@ -1,4 +1,4 @@
-package com.algorithms.aprenderypractique.algorithm.arrays;
+package com.algorithms.aprenderypractique.algorithm.arrays.TwoSum;
 
 import com.algorithms.aprenderypractique.BaseTest;
 import org.junit.Assert;
@@ -14,7 +14,7 @@ import java.util.Map;
  * two pairs are considered different if one pair includes at least one array index which the other doesn't,
  * even if they include the same values.
  */
-public class PairSum extends BaseTest {
+public class PairSum_NumberOfWays extends BaseTest {
 
     @Test
     public void test() {
@@ -31,6 +31,10 @@ public class PairSum extends BaseTest {
         Assert.assertEquals(0, numberOfWays(arr,2));
     }
 
+    /**
+     * Little bit similar logic
+     * @see com.algorithms.aprenderypractique.algorithm.arrays.SubSetSum_OR_Partition_Array.SubarraySumEqualK
+     */
     int numberOfWays(int[] arr, int k) {
         int count = 0;
 

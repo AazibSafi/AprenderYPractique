@@ -1,5 +1,6 @@
 package com.algorithms.aprenderypractique;
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.util.CollectionUtils;
 
@@ -12,15 +13,15 @@ public class Paranthesis extends BaseTest {
     @Test
     public void solution() {
         Map<Character,Character> map = getValidParenthesis();
-        System.out.println(checkParanthesis("()",map));
-        System.out.println(checkParanthesis("()[]{}",map));
-        System.out.println(checkParanthesis("(]",map));
-        System.out.println(checkParanthesis(")(",map));
-        System.out.println(checkParanthesis("([)]",map));
-        System.out.println(checkParanthesis("{[]}",map));
-        System.out.println(checkParanthesis(")",map));
-        System.out.println(checkParanthesis("([]",map));
-        System.out.println(checkParanthesis("",map));
+        Assert.assertTrue(checkParanthesis("()",map));
+        Assert.assertTrue(checkParanthesis("()[]{}",map));
+        Assert.assertFalse(checkParanthesis("(]",map));
+        Assert.assertFalse(checkParanthesis(")(",map));
+        Assert.assertFalse(checkParanthesis("([)]",map));
+        Assert.assertTrue(checkParanthesis("{[]}",map));
+        Assert.assertFalse(checkParanthesis(")",map));
+        Assert.assertFalse(checkParanthesis("([]",map));
+        Assert.assertTrue(checkParanthesis("",map));
     }
 
     private Map<Character,Character> getValidParenthesis() {

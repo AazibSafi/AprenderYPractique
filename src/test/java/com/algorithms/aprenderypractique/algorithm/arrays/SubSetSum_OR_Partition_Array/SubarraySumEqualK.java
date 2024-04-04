@@ -32,7 +32,7 @@ public class SubarraySumEqualK extends BaseTest {
         int sum = 0;
 
         Map<Integer, Integer> map = new HashMap<>();
-        map.put(0,1);
+        //map.put(0,1);
 
         for(int x : nums) {
             sum += x;
@@ -41,7 +41,7 @@ public class SubarraySumEqualK extends BaseTest {
                 result += map.get(sum-k);
             }
 
-            map.put(sum, map.getOrDefault(sum,0)+1);
+            map.put(sum, map.getOrDefault(sum, 0)+1);
         }
 
         return result;

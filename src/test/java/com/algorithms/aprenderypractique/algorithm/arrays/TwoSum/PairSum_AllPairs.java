@@ -1,4 +1,4 @@
-package com.algorithms.aprenderypractique.algorithm.arrays;
+package com.algorithms.aprenderypractique.algorithm.arrays.TwoSum;
 
 import com.algorithms.aprenderypractique.BaseTest;
 import com.google.common.collect.ImmutableMap;
@@ -11,9 +11,9 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @see PairSum
+ * @see PairSum_NumberOfWays
  */
-public class SumOfPairInArray extends BaseTest {
+public class PairSum_AllPairs extends BaseTest {
 
     @Test
     public void test() {
@@ -28,6 +28,10 @@ public class SumOfPairInArray extends BaseTest {
         arr = new int[]{3,2,4};
         result = findSumOfTwoIntegersInArray(arr,6);
         Assert.assertEquals(ImmutableMap.<Integer, Integer>builder().put(2, 4).build(), result);
+
+        arr = new int[]{1, 5, 3, 3, 3, 5};
+        result = findSumOfTwoIntegersInArray(arr,6);
+        Assert.assertEquals(ImmutableMap.<Integer, Integer>builder().put(1, 5).put(3, 3).build(), result);
     }
 
     public Map<Integer,Integer> findSumOfTwoIntegersInArray(int[] arr, int val) {
@@ -41,22 +45,6 @@ public class SumOfPairInArray extends BaseTest {
             }
 
             list.add(x);
-        }
-
-        return result;
-    }
-
-    public Map<Integer,Integer> findSumOfTwoIntegersInArrays(int[] arr, int val) {
-        Map<Integer,Integer>  result = new HashMap<>();
-        Map<Integer,Integer>  tableCheck = new HashMap<>();
-
-        for(int x : arr) {
-            Integer remaining = val - x;
-            if(tableCheck.containsKey(x)) {
-                result.put(remaining, x);
-            }
-
-            tableCheck.put(remaining, x);
         }
 
         return result;
