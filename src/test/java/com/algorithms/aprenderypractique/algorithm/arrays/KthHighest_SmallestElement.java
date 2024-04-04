@@ -23,6 +23,14 @@ public class KthHighest_SmallestElement extends BaseTest {
         int[] array = new int[] {2,8,5,3,9,1};
         Assert.assertEquals(8, findKthLargest(array, 2));
         Assert.assertEquals(2, findKthSmallest(array, 2));
+
+        array = new int[] {3,2,1,5,6,4};
+        Assert.assertEquals(5, findKthLargest(array, 2));
+        Assert.assertEquals(2, findKthSmallest(array, 2));
+
+        array = new int[] {3,2,3,1,2,4,5,5,6};
+        Assert.assertEquals(4, findKthLargest(array, 4));
+        Assert.assertEquals(3, findKthSmallest(array, 4));
     }
 
     public int findKthLargest(int[] nums, int k) {

@@ -37,7 +37,7 @@ public class LargestTripleProduct extends BaseTest {
         PriorityQueue<Integer> queue = new PriorityQueue<>(Collections.reverseOrder());
 
         for(int x : arr) {      // O(n)
-            queue.add(x);       // O(logn)
+            queue.add(x);       // O(logN)
 
             if(queue.size()<3) {
                 result[index++] = -1;
