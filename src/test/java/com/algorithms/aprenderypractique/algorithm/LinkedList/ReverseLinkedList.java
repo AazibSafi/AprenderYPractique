@@ -10,6 +10,7 @@ import org.junit.Test;
  *
  *  Time Complexity: O(n)
  *  Space Complexity: O(1)
+ *      https://leetcode.com/problems/reverse-linked-list/
  */
 public class ReverseLinkedList extends BaseTest {
 
@@ -20,37 +21,31 @@ public class ReverseLinkedList extends BaseTest {
         list.next.next = new LinkedList(6);
         list.next.next.next = new LinkedList(3);
 
-        LinkedList reversedList = reverseLL(list);
+        LinkedList reversedList = reverseList(list);
 
         Assert.assertEquals(3,reversedList.val);
     }
 
-    LinkedList reverseLL(LinkedList head) {
-        LinkedList prev = null;
-        LinkedList current = head;
-        LinkedList next = null;
+    public LinkedList reverseList(LinkedList head) {
+        LinkedList prev = null, next = null, curr = head;
 
-        while(current != null) {
-            next = current.next;
-            current.next = prev;
-            prev = current;
-            current = next;
+        while(curr!=null) {
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
         }
 
-        head = prev;
-        return head;
+        return prev;
     }
 
-    LinkedList reverseLL2(LinkedList head) {
-        if(head == null || head.next == null) {
-            return head;
-        }
-        else {
-            LinkedList reversedList = reverseLL(head.next);
-            head.next.next = head;
-            head.next = null;       // Edge case: mostly people forget this, causes memory leak
-            return reversedList;
-        }
+    public LinkedList reverseList_rec(LinkedList head) {
+        if(head == null || head.next == null) return head;
+
+        LinkedList node = reverseList(head.next);
+        head.next.next = head;
+        head.next = null;  // Edge case: mostly people forget this, causes memory leak
+        return node;
     }
 
 }

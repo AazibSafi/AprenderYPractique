@@ -34,6 +34,9 @@ public class BalanceBrackets extends BaseTest {
 
         str = ")";
         Assert.assertFalse(isValid(str));
+
+        str = "(({{";
+        Assert.assertFalse(isValid(str));
     }
 
     public boolean isValid(String str) {
@@ -52,7 +55,7 @@ public class BalanceBrackets extends BaseTest {
                 stack.pop();
             }
         }
-        return true;
+        return stack.isEmpty();
     }
 
     @Test
@@ -86,6 +89,19 @@ public class BalanceBrackets extends BaseTest {
             }
         }
         return open == 0;
+    }
+
+    public boolean isValidSingleBraces2(String s) {
+        char op = '(', cl = ')';
+        int open=0, close=0;
+
+        for(char c : s.toCharArray()) {
+            if(c == op) open++;
+            else if(c == cl) close++;
+
+            if(close > open) return false;
+        }
+        return close == open;
     }
 
 }

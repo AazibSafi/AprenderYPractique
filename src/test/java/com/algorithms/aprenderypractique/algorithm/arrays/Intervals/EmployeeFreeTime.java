@@ -23,15 +23,15 @@ public class EmployeeFreeTime extends BaseTest {
     public void solution() {
         List<List<Interval>> schedule = Arrays.asList(
                     Arrays.asList(new Interval(1,2), new Interval(5,6)),
-                    Arrays.asList(new Interval(1,3)),
-                    Arrays.asList(new Interval(4,10))
+                List.of(new Interval(1, 3)),
+                List.of(new Interval(4, 10))
             );
-        List<Interval> result = Arrays.asList(new Interval(3,4));
+        List<Interval> result = List.of(new Interval(3, 4));
         Assert.assertTrue(CommonHelper.isEquals(result, employeeFreeTime(schedule)));
 
         schedule = Arrays.asList(
                 Arrays.asList(new Interval(1,3), new Interval(6,7)),
-                Arrays.asList(new Interval(2,4)),
+                List.of(new Interval(2, 4)),
                 Arrays.asList(new Interval(2,5), new Interval(9,12))
         );
         result = Arrays.asList(new Interval(5,6), new Interval(7,9));
@@ -60,7 +60,7 @@ public class EmployeeFreeTime extends BaseTest {
         endTime.add(list.get(0).end);
 
         for (int i = 1; i < list.size(); i++) {
-            if (endTime.size() > 0 && endTime.peek() < list.get(i).start) {
+            if (!endTime.isEmpty() && endTime.peek() < list.get(i).start) {
                 res.add(new Interval(endTime.peek(), list.get(i).start));
             }
             endTime.add(list.get(i).end);

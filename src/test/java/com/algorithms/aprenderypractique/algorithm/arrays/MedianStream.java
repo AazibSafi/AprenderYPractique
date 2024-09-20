@@ -4,6 +4,7 @@ import com.algorithms.aprenderypractique.BaseTest;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.Set;
 import java.util.TreeSet;
 
 /**
@@ -13,6 +14,10 @@ import java.util.TreeSet;
  *      The median of a list of integers is defined as follows. If the integers were to be sorted, then:
  *      If there are an odd number of integers, then the median is equal to the middle integer in the sorted order.
  *      Otherwise, if there are an even number of integers, then the median is equal to the average of the two middle-most integers in the sorted order.
+ *
+ *      TODO
+ *      https://leetcode.com/problems/find-median-from-data-stream/
+ *      https://leetcode.com/problems/ipo/
  */
 public class MedianStream extends BaseTest {
 
@@ -33,22 +38,21 @@ public class MedianStream extends BaseTest {
  */
     public int[] findMedian(int[] arr) {
         int[] result = new int[arr.length];
-        TreeSet<Integer> set = new TreeSet<>();     // to make the list in sorted order
+        Set<Integer> set = new TreeSet<>();     // to make the list in sorted order
 
-        for(int i=0; i<arr.length;i++) {        // O(n)
+        for(int i=0; i<arr.length; i++) {        // O(n)
             set.add(arr[i]);        // O(logN)
 
-            Integer[] setArray = new Integer[set.size()];
+            int len = set.size();
+            Integer[] setArray = new Integer[len];
             setArray = set.toArray(setArray);
 
-            if(set.size()%2 == 1) {     // Odd Length
-                int mid = (i+1)/2;
+            int mid = len/2;
+
+            if(len%2 == 1)    // Odd Length
                 result[i] = setArray[mid];
-            }
-            else {      // Even Length
-                int mid = i/2;
-                result[i] = (setArray[mid] + setArray[mid+1])/2;
-            }
+            else              // Even Length
+                result[i] = (setArray[mid] + setArray[mid-1])/2;
         }
 
         return result;

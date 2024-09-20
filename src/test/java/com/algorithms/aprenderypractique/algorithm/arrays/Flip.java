@@ -1,6 +1,7 @@
 package com.algorithms.aprenderypractique.algorithm.arrays;
 
 import com.algorithms.aprenderypractique.BaseTest;
+import com.algorithms.aprenderypractique.algorithm.arrays.ArraySum.Two_Three_Sum.MaximumSumSubarray_KadaneAlgo;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -45,7 +46,7 @@ public class Flip extends BaseTest {
            A[i] = str.charAt(i) == '0' ? 1 : -1 ;
         }
 
-        return maximumSumSubarray_kadaneAlgo.maximumSumSubarray(A);
+        return maximumSumSubarray_kadaneAlgo.maxSumSubarray(A);
     }
 
 }

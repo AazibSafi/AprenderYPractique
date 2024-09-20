@@ -5,7 +5,7 @@ import com.algorithms.aprenderypractique.algorithm.datastructure.BinaryTree;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
@@ -57,18 +57,22 @@ public class KthSmallestElementInBST extends BaseTest {
         return res[k-1];
     }
 
-//  In-Order Traversal - Recursive
-    public int kthSmallest2(BinaryTree root, int k) {
-        List<Integer> list = new LinkedList<>();
-        getSortedTree_DFS(root, list);
-        return list.get(k-1);   // 1 Based Index
+/*
+    inorder traversal of a BST gives us the elements in sorted order
+    Time: O(K)
+    Space: O(K)
+*/
+    public int kthSmallest_rec(BinaryTree root, int k) {
+        List<Integer> list = new ArrayList<>();
+        inorder(root, k, list);
+        return list.get(k-1);
     }
 
-    void getSortedTree_DFS(BinaryTree root, List<Integer> list) {
-        if(root == null)    return;
-        getSortedTree_DFS(root.left, list);
+    void inorder(BinaryTree root, int k, List<Integer> list) {
+        if(root == null || list.size() >= k) return;
+        inorder(root.left, k, list);
         list.add(root.val);
-        getSortedTree_DFS(root.right, list);
+        inorder(root.right, k, list);
     }
 
 }

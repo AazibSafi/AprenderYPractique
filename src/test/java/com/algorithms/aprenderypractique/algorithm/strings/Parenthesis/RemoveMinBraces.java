@@ -35,6 +35,10 @@ public class RemoveMinBraces extends BaseTest {
         Assert.assertEquals("",minRemoveToMakeValid(str));
     }
 
+/*
+    Time: O(n)
+    Space: O(n)
+ */
     public String minRemoveToMakeValid(String str) {
         StringBuilder builder = new StringBuilder();
         Stack<Integer> stack = new Stack<>();
@@ -52,13 +56,10 @@ public class RemoveMinBraces extends BaseTest {
             index++;
         }
 
-        StringBuilder result = new StringBuilder();
-        for(int i=0; i<builder.length(); i++) {
-            if( !stack.contains(i) )
-                result.append(builder.charAt(i));
+        while(!stack.isEmpty()) {
+            builder.deleteCharAt(stack.pop());
         }
-
-        return result.toString();
+        return builder.toString();
     }
 
 }

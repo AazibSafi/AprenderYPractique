@@ -22,16 +22,16 @@ public class MoveZeroes extends BaseTest {
     }
 
     public void moveZeroes(int[] nums) {
-        int index = 0;
+        int idx = 0;
 
         for(int x : nums) {
             if(x != 0) {
-                nums[index++] = x;
+                nums[idx++] = x;
             }
         }
 
-        for(int i=index; i<nums.length; i++) {
-            nums[index++] = 0;
+        while(idx < nums.length) {
+            nums[idx++] = 0;
         }
     }
 

@@ -11,20 +11,30 @@ import org.junit.Test;
 public class LowestCommonAncestor_BT extends BaseTest {
 
     @Test
-    public void solution() {
-    /*
-        TreeNode [3,5,1,6,2,0,8,null,null,7,4]
-        p=5
-        q=1
+    public void solution() {}
+/*
+    Time: O(N)
+    Space: O(N) || O(logN)
+*/
+    public BinaryTree lowestCommonAncestor(BinaryTree root, BinaryTree p, BinaryTree q) {
+        if(root == null) return null;
+        if(root == p || root == q) return root;
 
+        BinaryTree left = lowestCommonAncestor(root.left, p, q);
+        BinaryTree right = lowestCommonAncestor(root.right, p, q);
+
+        if(left != null && right != null) return root;
+        return left == null ? right : left;
+    }
+    
+    
+/*  Another Solution
         Time: O(N)
         Space: O(N)
-     */
-    }
-
+ */
     BinaryTree result;
 
-    public BinaryTree lowestCommonAncestor(BinaryTree root, BinaryTree p, BinaryTree q) {
+    public BinaryTree lowestCommonAncestor2(BinaryTree root, BinaryTree p, BinaryTree q) {
         findAncestor(root, p, q);
         return result;
     }
