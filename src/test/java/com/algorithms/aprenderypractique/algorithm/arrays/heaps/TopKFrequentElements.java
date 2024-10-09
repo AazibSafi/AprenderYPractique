@@ -11,7 +11,7 @@ import java.util.PriorityQueue;
 /**    Similar
  *      @see TopKFrequentWords
  *      https://leetcode.com/problems/top-k-frequent-elements
- *      Todo: https://leetcode.com/problems/kth-largest-element-in-a-stream/description/
+ *      Todo: https://leetcode.com/problems/kth-largest-element-in-a-stream
  */
 public class TopKFrequentElements extends BaseTest {
 

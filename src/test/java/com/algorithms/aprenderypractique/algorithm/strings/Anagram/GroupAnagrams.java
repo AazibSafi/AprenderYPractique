@@ -3,11 +3,7 @@ package com.algorithms.aprenderypractique.algorithm.strings.Anagram;
 import com.algorithms.aprenderypractique.BaseTest;
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -19,7 +15,7 @@ public class GroupAnagrams extends BaseTest {
 
     @Test
     public void solution() {
-        List<String> list = Arrays.asList("cat","dog","ogd","god","atc");
+        List<String> list = Arrays.asList("cat","dog","ogd","god","atc");   // {“cat”, “tac”, “act”, ‘”dog”, “god”}
         List<List<String>> result = groupAnagram(list);
         print2DList(result);
 
@@ -33,6 +29,11 @@ public class GroupAnagrams extends BaseTest {
         System.out.println(); print2DList(result);
     }
 
+/*
+    Time: O(N*M)
+    Space: O(N*M)
+    N-Words and maximum of M characters
+ */
     static List<List<String>> groupAnagram(List<String> list) {
         Map<Map<Character, Integer>, List<String>> map = new HashMap<>();
 

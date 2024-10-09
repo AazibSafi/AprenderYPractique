@@ -16,19 +16,19 @@ public class FirstNonRepeatingCharacter extends BaseTest {
     public void solution() {
 
 //      Through Map
-        Assert.assertEquals(new Character('b'),firstNonRepeatingCharacterByMap("aaabcccdeeef"));
-        Assert.assertEquals(new Character('c'),firstNonRepeatingCharacterByMap("abcbad"));
-        Assert.assertEquals(new Character('_'),firstNonRepeatingCharacterByMap("abcabcabc"));
+        Assert.assertEquals('b', firstNonRepeatingCharacterByMap("aaabcccdeeef"));
+        Assert.assertEquals('c', firstNonRepeatingCharacterByMap("abcbad"));
+        Assert.assertEquals('_', firstNonRepeatingCharacterByMap("abcabcabc"));
 
 //      Through Int Array - ASCII
-        Assert.assertEquals('b',firstNonRepeatingCharacterByIntArray("aaabcccdeeef"));
-        Assert.assertEquals('c',firstNonRepeatingCharacterByIntArray("abcbad"));
-        Assert.assertEquals('_',firstNonRepeatingCharacterByIntArray("abcabcabc"));
+        Assert.assertEquals('b', firstNonRepeatingCharacterByIntArray("aaabcccdeeef"));
+        Assert.assertEquals('c', firstNonRepeatingCharacterByIntArray("abcbad"));
+        Assert.assertEquals('_', firstNonRepeatingCharacterByIntArray("abcabcabc"));
 
 //      Through Index
-        Assert.assertEquals('b',firstNonRepeatingCharacterByIndex("aaabcccdeeef"));
-        Assert.assertEquals('c',firstNonRepeatingCharacterByIndex("abcbad"));
-        Assert.assertEquals('_',firstNonRepeatingCharacterByIndex("abcabcabc"));
+        Assert.assertEquals('b', firstNonRepeatingCharacterByIndex("aaabcccdeeef"));
+        Assert.assertEquals('c', firstNonRepeatingCharacterByIndex("abcbad"));
+        Assert.assertEquals('_', firstNonRepeatingCharacterByIndex("abcabcabc"));
     }
 
 /*    Time Complexity
@@ -69,7 +69,7 @@ public class FirstNonRepeatingCharacter extends BaseTest {
 
       Space: O(N)
 */
-    public Character firstNonRepeatingCharacterByMap(String str) {
+    public char firstNonRepeatingCharacterByMap(String str) {
         Map<Character,Integer> countMap = new LinkedHashMap<>();
 
         for(Character c : str.toCharArray()) {

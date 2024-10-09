@@ -3,7 +3,6 @@ package com.algorithms.aprenderypractique.algorithm.arrays.BuyAndSellStock;
 import com.algorithms.aprenderypractique.BaseTest;
 import org.junit.Assert;
 import org.junit.Test;
-import org.mockito.internal.verification.Only;
 
 /**
  *  https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/

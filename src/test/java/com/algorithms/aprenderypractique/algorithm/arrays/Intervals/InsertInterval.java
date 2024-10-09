@@ -6,6 +6,8 @@ import org.junit.Test;
 
 /**
  *  https://leetcode.com/problems/insert-interval/
+ *
+ *  Todo: Look for another solution where sorting is not required. Since the input is already sorted
  */
 public class InsertInterval extends BaseTest {
 
@@ -33,14 +35,13 @@ public class InsertInterval extends BaseTest {
     @see Union_MergeOverlapIntervels
  **/
     public int[][] insert(int[][] intervals, int[] newInterval) {
-        int[][] insertedInterval = new int[intervals.length+1][];
+        int n=intervals.length;
+        int[][] temp = new int[n+1][];
 
-        insertedInterval[0] = newInterval;
-        for(int i=1; i<insertedInterval.length; i++) {
-            insertedInterval[i] = intervals[i-1];
-        }
+        for(int i=0; i<n; i++) temp[i] = intervals[i];
 
-        return new Union_MergeOverlapIntervels().merge(insertedInterval);
+        temp[n] = newInterval;
+        return new Union_MergeOverlapIntervels().merge(temp);
     }
 
 }

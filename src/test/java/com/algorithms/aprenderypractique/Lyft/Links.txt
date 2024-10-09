@@ -1,0 +1,4 @@
+https://leetcode.com/discuss/interview-question/279913/bloomberg-onsite-key-value-store-with-transactions
+https://www.freecodecamp.org/news/design-a-key-value-store-in-go
+https://leetcode.com/discuss/interview-question/421107/cruise-automation-onsite-transactional-map
+https://github.com/darrenfu/LeetcodePy/issues/11

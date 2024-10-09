@@ -7,6 +7,8 @@ import org.junit.Test;
 /**
  *  https://leetcode.com/problems/is-graph-bipartite/
  *  https://www.youtube.com/watch?v=-SpTh4AEZrk
+ *
+ *  TODO: https://leetcode.ca/2016-08-17-261-Graph-Valid-Tree/
  */
 public class GraphBipartite extends BaseTest {
 

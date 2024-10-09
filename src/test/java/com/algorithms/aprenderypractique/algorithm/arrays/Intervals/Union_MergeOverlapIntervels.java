@@ -30,7 +30,7 @@ public class Union_MergeOverlapIntervels extends BaseTest {
         Assert.assertArrayEquals(new int[][]{{1,5}}, merge(intervals));
     }
 
-    public int[][] merge(int[][] intervals) {
+    public int[][] merge2(int[][] intervals) {
         if(intervals.length <= 1)   return intervals;
 
 //  if the input intervals are not already sorted
@@ -55,6 +55,35 @@ public class Union_MergeOverlapIntervels extends BaseTest {
             }
         }
 
+        return output.toArray(new int[output.size()][]);
+    }
+
+    public int[][] merge(int[][] intervals) {
+        if(intervals.length <= 1)   return intervals;
+
+//  if the input intervals are not already sorted
+        Arrays.sort(intervals, Comparator.comparingInt(arr -> arr[0]));
+
+        List<int[]> output = new ArrayList<>();
+        int[] prevInterval = intervals[0];
+
+        for(int[] interval : intervals) {
+            int prevStart = prevInterval[0];
+            int prevEnd = prevInterval[1];
+            int currStart = interval[0];
+            int currEnd = interval[1];
+
+            if(prevEnd >= currStart) {
+                prevInterval[0] = Math.min(prevStart, currStart);   // Since the array is already sort by startTime, this will always give prevStart as min. Therefore this statement is not required.
+                prevInterval[1] = Math.max(prevEnd, currEnd);
+            }
+            else {
+                output.add(prevInterval);
+                prevInterval = interval;
+            }
+        }
+
+        output.add(prevInterval);
         return output.toArray(new int[output.size()][]);
     }
 

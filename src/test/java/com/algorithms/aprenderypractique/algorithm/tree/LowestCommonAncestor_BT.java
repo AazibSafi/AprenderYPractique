@@ -17,8 +17,7 @@ public class LowestCommonAncestor_BT extends BaseTest {
     Space: O(N) || O(logN)
 */
     public BinaryTree lowestCommonAncestor(BinaryTree root, BinaryTree p, BinaryTree q) {
-        if(root == null) return null;
-        if(root == p || root == q) return root;
+        if(root == null || root == p || root == q) return root;
 
         BinaryTree left = lowestCommonAncestor(root.left, p, q);
         BinaryTree right = lowestCommonAncestor(root.right, p, q);

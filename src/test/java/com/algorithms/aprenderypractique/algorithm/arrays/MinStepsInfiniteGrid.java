@@ -5,7 +5,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 /**
- *  https://www.interviewbit.com/problems/min-steps-in-infinite-grid/
+ *  https://www.interviewbit.com/problems/min-steps-in-infinite-grid
  */
 public class MinStepsInfiniteGrid extends BaseTest {
 

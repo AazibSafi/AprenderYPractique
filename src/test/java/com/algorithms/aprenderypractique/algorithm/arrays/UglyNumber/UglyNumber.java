@@ -4,10 +4,6 @@ import com.algorithms.aprenderypractique.BaseTest;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.IntStream;
-
 /**
  *      https://leetcode.com/problems/ugly-number/
  *      Todo

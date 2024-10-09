@@ -14,6 +14,8 @@ import java.util.Set;
  *  Flood Fill Technique
  *
  *  Note: Exactly Only Two islands exist in the Grid - No less - no more
+ *
+ *  Note: This is Brute Force Approach
  */
 public class ShortestBridgeIsland  extends BaseTest {
 
@@ -107,6 +109,7 @@ public class ShortestBridgeIsland  extends BaseTest {
         return minDistance;
     }
 
+//  Manhattan Distance
     int distanceBtwPoints(Integer[] cordA, Integer[] cordB) {
         return Math.abs(cordA[0] - cordB[0]) + Math.abs(cordA[1] - cordB[1]) - 1;
         // subtracting 1 because one of the two points is already present in the grid

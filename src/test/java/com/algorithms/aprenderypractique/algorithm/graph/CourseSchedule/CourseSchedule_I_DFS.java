@@ -74,15 +74,15 @@ OR
     }
 
     ArrayList<Integer>[] listOfVertices(int numCourses, int[][] prerequisites) {
-        ArrayList<Integer>[] adjacents = new ArrayList[numCourses];     // For each course there is a list of its prerequisites
+        ArrayList<Integer>[] adjacent = new ArrayList[numCourses];     // For each course there is a list of its prerequisites
 
         for(int i=0; i<numCourses; i++)
-            adjacents[i] = new ArrayList<>();       // initialize all arrays
+            adjacent[i] = new ArrayList<>();       // initialize all arrays
 
         for(int[] courses : prerequisites)
-            adjacents[courses[0]].add(courses[1]);
+            adjacent[courses[0]].add(courses[1]);
 
-        return adjacents;
+        return adjacent;
     }
 
 }

@@ -29,8 +29,8 @@ public class LongestPalindromeSubstring_ManachersAlgorithm extends BaseTest {
 
 /*
     Manacher's Algorithm
-    Time Complexity: O(N)
-    Space Complexity: O(N)
+        Time Complexity: O(N)
+        Space Complexity: O(N)
  */
     public String longestPalindrome(String str) {
         String LPS = CommonHelper.modifyString(str,"#");

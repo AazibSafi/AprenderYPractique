@@ -13,6 +13,8 @@ import java.util.List;
  *
  *  Time Complexity: O(N)
  *  Space Complexity: O(N)
+ *
+ *  Todo: https://leetcode.com/problems/count-vowel-substrings-of-a-string
  */
 public class ReverseVowelsInString extends BaseTest {
 
@@ -35,23 +37,19 @@ public class ReverseVowelsInString extends BaseTest {
 
         int i=0, j=charArray.length-1;
 
-        while(i<j) {
-
+        while(i < j) {
             if(!vowels.contains(charArray[i])) {
                 i++;
             }
-
             if(!vowels.contains(charArray[j])) {
                 j--;
             }
 
             if(vowels.contains(charArray[i]) && vowels.contains(charArray[j])) {
-                swap(charArray,i,j);
+                swap(charArray, i, j);
                 i++; j--;
             }
-
         }
-
         return new String(charArray);
     }
 

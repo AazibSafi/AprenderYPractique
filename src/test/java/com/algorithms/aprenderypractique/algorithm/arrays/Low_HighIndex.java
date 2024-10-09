@@ -27,26 +27,19 @@ public class Low_HighIndex extends BaseTest {
     public int[] findLowHighIndex(int[] arr, int key) {
         int lowIndex = findLowIndex(arr,key);
         int highIndex = findHighIndex(arr,key);
-        return new int[]{lowIndex,highIndex};
+        return new int[]{lowIndex, highIndex};
     }
 
     public int findLowIndex(int[] arr, int key) {
-
         int low = 0, high = arr.length-1;
-        int mid;
 
-        while(low<=high) {
+        while(low <= high) {
+            int mid = (low + high)/2;
 
-            //middle = low + (high-low)/2;
-            mid = (low+high)/2;
-
-            if(key <= arr[mid]) {
-                high = mid-1;
-            }
-            else {
-                low = mid+1;     // if key is greater than middle
-            }
-
+            if(key <= arr[mid])
+                high = mid - 1;
+            else
+                low = mid + 1;     // if key is greater than middle
         }
 
         return (low < arr.length && arr[low] == key) ? low : -1;
@@ -54,21 +47,15 @@ public class Low_HighIndex extends BaseTest {
 
 //      Only diff is EQUAL CHECK in both low and high functions
     public int findHighIndex(int[] arr, int key) {
-
         int low = 0, high = arr.length-1;
-        int mid;
 
-        while(low<=high) {
+        while(low <= high) {
+            int mid = (low + high)/2;
 
-            mid = low + (high-low)/2;
-
-            if(key < arr[mid]) {
-                high = mid-1;
-            }
-            else {
-                low = mid+1;     // if key is greater or equal than middle
-            }
-
+            if(key < arr[mid])
+                high = mid - 1;
+            else
+                low = mid + 1;     // if key is greater or equal than middle
         }
 
         return (high < arr.length && arr[high] == key) ? high : -1;

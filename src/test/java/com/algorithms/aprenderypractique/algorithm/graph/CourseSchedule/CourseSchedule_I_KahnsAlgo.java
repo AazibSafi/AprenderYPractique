@@ -5,11 +5,11 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.ArrayDeque;
-import java.util.ArrayList;
 import java.util.Queue;
+import java.util.stream.IntStream;
 
 /**
- *  https://leetcode.com/problems/course-schedule/
+ *  https://leetcode.com/problems/course-schedule
  *  Topological Sort: https://www.youtube.com/watch?v=2l22FRtU45M
  *  Kahn's Algo: https://www.youtube.com/watch?v=cIBFEhD77b4
  *
@@ -41,60 +41,33 @@ OR
     p - number of prerequisites
  */
     public boolean canFinish(int numCourses, int[][] prerequisites) {
-        int[] inDegrees = getInDegrees(numCourses, prerequisites);
-        ArrayList<Integer>[] outDegrees = getOutDegrees(numCourses, prerequisites);
-        Queue<Integer> zeroDegree = getZeroDegrees(numCourses, inDegrees);      // Always incoming nodes with no incoming edges
+        int[] inDegrees = new int[numCourses];
+        for(int[] course : prerequisites) {
+            inDegrees[course[0]]++;
+        }
 
-        if(zeroDegree.isEmpty())    return false;
+        Queue<Integer> zeroDegrees = new ArrayDeque<>();
+        for(int i=0; i<numCourses; i++) {
+            if(inDegrees[i] == 0)
+                zeroDegrees.add(i);
+        }
 
-        while(!zeroDegree.isEmpty()) {
-            int pre_course = zeroDegree.poll();
-            ArrayList<Integer> outDegree = outDegrees[pre_course];
+        if(zeroDegrees.isEmpty())   return false;
 
-            for(int course : outDegree) {       // adjacents
-                inDegrees[course]--;
+        while(!zeroDegrees.isEmpty()) {
+            int course = zeroDegrees.poll();    // Take course
+            numCourses--;
 
-                if(inDegrees[course] == 0)
-                    zeroDegree.add(course);
+            for(int[] pre : prerequisites) {
+                if(course == pre[1]) {
+                    inDegrees[pre[0]]--;        // Removing edges between pre_course and the current course
+                    if(inDegrees[pre[0]] == 0)
+                        zeroDegrees.add(pre[0]);
+                }
             }
         }
-
-        for(int inDegree : inDegrees) {
-            if(inDegree != 0)               // Graph contains a cycle
-                return false;
-        }
-
-        return true;
-    }
-
-    int[] getInDegrees(int numCourses, int[][] prerequisites) {
-        int[] inDegrees = new int[numCourses];
-        for(int[] courses : prerequisites)
-            inDegrees[courses[0]]++;
-        return inDegrees;
-    }
-
-//  inDegree and zeroDegree calculation can be done in single iteration loop
-
-    Queue<Integer> getZeroDegrees(int numCourses, int[] inDegrees) {
-        Queue<Integer> zeroDegree = new ArrayDeque<>();
-        for(int course=0; course<numCourses; course++) {
-            if (inDegrees[course] == 0)
-                zeroDegree.add(course);
-        }
-        return zeroDegree;
-    }
-
-    ArrayList<Integer>[] getOutDegrees(int numCourses, int[][] prerequisites) {
-        ArrayList<Integer>[] outDegrees = new ArrayList[numCourses];
-
-        for(int i=0; i<numCourses; i++)
-            outDegrees[i] = new ArrayList<>();       // initialize all arrays
-
-        for(int[] courses : prerequisites)
-            outDegrees[courses[1]].add(courses[0]);
-
-        return outDegrees;
+        // Graph contains a cycle if any inDegree still remains
+        return IntStream.of(inDegrees).allMatch(x -> x==0);     // Or return (numCourses == 0); decrease numCourses on each take
     }
 
 }

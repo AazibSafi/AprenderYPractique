@@ -9,7 +9,7 @@ import java.util.Comparator;
 import java.util.PriorityQueue;
 
 /**
- *  https://leetcode.com/problems/course-schedule-iii/
+ *  https://leetcode.com/problems/course-schedule-iii
  *  https://www.youtube.com/watch?v=0DiBE3r1dHA
  */
 public class CourseSchedule_III extends BaseTest {

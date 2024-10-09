@@ -4,30 +4,26 @@ import com.algorithms.aprenderypractique.BaseTest;
 import com.algorithms.aprenderypractique.algorithm.datastructure.BinaryTree;
 import org.junit.Test;
 
-/*
-    https://leetcode.com/problems/validate-binary-search-tree/
-    https://leetcode.com/problems/validate-binary-search-tree/solution/
+/**
+ *  https://leetcode.com/problems/validate-binary-search-tree
  */
 public class ValidateBST extends BaseTest {
 
     @Test
     public void solution() { }
 
-    public boolean validate(BinaryTree root, Integer low, Integer high) {
-        // Empty trees are valid BSTs.
-        if (root == null) {
-            return true;
-        }
-        // The current node's value must be between low and high.
-        if ((low != null && root.val <= low) || (high != null && root.val >= high)) {
-            return false;
-        }
-        // The left and right subtree must also be valid.
-        return validate(root.right, root.val, high) && validate(root.left, low, root.val);
-    }
-
+/*
+    Time complexity: O(n)
+    Space complexity: O(n)
+*/
     public boolean isValidBST(BinaryTree root) {
-        return validate(root, null, null);
+        return isValidBST(root, Long.MIN_VALUE, Long.MAX_VALUE);
     }
 
+    public boolean isValidBST(BinaryTree root, long minVal, long maxVal) {
+        if (root == null) return true;      // Empty trees are valid BSTs.
+        if (root.val >= maxVal || root.val <= minVal) return false;
+        return isValidBST(root.left, minVal, root.val) && isValidBST(root.right, root.val, maxVal);
+    }
+    
 }

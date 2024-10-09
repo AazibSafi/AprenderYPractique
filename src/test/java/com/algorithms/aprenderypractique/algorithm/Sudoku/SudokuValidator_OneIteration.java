@@ -53,7 +53,7 @@ public class SudokuValidator_OneIteration extends BaseTest {
 
 /*
     Time: O(n*n) -- O(n^2)  -- iterating all elements in the board
-    Space: O(n^2) -- Strogin each element in the Set
+    Space: O(n^2) -- Storing each element in the Set
  */
     public boolean isValidSudoku(char[][] board) {
         int size = board.length;
