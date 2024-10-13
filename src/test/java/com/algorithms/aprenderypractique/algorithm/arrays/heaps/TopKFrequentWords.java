@@ -27,8 +27,9 @@ public class TopKFrequentWords extends BaseTest {
     Time: O(nlogn)
 */
     public List<String> topKFrequent(String[] words, int k) {
-        Map<String, Integer> map = new HashMap<>();
+        //Map<String, Integer> map = Arrays.stream(words).collect(Collectors.groupingBy(String::valueOf, Collectors.summingInt(e -> 1)));
 
+        Map<String, Integer> map = new HashMap<>();
         for(String str : words) {
             map.put(str, map.getOrDefault(str,0)+1);
         }

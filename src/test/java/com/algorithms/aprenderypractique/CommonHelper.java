@@ -1,6 +1,7 @@
 package com.algorithms.aprenderypractique;
 
 import java.util.*;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -52,6 +53,10 @@ public class CommonHelper {
             table.put(c, table.getOrDefault(c,0)+1);
         }
         return table;
+    }
+
+    public static Map<Integer, Long> fillTableWithOccurrences(int[] arr) {
+        return Arrays.stream(arr).boxed().collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
     }
 
     public static int[] fillArrayFrequencies(String T) {
