@@ -7,6 +7,9 @@ import org.junit.Test;
 
 import java.util.Stack;
 
+import static com.algorithms.aprenderypractique.CommonHelper.createLinkedList;
+import static com.algorithms.aprenderypractique.CommonHelper.isEqual;
+
 /**
  *  https://www.facebookrecruiting.com/portal/coding_practice_question/?problem_id=623634548182866&c=207085731181336
  *  https://leetcode.com/discuss/interview-question/688086/fb-online-assessment-question
@@ -17,21 +20,15 @@ public class ReverseOperations extends BaseTest {
     public void test() {
         int[] arr = {1, 2, 8, 9, 12, 16};
         int[] expected = {1, 8, 2, 9, 16, 12};
-        LinkedList head = createLinkedList(arr);
-        LinkedList expectedHead = createLinkedList(expected);
-        Assert.assertEquals(expectedHead.val,reverse(head).val);
+        Assert.assertTrue(isEqual(createLinkedList(expected), reverse(createLinkedList(arr))));
 
         arr = new int[]{2, 18, 24, 3, 5, 7, 9, 6, 12};
         expected = new int[]{24, 18, 2, 3, 5, 7, 9, 12, 6};
-        head = createLinkedList(arr);
-        expectedHead = createLinkedList(expected);
-        Assert.assertEquals(expectedHead.val,reverse(head).val);
+        Assert.assertTrue(isEqual(createLinkedList(expected), reverse(createLinkedList(arr))));
 
         arr = new int[]{2, 18, 24, 14, 3, 5, 7, 9, 6, 12};
         expected = new int[]{14, 24, 18, 2, 3, 5, 7, 9, 12, 6};
-        head = createLinkedList(arr);
-        expectedHead = createLinkedList(expected);
-        Assert.assertEquals(expectedHead.val,reverse(head).val);
+        Assert.assertTrue(isEqual(createLinkedList(expected), reverse(createLinkedList(arr))));
     }
 
 /*
@@ -40,7 +37,7 @@ public class ReverseOperations extends BaseTest {
  */
     LinkedList reverse(LinkedList head) {
         LinkedList orignalHead = head, tail = head;
-        Stack<LinkedList> stack = new Stack();
+        Stack<LinkedList> stack = new Stack<>();
 
         while(head != null && tail != null) {
             if(tail.val %2 == 0) {
@@ -48,7 +45,7 @@ public class ReverseOperations extends BaseTest {
                 tail = tail.next;
             }
             else {
-                if(stack.size() > 0) {
+                if(!stack.isEmpty()) {
                     reverseList(head, stack);
                     stack.clear();
                 }
@@ -56,7 +53,7 @@ public class ReverseOperations extends BaseTest {
                 head = tail;
             }
         }
-        if(stack.size() > 0) {
+        if(!stack.isEmpty()) {
             reverseList(head, stack);
             stack.clear();
         }
@@ -65,11 +62,9 @@ public class ReverseOperations extends BaseTest {
 
     void reverseList(LinkedList head, Stack<LinkedList> stack) {
         int n = stack.size()/2;
-        while(n>0) {
-            LinkedList node = stack.pop();
-            swap(head, node);
+        while(n-- > 0) {
+            swap(head, stack.pop());
             head = head.next;
-            n--;
         }
     }
 
@@ -77,21 +72,6 @@ public class ReverseOperations extends BaseTest {
         int temp = head.val;
         head.val = node.val;
         node.val = temp;
-    }
-
-    LinkedList createLinkedList(int[] arr) {
-        LinkedList head = null;
-        LinkedList tempHead = head;
-        for (int v : arr) {
-            if (head == null) {
-                head = new LinkedList(v);
-                tempHead = head;
-            } else {
-                head.next = new LinkedList(v);
-                head = head.next;
-            }
-        }
-        return tempHead;
     }
 
 }

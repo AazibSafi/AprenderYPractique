@@ -1,5 +1,7 @@
 package com.algorithms.aprenderypractique;
 
+import com.algorithms.aprenderypractique.algorithm.datastructure.LinkedList;
+
 import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -7,18 +9,18 @@ import java.util.stream.IntStream;
 
 public class CommonHelper {
 
-    public static void printMap(Map map) {
+    public static void printMap(Map<?,?> map) {
         if (map != null) {
             map.forEach((key,value)-> System.out.println("{" + key+" , "+value + "}"));
         }
     }
 
-    public static void printList(List list) {
+    public static void printList(List<?> list) {
         Object str = list.stream().map(String::valueOf).collect(Collectors.joining(","));
         System.out.print("[" + str + "]");
     }
 
-    public static void print2DList(List<List> list) {
+    public static void print2DList(List<List<?>> list) {
         list.forEach( nestedList -> {
             Object str = nestedList.stream().map(String::valueOf).collect(Collectors.joining(","));
             System.out.println("[" + str + "]");
@@ -37,7 +39,7 @@ public class CommonHelper {
         }
     }
 
-    public static void printSet(Set set) {
+    public static void printSet(Set<?> set) {
         Object str = set.stream().map(String::valueOf).collect(Collectors.joining(","));
         System.out.print("\n[" + str + "]");
     }
@@ -88,6 +90,30 @@ public class CommonHelper {
     public static int combineArrayElements(int[] arr) {
         String result = IntStream.of(arr).boxed().map(String::valueOf).collect(Collectors.joining());
         return Integer.parseInt(result);
+    }
+
+    public static LinkedList createLinkedList(int[] arr) {
+        LinkedList head = new LinkedList(-1);
+        LinkedList node = head;
+
+        for(int x : arr) {
+            node.next = new LinkedList(x);
+            node = node.next;
+        }
+
+        return head.next;
+    }
+
+    public static boolean isEqual(LinkedList head1, LinkedList head2) {
+        while(head1 != null && head2 != null) {
+            if(head1.val != head2.val)
+                return false;
+
+            head1 = head1.next;
+            head2 = head2.next;
+        }
+
+        return head1 == null && head2 == null;
     }
 
 }

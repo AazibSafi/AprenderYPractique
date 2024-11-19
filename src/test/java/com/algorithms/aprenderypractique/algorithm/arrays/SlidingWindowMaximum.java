@@ -69,9 +69,9 @@ public class SlidingWindowMaximum  extends BaseTest {
                 deque.pollFirst();      // Remove elements from front of deque whose index is out of window - Remove index with out of bound
             }
 
-//  Maintaining the Dequeue in DESC order
+//  Maintaining the Deque in DESC order
             while(!deque.isEmpty() && nums[i] > nums[deque.peekLast()]) {
-                deque.pollLast();       // Remove all the elements  from deque last who are smaller then the current element
+                deque.pollLast();       // Remove all the elements  from deque last who are smaller than the current element
             }
 
             deque.offerLast(i);     // enqueue current element index

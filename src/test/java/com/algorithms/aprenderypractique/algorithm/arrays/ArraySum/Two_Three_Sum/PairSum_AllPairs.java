@@ -13,6 +13,8 @@ import java.util.Map;
 /**
  * @see PairSum_NumberOfWays
  * Todo: https://leetcode.com/problems/combination-sum
+ *
+ * https://www.hackerrank.com/challenges/icecream-parlor
  */
 public class PairSum_AllPairs extends BaseTest {
 
@@ -35,8 +37,8 @@ public class PairSum_AllPairs extends BaseTest {
         Assert.assertEquals(ImmutableMap.<Integer, Integer>builder().put(1, 5).put(3, 3).build(), result);
     }
 
-    public Map<Integer,Integer> findSumOfTwoIntegersInArray(int[] arr, int val) {
-        Map<Integer,Integer>  result = new HashMap<>();
+    public Map<Integer, Integer> findSumOfTwoIntegersInArray(int[] arr, int val) {
+        Map<Integer, Integer>  result = new HashMap<>();
 
         List<Integer> list = new ArrayList<>();
         for(int x : arr) {

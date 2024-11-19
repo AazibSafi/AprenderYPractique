@@ -2,10 +2,7 @@ package com.algorithms.aprenderypractique.Lyft;
 
 import com.algorithms.aprenderypractique.BaseTest;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Solve extends BaseTest {
 
@@ -134,6 +131,9 @@ public class Solve extends BaseTest {
         }
 
         Integer numWithValue(Integer value) {
+            // return data.values().stream().filter(v -> v.equals(value)).count();
+            // return Collections.frequency(data.values(), value);
+
             if(data == null)    return 0;
 
             int sum = 0;

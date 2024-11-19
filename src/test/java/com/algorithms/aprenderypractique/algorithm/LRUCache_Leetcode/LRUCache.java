@@ -49,11 +49,11 @@ public class LRUCache {
             cache.remove(deleteLRU_Node.key);
         }
     }
-
 }
 
 // Memory Management Cache - LRU algorithm
 class LRU_Policy {
+    // Doubly Linked List
     Node head, tail;    // MRU, LRU respectively
 
     LRU_Policy() {

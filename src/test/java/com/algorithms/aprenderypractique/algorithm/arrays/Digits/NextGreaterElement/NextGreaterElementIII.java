@@ -1,4 +1,4 @@
-package com.algorithms.aprenderypractique.algorithm.arrays.Digits.SmallestNumberOfSumOfDigits;
+package com.algorithms.aprenderypractique.algorithm.arrays.Digits.NextGreaterElement;
 
 import com.algorithms.aprenderypractique.BaseTest;
 import org.junit.Assert;
@@ -8,7 +8,7 @@ import org.junit.Test;
  *  https://leetcode.com/problems/next-greater-element-iii/
  *  https://www.youtube.com/watch?v=53Rux5-mEDQ&ab_channel=TusharRoy-CodingMadeSimple
  */
-public class NextGreaterElement extends BaseTest {
+public class NextGreaterElementIII extends BaseTest {
 
     @Test
     public void solution() {

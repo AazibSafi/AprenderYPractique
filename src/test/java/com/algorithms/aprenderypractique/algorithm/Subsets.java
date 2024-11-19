@@ -26,10 +26,10 @@ public class Subsets extends BaseTest {
 
         Assert.assertTrue(subsets.equals(
                 Arrays.asList(
-                        Arrays.asList(),
-                        Arrays.asList(1),
-                        Arrays.asList(2),
-                        Arrays.asList(3),
+                        List.of(),
+                        List.of(1),
+                        List.of(2),
+                        List.of(3),
                         Arrays.asList(1,2),
                         Arrays.asList(1,3),
                         Arrays.asList(2,3),

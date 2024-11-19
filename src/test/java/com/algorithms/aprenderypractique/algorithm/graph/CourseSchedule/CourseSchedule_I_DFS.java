@@ -8,15 +8,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
- *  https://leetcode.com/problems/course-schedule/
+ *  https://leetcode.com/problems/course-schedule
  *  Enum State Concept:  https://www.youtube.com/watch?v=iaaObeAEgxI
  *  Overall Logic Understanding: https://www.youtube.com/watch?v=EgI5nU9etnU
  *
  *  DFS Approach
  */
 public class CourseSchedule_I_DFS extends BaseTest {
-
-    enum STATE {    UNVISITED, IN_VISIT, COMPLETED   }
 
     @Test
     public void solution() {
@@ -84,5 +82,7 @@ OR
 
         return adjacent;
     }
+
+    enum STATE {    UNVISITED, IN_VISIT, COMPLETED   }
 
 }

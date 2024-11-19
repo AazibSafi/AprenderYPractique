@@ -1,4 +1,4 @@
-package com.algorithms.aprenderypractique.algorithm.Sudoku;
+package com.algorithms.aprenderypractique.algorithm.Games.Sudoku;
 
 import com.algorithms.aprenderypractique.BaseTest;
 import org.junit.Assert;
