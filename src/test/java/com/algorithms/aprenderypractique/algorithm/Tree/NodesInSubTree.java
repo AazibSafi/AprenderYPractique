@@ -1,4 +1,4 @@
-package com.algorithms.aprenderypractique.algorithm.tree;
+package com.algorithms.aprenderypractique.algorithm.Tree;
 
 import com.algorithms.aprenderypractique.BaseTest;
 import com.algorithms.aprenderypractique.algorithm.datastructure.Tree;

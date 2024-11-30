@@ -1,11 +1,11 @@
-package com.algorithms.aprenderypractique.algorithm.tree;
+package com.algorithms.aprenderypractique.algorithm.Tree;
 
 import com.algorithms.aprenderypractique.BaseTest;
 import com.algorithms.aprenderypractique.algorithm.datastructure.BinaryTree;
 import org.junit.Test;
 
 /**
- *  https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/
+ *  https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree
  */
 public class LowestCommonAncestor_BST extends BaseTest {
 
@@ -15,15 +15,13 @@ public class LowestCommonAncestor_BST extends BaseTest {
     }
 
     public BinaryTree lowestCommonAncestor(BinaryTree root, BinaryTree p, BinaryTree q) {
-
         if(p.val < root.val && q.val < root.val)
             return lowestCommonAncestor(root.left, p, q);
 
-        else if(p.val > root.val && q.val > root.val)
+        if(p.val > root.val && q.val > root.val)
             return lowestCommonAncestor(root.right, p, q);
 
-        else
-            return root;
+        return root;
     }
 
 }

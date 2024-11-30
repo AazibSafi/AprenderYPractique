@@ -1,4 +1,4 @@
-package com.algorithms.aprenderypractique.algorithm.tree;
+package com.algorithms.aprenderypractique.algorithm.Tree;
 
 import com.algorithms.aprenderypractique.BaseTest;
 import com.algorithms.aprenderypractique.algorithm.datastructure.BinaryTree;
@@ -6,7 +6,7 @@ import org.junit.Test;
 
 /**
  *  https://www.youtube.com/watch?v=xuvw11Ucqs8&list=PLtQWXpf5JNGJagakc_kBtOH5-gd8btjEW&index=16
- *  https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/
+ *  https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree
  */
 public class LowestCommonAncestor_BT extends BaseTest {
 

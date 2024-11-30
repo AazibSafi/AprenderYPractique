@@ -4,6 +4,8 @@ import com.algorithms.aprenderypractique.BaseTest;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.Arrays;
+
 /**
  *  Longest Common SubSequence
  *  Longest Repeating Subsequence
@@ -15,74 +17,83 @@ public class LongestCommonSubSequence extends BaseTest {
 
     @Test
     public void test() {
-        Assert.assertEquals(4, findLCS("abcdaf","acbcf"));      //  abcf
-        Assert.assertEquals(3, findLCS("ABCDGH","AEDFHR"));     //  ADH
-        Assert.assertEquals(4, findLCS("AGGTAB","GXTXAYB"));    //  GTAB
-        Assert.assertEquals(3, findLCS("abcde","ace"));         //  ace
-        Assert.assertEquals(3, findLCS("abc","abc"));           //  abc
-        Assert.assertEquals(0, findLCS("abc","def"));
+        Assert.assertEquals(4, longestCommonSubsequence("abcdaf","acbcf"));      //  abcf
+        Assert.assertEquals(3, longestCommonSubsequence("abcdgh","aedfhr"));     //  ADH
+        Assert.assertEquals(4, longestCommonSubsequence("aggtab","gxtxayb"));    //  GTAB
+        Assert.assertEquals(3, longestCommonSubsequence("abcde","ace"));         //  ace
+        Assert.assertEquals(3, longestCommonSubsequence("abc","abc"));           //  abc
+        Assert.assertEquals(0, longestCommonSubsequence("abc","def"));
+        Assert.assertEquals(5, longestCommonSubsequence("abcba","abcbcba"));
     }
 
 /*
-    To get the subsequence string
-    Store the ith and jth index instead of maxLength
-    Traversed back from the stored ith, jth index of the dp table
+    Time: O(M.N)
+    Space: O(min(M.N))
+    Approach -> DP with 1D Array
+*/
+    public int longestCommonSubsequence(String text1, String text2) {
+        int m = text1.length(), n = text2.length();
+        int[] dp = new int[n+1];
 
-Formula:
-    if( iCHAR == jCHAR )
-        diagonal + 1
-    else
-        Max of Left and Upper Value
- */
-    public int findLCS(String str, String ptr) {
-        int n = str.length(), m = ptr.length();
-
-        int[][] dp = new int[n][m];
-        int left, upper, maxLength=0;
-
-        for(int i=1; i<n; i++) {
-            for(int j=1; j<m; j++) {
-
-                if(str.charAt(i-1) == ptr.charAt(j-1)) {        // -1 bcz actual string starts from 0 index
-                    dp[i][j] = dp[i-1][j-1] + 1;
-                }
-                else {
-                    left = dp[i][j-1];
-                    upper = dp[i-1][j];
-                    dp[i][j] = Math.max(left, upper);
-                }
-
-                maxLength = Math.max(maxLength, dp[i][j]);
+        for(int i=1; i<m+1; i++) {
+            int prev = dp[0];
+            for(int j=1; j<n+1; j++) {
+                int temp = dp[j];
+                if(text1.charAt(i-1) == text2.charAt(j-1))
+                    dp[j] = 1 + prev;        // 1 + diagonal [Prev Row Value]
+                else
+                    dp[j] = Math.max(dp[j-1], dp[j]);    // Max of left and Curr Value
+                prev = temp;
             }
         }
-
-        return maxLength;
+        return dp[n];
     }
 
-//  Old - Working But Depreciated
-    public int findLCS_2(String str, String ptr) {
-        int[][] dp = new int[str.length()][ptr.length()];
-        int left, upper, maxLength=0;
+/*
+    Time: O(M.N)
+    Space: O(M.N)
+    Approach -> DP with 2D Array
+*/
+    public int longestCommonSubsequence2(String text1, String text2) {
+        int m = text1.length(), n = text2.length();
 
-        for(int i=0;i<str.length();i++) {
-            for(int j=0;j<ptr.length();j++) {
+        int[][] dp = new int[m+1][n+1];
 
-                if(str.charAt(i) == ptr.charAt(j)) {
-                    dp[i][j] = i-1>=0 && j-1>=0 ? dp[i-1][j-1]+1 : 1;
-                }
-                else {
-                    left = j-1>=0 ? dp[i][j-1] : 0;
-                    upper = i-1>=0 ? dp[i-1][j]: 0;
-                    dp[i][j] = Math.max(left,upper);
-                }
-
-                maxLength = Math.max(maxLength,dp[i][j]);
+        for(int i=1; i<m+1; i++) {
+            for(int j=1; j<n+1; j++) {
+                if(text1.charAt(i-1) == text2.charAt(j-1))
+                    dp[i][j] = 1 + dp[i-1][j-1];        // 1 + North West diagonal
+                else
+                    dp[i][j] = Math.max(dp[i][j-1], dp[i-1][j]);    // Max of Left and Upper Value
             }
         }
-
-        return maxLength;
+        return dp[m][n];
     }
 
+/*
+    Time: O(M.N)
+    Space: O(M.N)
+    Approach -> Recursion with Memoization
+*/
+    public int longestCommonSubsequence1(String text1, String text2) {
+        int[][] memo = new int[text1.length()][text2.length()];
+        for(int[] memoRow : memo) {
+            Arrays.fill(memoRow, -1);
+        }
+        return solve(text1, text2, 0, 0, memo);
+    }
 
+    public int solve(String text1, String text2, int i, int j, int[][] memo) {
+        if(i == text1.length() || j == text2.length())  return 0;
+
+        if(memo[i][j] != -1)    return memo[i][j];
+
+        if(text1.charAt(i) == text2.charAt(j))
+            memo[i][j] = 1 + solve(text1, text2, i+1, j+1, memo);
+        else
+            memo[i][j] = Math.max(solve(text1, text2, i, j+1, memo), solve(text1, text2, i+1, j, memo));
+
+        return memo[i][j];
+    }
 
 }

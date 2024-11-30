@@ -13,4 +13,11 @@
     https://leetcode.ca/2016-08-17-261-Graph-Valid-Tree
     https://leetcode.com/problems/reorganize-string/solutions/5196813/k-pattern
     https://leetcode.com/problems/dungeon-game
+
+
+    https://leetcode.com/problems/valid-square
+    https://www.youtube.com/watch?v=BZFbtQDX0Uc&list=PLX-yaG1hWFMxXuNBxzi3tEPE2SjqbifVp&index=6
+
+    https://leetcode.com/problems/employee-importance
+    https://www.youtube.com/watch?v=pS8LWelD-8k
  */

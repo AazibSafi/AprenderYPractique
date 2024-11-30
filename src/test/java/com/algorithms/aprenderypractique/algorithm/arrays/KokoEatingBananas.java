@@ -20,10 +20,13 @@ public class KokoEatingBananas extends BaseTest {
         Assert.assertEquals(3, minEatingSpeed(new int[]{805306368, 805306368, 805306368}, 1000000000));
     }
 
-/*
+/**
     Time: O(N * log(M))
     Space: O(1)
-    Efficient
+    Efficient Algo
+
+    Binary Search Upper Bound Logic
+    @see UpperAndLowerBound
  */
     public int minEatingSpeed(int[] piles, int h) {
         int left = 1, right = Arrays.stream(piles).max().getAsInt();
@@ -31,7 +34,7 @@ public class KokoEatingBananas extends BaseTest {
         while(left < right) {                      // O(log(M))
             int mid = left + (right - left)/2;
 
-            if(canEatInTime(piles, h, mid))         // O(N)
+            if(canEatInTime(piles, h, mid))
                 right = mid;
             else
                 left = mid + 1;
@@ -40,6 +43,7 @@ public class KokoEatingBananas extends BaseTest {
         return left;
     }
 
+//  Time: O(N)
     private boolean canEatInTime(int[] piles, int total_hours, int kSpeed) {
         int hoursTaken = 0;
         for(int pile : piles) {

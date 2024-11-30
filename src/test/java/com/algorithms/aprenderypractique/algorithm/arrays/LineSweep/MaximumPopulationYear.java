@@ -28,7 +28,7 @@ public class MaximumPopulationYear extends BaseTest {
 
         int maxNum = Integer.MIN_VALUE;
         int sum=0, maxYear=LM;
-        for(int i=0;i<prefix.length;i++) {
+        for(int i=0; i<prefix.length; i++) {
             sum += prefix[i];
             if(sum > maxNum) {
                 maxNum = sum;

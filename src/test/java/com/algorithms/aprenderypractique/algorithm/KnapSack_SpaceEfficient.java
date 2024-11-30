@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
  *  https://www.youtube.com/watch?v=cJ21moQpofY
  *
  *  For All other approaches of implementation
- *  https://www.geeksforgeeks.org/0-1-knapsack-problem-dp-10/
+ *  https://www.geeksforgeeks.org/0-1-knapsack-problem-dp-10
  */
 public class KnapSack_SpaceEfficient extends BaseTest {
 

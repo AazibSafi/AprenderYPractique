@@ -29,20 +29,7 @@ public class RandomPickWithWeight extends BaseTest {
         if (preSum[n-1] == 0) return -1;  // No numbers to pick!
 
         int key = new Random().nextInt(preSum[n-1]) + 1; // 0 excluded
-        return upperBound(preSum, key);
-    }
-
-//  Binary Search -> O(LogN)
-    private int upperBound(int[] arr, int key) {
-        int left = 0, right = arr.length-1;
-
-        while(left < right) {
-            int mid = left + (right-left)/2;
-
-            if(key > arr[mid])   left = mid + 1;
-            else right = mid;
-        }
-        return left;
+        return UpperAndLowerBound.upperBound(preSum, key);
     }
 
 }

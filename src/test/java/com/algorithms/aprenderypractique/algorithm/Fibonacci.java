@@ -12,7 +12,7 @@ public class Fibonacci extends BaseTest {
 
 //  Dynamic Programming Approach - Non-Recursive
     public int CalculateFibonacci(int n) {
-        int dp[] = new int[n+1];
+        int[] dp = new int[n+1];
         dp[0] = 0;
         dp[1] = 1;
 
@@ -24,24 +24,17 @@ public class Fibonacci extends BaseTest {
 
 //  O(2 to power k)
     public int fab(int n) {
-        if(n == 0) return 0;
-        if(n == 1) return 1;
-
+        if(n == 0 || n == 1) return n;
         return fab(n-1) + fab(n-2);
     }
 
 //  O(K)
 // optimize than previous solution
 // Using cache or memoization
-    public int fibonacci(int n, int[] mem) {
-        if(n == 0) return 0;
-        if(n == 1) return 1;
-
-        if(mem[n] == 0) {
-            mem[n] = fab(n - 1) + fab(n - 2);
-        }
-
-        return mem[n];
+    public int fibonacci(int n, Integer[] mem) {
+        if(n == 0 || n == 1) return n;
+        if(mem[n] != null)  return mem[n];
+        return mem[n] = fibonacci(n - 1, mem) + fibonacci(n - 2, mem);
     }
 
 }

@@ -34,11 +34,11 @@ public class HouseRobberIII extends BaseTest {
     public int[] robSubTree(BinaryTree root) {
         if(root == null) return new int[2];
 
-        int[] leftResult = robSubTree(root.left);
-        int[] rightResult = robSubTree(root.right);
+        int[] left = robSubTree(root.left);
+        int[] right = robSubTree(root.right);
 
-        int rob = root.val + leftResult[1] + rightResult[1];    // Robbing the current node + Not Robbing its both children
-        int notRob = Math.max(leftResult[0], leftResult[1]) + Math.max(rightResult[0], rightResult[1]);     // Max(Rob , Not Rob) of children
+        int rob = root.val + left[1] + right[1];    // Robbing the current node + Not Robbing its both children
+        int notRob = Math.max(left[0], left[1]) + Math.max(right[0], right[1]);     // Max(Rob , Not Rob) of children
 
         return new int[]{rob, notRob};
     }

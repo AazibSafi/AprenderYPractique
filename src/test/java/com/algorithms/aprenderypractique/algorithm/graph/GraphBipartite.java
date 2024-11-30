@@ -70,9 +70,9 @@ public class GraphBipartite extends BaseTest {
         for(int i=0; i<parent.length; i++)       parent[i] = i;
 
         for(int node=0; node<graph.length; node++) {
-            int nodePArent = findParent(node);
+            int nodeParent = findParent(node);
             for(int adjacent : graph[node]) {
-                if(nodePArent == findParent(adjacent))
+                if(nodeParent == findParent(adjacent))
                     return false;
                 union(adjacent, graph[node][0]);
             }

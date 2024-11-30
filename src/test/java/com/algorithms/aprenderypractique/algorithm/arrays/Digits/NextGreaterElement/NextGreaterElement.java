@@ -5,6 +5,8 @@ import org.junit.Test;
 
 /**
  *  https://leetcode.com/problems/next-greater-element-i
+ *
+ *  Todo: https://www.geeksforgeeks.org/next-smaller-element/
  */
 public class NextGreaterElement extends BaseTest {
 

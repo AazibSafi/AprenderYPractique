@@ -1,4 +1,4 @@
-package com.algorithms.aprenderypractique.algorithm.tree.CountNodes;
+package com.algorithms.aprenderypractique.algorithm.Tree.CountNodes;
 
 import com.algorithms.aprenderypractique.algorithm.datastructure.BinaryTree;
 
