@@ -1,0 +1,40 @@
+___ 1st Coding Round ___
+    File System {
+        1 : {id: 1, name: "file_1", type: "file", size: 10},
+        2 : {id: 2, name: "directory_1", type: "directory", children: {2, 3}},
+        3 : {id: 1, name: "file_2", type: "file", size: 10},
+    }
+
+    Create two methods to process above inputs
+    - getSize(long id)
+        - if it is a file, Return the size of the file
+        - else return the size of the directory (including all files)
+
+    getPath(long id)
+        - return the path (/name) of the files or directory upto it's root
+        - i.e; for id: 3, result path is "directory_1/file_2"
+
+
+___ 2nd Coding Round ___
+    - Pick Boxes upto given capacity
+    Rephrased: Given a cargo weights capacity and the cargo box weights as int arrays, choose max 2 boxes to load into aircraft
+
+___ 3rd Coding Round ___
+    - Event Processing System
+        Create a System ( API or interface in java ) which deals with the event processing.
+
+        - start(seqId) ->  method will be used for restoring the system if the machine is crashed
+        - ack(seqId) -> method will mark the process as done
+        - getLowestAck() -> method will return the lowest ack id to be processed next.
+
+    Assuming the event ids are coming from third party.
+    And our system will be used in concurrent environment.
+
+___ 1st System Design ___
+    - VM Provision
+    - Interview Question: Design a system that determines if a new virtual machine can be safely provisioned while making efficient use of underlying hosts.
+
+    Rephrased: Designing a system to determine if a new virtual machine (VM) can be safely provisioned involves evaluating the available resources on the physical hosts and the requirements of the VM, while ensuring efficient utilization.
+
+___ 2nd Follow up System Design ___
+    -

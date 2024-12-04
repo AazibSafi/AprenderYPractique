@@ -51,7 +51,7 @@ public class SlidingWindowMaximum  extends BaseTest {
 /*
     Efficient Algorithm in Linear complexity
     Time Complexity: O(n)
-    Space Complexity: O(n)
+    Space Complexity: O(k)
 
     Deque -- Doubly Linked List
  */
@@ -65,7 +65,7 @@ public class SlidingWindowMaximum  extends BaseTest {
         int ind=0;
 
         for(int i=0; i<n; i++) {
-            while(!deque.isEmpty() && deque.peekFirst() <= i-k) {
+            if(!deque.isEmpty() && deque.peekFirst() <= i-k) {
                 deque.pollFirst();      // Remove elements from front of deque whose index is out of window - Remove index with out of bound
             }
 

@@ -1,6 +1,7 @@
 package com.algorithms.aprenderypractique.algorithm.graph;
 
 import com.algorithms.aprenderypractique.BaseTest;
+import com.algorithms.aprenderypractique.algorithm.datastructure.DisjointSet;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -34,7 +35,7 @@ public class GraphBipartite extends BaseTest {
     Space: O(V)
     DFS
  */
-    public boolean isBipartite(int[][] graph) {
+    public boolean isBipartite2(int[][] graph) {
         int[] colorApplied = new int[graph.length];
         for(int node=0; node<graph.length; node++) {
             if(colorApplied[node] == 0 && !applyColor(colorApplied, graph, node, 1)) {
@@ -57,40 +58,27 @@ public class GraphBipartite extends BaseTest {
     }
 
 ///////////
+
 /*
-    Time: O(ElogV)
+    Time: O(V + E)
     Space: O(V)
 
     Union Find Technique
     Efficient Solution
  */
-    int[] parent;
-    public boolean isBipartite2(int[][] graph) {
-        parent = new int[graph.length];
-        for(int i=0; i<parent.length; i++)       parent[i] = i;
+    public boolean isBipartite(int[][] graph) {
+        DisjointSet forest = new DisjointSet(graph.length);
 
         for(int node=0; node<graph.length; node++) {
-            int nodeParent = findParent(node);
+            int nodeParent = forest.find(node);
             for(int adjacent : graph[node]) {
-                if(nodeParent == findParent(adjacent))
+                if(nodeParent == forest.find(adjacent))
                     return false;
-                union(adjacent, graph[node][0]);
+                forest.union(adjacent, graph[node][0]);
             }
         }
 
         return true;
-    }
-
-    void union(int x, int y) {
-        int parentX = findParent(x);
-        int parentY = findParent(y);
-        if(parentX != parentY)
-            parent[parentX] = parentY;
-    }
-
-    int findParent(int point) {
-        if(parent[point] == point)  return point;
-        return findParent(parent[point]);
     }
 
 }

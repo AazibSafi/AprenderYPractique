@@ -23,7 +23,7 @@ public class ShortestWayToFormString extends BaseTest {
 
 /*
     Approach 3: Two Pointer
-    Time: O(S + T + T.S) => O(T^2.S)
+    Time: O(S + T + T.S) => O(T.S)
     Space: O(1)
  */
     public int shortestWay(String source, String target) {
@@ -52,6 +52,26 @@ public class ShortestWayToFormString extends BaseTest {
     }
 
 /*
+    Approach 2: Concatenate until Subsequence
+    Time: O(S + T + T*(T*S)) => O(T^2*S)
+    Space: O(T.S) => concatenate source string T times
+ */
+    public int shortestWay2(String source, String target) {
+        if (!isSubsequencePossible(source, target))
+            return -1;
+
+        // Concatenate source until the target is a subsequence of the concatenated
+        // string
+        String concatenated = source;
+        int count = 1;
+        while (!isSubsequence(target, concatenated)) { // O(T) => at most T iterations
+            concatenated += source; // O(S) => concatenating takes O(source.length) time.
+            count++;
+        }
+        return count;
+    }
+
+/*
     Time: O(S+T)
     Space: O(26) -> Constant
  */
@@ -65,25 +85,6 @@ public class ShortestWayToFormString extends BaseTest {
                 return false;
         }
         return true;
-    }
-
-/*
-    Approach 2: Concatenate until Subsequence
-    Time: O(S + T + T*(T*S)) => O(T^2*S)
-    Space: O(T.S) => concatenate source string T times
- */
-    public int shortestWay2(String source, String target) {
-        if (!isSubsequencePossible(source, target))
-            return -1;
-
-        //  Concatenate source until the target is a subsequence of the concatenated string
-        String concatenated = source;
-        int count = 1;
-        while (!isSubsequence(target, concatenated)) { // O(T) => at most T iterations
-            concatenated += source; // O(T⋅S) => at most T concatenations of Source
-            count++;
-        }
-        return count;
     }
 
 /*

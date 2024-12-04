@@ -11,7 +11,9 @@ import java.util.Arrays;
  *  Longest Repeating Subsequence
  *  https://www.youtube.com/watch?v=NnD96abizww
  *
- *  https://leetcode.com/problems/longest-common-subsequence/
+ *  https://leetcode.com/problems/longest-common-subsequence
+ *
+ *  @Similar
  */
 public class LongestCommonSubSequence extends BaseTest {
 

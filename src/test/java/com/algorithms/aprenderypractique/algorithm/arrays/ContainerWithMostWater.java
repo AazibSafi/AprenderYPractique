@@ -21,21 +21,27 @@ public class ContainerWithMostWater extends BaseTest {
         Assert.assertEquals(0, maxArea(height));
     }
 
+/*
+    Time: O(n)
+    Space: O(1)
+    Two Pointer Approach
+*/
     public int maxArea(int[] height) {
-        int left = 0, right = height.length - 1;
-        int maxArea = 0;
+        int left = 0, right = height.length-1;
 
+        int area = 0;
         while(left < right) {
+            int currHeight = Math.min(height[left], height[right]);
             int width = right - left;
-            int hgt;
-            if(height[left] < height[right])
-                hgt = height[left++];
-            else
-                hgt = height[right--];
 
-            maxArea = Math.max(maxArea, width*hgt);
+            area = Math.max(area, currHeight * width);
+
+            if(height[left] <= height[right])
+                left++;
+            else
+                right--;
         }
-        return maxArea;
+        return area;
     }
 
 }

@@ -10,6 +10,11 @@ import org.junit.Test;
  *      Similar
  *      @see EditDistance
  *      @see OneEditDistance
+ *
+ *      Prerequisit
+ *      @see LongestCommonSubSequence
+ *
+ *      Todo: https://leetcode.com/problems/make-three-strings-equal
  */
 public class DeleteOperationForTwoStrings extends BaseTest {
 
@@ -19,8 +24,14 @@ public class DeleteOperationForTwoStrings extends BaseTest {
         Assert.assertEquals(4, minDistance("leetcode", "etco"));
     }
 
+/*
+    Time: O(M.N)
+    Space: O(min(M.N))
+    Problem Converted to longestCommonSubsequence
+*/
     public int minDistance(String word1, String word2) {
-        return 0;
+        int lcs = new LongestCommonSubSequence().longestCommonSubsequence(word1, word2);
+        return word1.length() + word2.length() - 2*lcs;
     }
 
 }

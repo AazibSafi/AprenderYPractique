@@ -1,4 +1,4 @@
-Kv database:
+KV database:
 The following sample files relate to the KV Database laptop interview question.
 
 Please read the following documentation for more context:
