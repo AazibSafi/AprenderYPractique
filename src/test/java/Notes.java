@@ -14,7 +14,6 @@
     https://leetcode.com/problems/reorganize-string/solutions/5196813/k-pattern
     https://leetcode.com/problems/dungeon-game
 
-
     https://leetcode.com/problems/valid-square
     https://www.youtube.com/watch?v=BZFbtQDX0Uc&list=PLX-yaG1hWFMxXuNBxzi3tEPE2SjqbifVp&index=6
 
@@ -22,4 +21,7 @@
     https://www.youtube.com/watch?v=pS8LWelD-8k
 
     https://leetcode.com/problems/corporate-flight-bookings
+
+    https://leetcode.com/problems/find-the-town-judge
+    https://leetcode.com/problems/find-the-celebrity
  */

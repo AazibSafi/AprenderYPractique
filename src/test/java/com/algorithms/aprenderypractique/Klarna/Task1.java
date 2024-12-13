@@ -27,7 +27,6 @@ public class Task1 extends BaseTest {
     }
 
     public static String ingredients(String order) {
-
         if(Objects.isNull(order)) {
             throw new IllegalArgumentException();
         }
@@ -52,7 +51,6 @@ public class Task1 extends BaseTest {
     }
 
     public static List<String> parseMenu(String[] menu) {
-
         List<String> allergicMenuList = new ArrayList();
 
         Arrays.stream(menu).forEach(menuItem -> {

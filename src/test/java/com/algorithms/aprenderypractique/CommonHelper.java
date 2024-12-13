@@ -1,6 +1,6 @@
 package com.algorithms.aprenderypractique;
 
-import com.algorithms.aprenderypractique.algorithm.datastructure.LinkedList;
+import com.algorithms.aprenderypractique.Algorithms.Datastructure.LinkedList;
 
 import java.util.*;
 import java.util.function.Function;
