@@ -1,0 +1,23 @@
+___ 1st Round ( 16 Dec 2024 ) ___
+
+Leadership Questions:
+    - How did you handle Negative Feedback?
+    - Any disagreement with coworker
+
+Technical Coding Problem:
+    Problem Similar to https://leetcode.com/problems/merge-k-sorted-lists
+
+    Given a Transaction logs from multiple branches, merge K into one
+
+    Logs {
+        {"09:00", "10:00", "11:00"},
+        {"18:00", "19:00", "20:00"},
+        {13:00, "14:00", "15:00"},
+    }
+
+    Output: {
+        {"09:00", "10:00", "11:00", 13:00, "14:00", "15:00", "18:00", "19:00", "20:00"}
+    }
+
+    I solved it by Binary Search Technique,
+    Followup Question was to solve it through Priority Queue

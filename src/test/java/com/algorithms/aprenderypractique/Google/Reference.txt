@@ -6,17 +6,18 @@ ___ 1st Coding Round ___
     }
 
     Create two methods to process above inputs
-    - getSize(long id)
+
+    i- getSize(long id)
         - if it is a file, Return the size of the file
         - else return the size of the directory (including all files)
 
-    getPath(long id)
+    ii- getPath(long id)
         - return the path (/name) of the files or directory upto it's root
         - i.e; for id: 3, result path is "directory_1/file_2"
 
 
 ___ 2nd Coding Round ___
-    - Pick Boxes upto given capacity
+    - Pick Boxes upto given capacity (Similar to knapsack problem)
     Rephrased: Given a cargo weights capacity and the cargo box weights as int arrays, choose max 2 boxes to load into aircraft
 
 ___ 3rd Coding Round ___
