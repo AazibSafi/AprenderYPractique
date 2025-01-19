@@ -21,7 +21,6 @@ public class CountPrimes extends BaseTest {
         if(n <= 2) return 0;    // Edge case:  0 and 1 are not prime
 
         Boolean[] prime = new Boolean[n];
-        boolean[] primes = new boolean[n];
         Arrays.fill(prime, true);
         prime[0] = prime[1] = false;    // 0 and 1 are not prime
 

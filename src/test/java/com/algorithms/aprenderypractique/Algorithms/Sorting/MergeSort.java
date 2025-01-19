@@ -36,7 +36,7 @@ public class MergeSort extends BaseTest {
             mergeSort(A, start, middle);
             mergeSort(A, middle+1, end);
 
-            merge(A,start,middle,end);      // this will be called LogN times -> O(logN)
+            merge(A, start, middle, end);      // this will be called LogN times -> O(logN)
         }
     }
 
@@ -61,7 +61,7 @@ public class MergeSort extends BaseTest {
     }
 
     public void copyArray(int[] A, int[] tempArray, int start) {
-        for(int i=0;i<tempArray.length;i++) {
+        for(int i=0; i<tempArray.length; i++) {
             A[start+i] = tempArray[i];
         }
     }

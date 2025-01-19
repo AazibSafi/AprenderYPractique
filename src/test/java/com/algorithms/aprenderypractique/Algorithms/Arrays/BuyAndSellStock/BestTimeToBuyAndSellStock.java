@@ -35,7 +35,6 @@ public class BestTimeToBuyAndSellStock extends BaseTest {
 //            else if ((price - minPrice) > maxProfit)
 //                maxProfit = (price - minPrice);
 
-
             minPrice = Math.min(price, minPrice);
             maxProfit = Math.max(price - minPrice, maxProfit);
         }
@@ -63,31 +62,6 @@ public class BestTimeToBuyAndSellStock extends BaseTest {
         }
 
         return max;
-    }
-
-    boolean regxMatch(String text, String pattern) {
-        Boolean[][] memo = new Boolean[text.length()][pattern.length()];
-        return match(text, pattern, 0, 0, memo);
-    }
-
-    boolean match(String text, String pattern, int i, int j, Boolean[][] memo) {
-        int m = text.length(), n = pattern.length();
-        if(i>m || j>n) return false;
-        if(j == n)  return i == m;
-
-        if(memo[i][j] != null)  return memo[i][j];
-
-        boolean matched = false;
-
-        boolean firstMath = i<m && (text.charAt(i) == pattern.charAt(j) || pattern.charAt(j) == '.');
-
-        if(j+1<n && pattern.charAt(j+1) == '*') {
-            matched = match(text, pattern, i, j+2, memo) || (firstMath && match(text, pattern, i+1, j, memo));
-        }
-        else
-            matched = firstMath && match(text, pattern, i+1, j+1, memo);
-
-        return memo[i][j] = matched;
     }
 
 }

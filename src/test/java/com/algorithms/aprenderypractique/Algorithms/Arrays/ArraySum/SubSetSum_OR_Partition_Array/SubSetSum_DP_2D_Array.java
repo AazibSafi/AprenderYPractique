@@ -89,6 +89,7 @@ public class SubSetSum_DP_2D_Array extends BaseTest {
 
     private List<Integer> findElements(boolean[][] dp, int[] arr) {
         List<Integer> list = new ArrayList<>();
+
         int i=dp.length-1, j=dp[0].length-1;
 
         while(i>0 && j>0) {

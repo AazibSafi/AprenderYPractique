@@ -1,52 +1,44 @@
 package com.algorithms.aprenderypractique.Algorithms.Arrays;
 
-import com.algorithms.aprenderypractique.BaseTest;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.ArrayDeque;
 import java.util.Collections;
 import java.util.Deque;
 import java.util.PriorityQueue;
+import java.util.stream.Stream;
 
 /**
  *  https://leetcode.com/problems/sliding-window-maximum/
  *  https://www.youtube.com/watch?v=LiSdD3ljCIE
  */
-public class SlidingWindowMaximum  extends BaseTest {
+public class SlidingWindowMaximum {
 
-    @Test
-    public void test() {
-        int[] nums = new int[]{1,3,-1,-3,5,3,6,7};
-        Assert.assertArrayEquals(new int[]{3,3,5,5,6,7}, maxSlidingWindow(nums,3));
-
-        nums = new int[]{2,9,3,8,1,7,12,6,14,4,32,0,7,19,8,12,6};
-        Assert.assertArrayEquals(new int[]{9,9,8,12,12,14,14,32,32,32,32,19,19,19}, maxSlidingWindow(nums,4));
-
-        nums = new int[]{1,2,3,4};
-        Assert.assertArrayEquals(new int[]{3,4}, maxSlidingWindow(nums,3));
-
-        nums = new int[]{8,7,6,9};
-        Assert.assertArrayEquals(new int[]{8,7,9}, maxSlidingWindow(nums,2));
-
-        nums = new int[]{8,7,5,6};
-        Assert.assertArrayEquals(new int[]{8,7,6}, maxSlidingWindow(nums,2));
-
-        nums = new int[]{1,1,1,1,1,4,5};
-        Assert.assertArrayEquals(new int[]{4,5}, maxSlidingWindow(nums,6));
-
-        nums = new int[]{5,1,1,1,1,4,4};
-        Assert.assertArrayEquals(new int[]{5,4}, maxSlidingWindow(nums,6));
-
-        nums = new int[]{1,-1};
-        Assert.assertArrayEquals(new int[]{1,-1}, maxSlidingWindow(nums,1));
-
-        nums = new int[]{4,-2};
-        Assert.assertArrayEquals(new int[]{4}, maxSlidingWindow(nums,2));
-
-        nums = new int[]{};
-        Assert.assertArrayEquals(new int[0], maxSlidingWindow(nums,2));
+    @ParameterizedTest
+    @MethodSource("provideTestCases")
+    public void testMaxSlidingWindow(int[] nums, int k, int[] expected) {
+        Assertions.assertArrayEquals(expected, maxSlidingWindow(nums, k));
+        Assertions.assertArrayEquals(expected, maxSlidingWindow_Heap(nums, k));
     }
+
+    private static Stream<Arguments> provideTestCases() {
+        return Stream.of(
+                Arguments.of(new int[]{1, 3, -1, -3, 5, 3, 6, 7}, 3, new int[]{3, 3, 5, 5, 6, 7}),
+                Arguments.of(new int[]{2, 9, 3, 8, 1, 7, 12, 6, 14, 4, 32, 0, 7, 19, 8, 12, 6}, 4, new int[]{9, 9, 8, 12, 12, 14, 14, 32, 32, 32, 32, 19, 19, 19}),
+                Arguments.of(new int[]{1, 2, 3, 4}, 3, new int[]{3, 4}),
+                Arguments.of(new int[]{8, 7, 6, 9}, 2, new int[]{8, 7, 9}),
+                Arguments.of(new int[]{8, 7, 5, 6}, 2, new int[]{8, 7, 6}),
+                Arguments.of(new int[]{1, 1, 1, 1, 1, 4, 5}, 6, new int[]{4, 5}),
+                Arguments.of(new int[]{5, 1, 1, 1, 1, 4, 4}, 6, new int[]{5, 4}),
+                Arguments.of(new int[]{1, -1}, 1, new int[]{1, -1}),
+                Arguments.of(new int[]{4, -2}, 2, new int[]{4}),
+                Arguments.of(new int[]{}, 2, new int[0])
+        );
+    }
+
 
 /*
     Efficient Algorithm in Linear complexity

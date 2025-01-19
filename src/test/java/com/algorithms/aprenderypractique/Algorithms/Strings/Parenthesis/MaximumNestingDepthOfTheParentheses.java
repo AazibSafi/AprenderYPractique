@@ -23,6 +23,7 @@ public class MaximumNestingDepthOfTheParentheses extends BaseTest {
     }
 
 /*
+    Approach#2 - Counter variable
     Time: O(n)
     Space: O(1)
     Since input is VALID parentheses string so no need to verify the balancing part of braces
@@ -33,28 +34,30 @@ public class MaximumNestingDepthOfTheParentheses extends BaseTest {
         for(char c : s.toCharArray()) {
             if(c == '(') {
                 depth++;
-                max = Math.max(max, depth);
             }
-            else if(c == ')')
+            else if(c == ')') {
+                max = Math.max(max, depth);
                 depth--;
+            }
         }
         return max;
     }
 
 /*
+    Approach#1 - Stack
     Time: O(n)
     Space: O(n)
 */
-    public int maxDepth2(String s) {
+    public int maxDepth1(String s) {
         Stack<Character> stack = new Stack<>();
         int max = 0;
 
         for(char c : s.toCharArray()) {
             if(c == '(') {
                 stack.push(c);
-                max = Math.max(max, stack.size());
             }
-            else if(c == ')') {
+            else if(c == ')' && !stack.isEmpty()) {
+                max = Math.max(max, stack.size());
                 stack.pop();
             }
         }

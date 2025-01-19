@@ -18,10 +18,10 @@ public class Search2DMatrix extends BaseTest {
 
     @Test
     public void test() {
-        Assert.assertTrue(searchMatrix(new int[][]{{1,3,5,7},{10,11,16,20},{23,30,34,60}}, 3));
-        Assert.assertFalse(searchMatrix(new int[][]{{1,3,5,7},{10,11,16,20},{23,30,34,60}}, 13));
-        Assert.assertTrue(searchMatrix(new int[][]{{1,4,7,11,15},{2,5,8,12,19},{3,6,9,16,22},{10,13,14,17,24},{18,21,23,26,30}}, 5));
-        Assert.assertFalse(searchMatrix(new int[][]{{1,4,7,11,15},{2,5,8,12,19},{3,6,9,16,22},{10,13,14,17,24},{18,21,23,26,30}}, 20));
+        Assert.assertTrue(searchMatrix(new int[][]{{1,3,5,7}, {10,11,16,20}, {23,30,34,60}}, 3));
+        Assert.assertFalse(searchMatrix(new int[][]{{1,3,5,7}, {10,11,16,20}, {23,30,34,60}}, 13));
+        Assert.assertTrue(searchMatrix(new int[][]{{1,4,7,11,15}, {2,5,8,12,19}, {3,6,9,16,22}, {10,13,14,17,24}, {18,21,23,26,30}}, 5));
+        Assert.assertFalse(searchMatrix(new int[][]{{1,4,7,11,15}, {2,5,8,12,19}, {3,6,9,16,22}, {10,13,14,17,24}, {18,21,23,26,30}}, 20));
     }
 
 /*
@@ -64,8 +64,8 @@ public class Search2DMatrix extends BaseTest {
             if(target == matrix[i][j])
                 return true;
 
-            if(target < matrix[i][j])   j--;    // Go left
-            else if(target > matrix[i][j]) i++; // Go down
+            if(target < matrix[i][j])       j--;    // Go left
+            else if(target > matrix[i][j])  i++; // Go down
         }
         return false;
     }

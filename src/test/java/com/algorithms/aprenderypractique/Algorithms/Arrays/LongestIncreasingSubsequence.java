@@ -1,12 +1,14 @@
 package com.algorithms.aprenderypractique.Algorithms.Arrays;
 
-import com.algorithms.aprenderypractique.BaseTest;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Stream;
 
 /**
  *      https://leetcode.com/problems/longest-increasing-subsequence
@@ -14,20 +16,29 @@ import java.util.List;
  *      Todo: https://leetcode.com/problems/longest-increasing-subsequence-ii
  *            https://leetcode.com/problems/maximum-height-by-stacking-cuboids
  */
-public class LongestIncreasingSubsequence extends BaseTest {
+public class LongestIncreasingSubsequence {
 
-    @Test
-    public void test() {
-        Assert.assertEquals(4, lengthOfLIS(new int[]{10,9,2,5,3,7,101,18}));
-        Assert.assertEquals(4, lengthOfLIS(new int[]{0,1,0,3,2,3}));
-        Assert.assertEquals(1, lengthOfLIS(new int[]{7,7,7,7,7,7,7}));
-        Assert.assertEquals(6, lengthOfLIS(new int[]{1,3,6,7,9,4,10,5,6}));
-        Assert.assertEquals(3, lengthOfLIS(new int[]{2,5,1,8,3}));
-        Assert.assertEquals(4, lengthOfLIS(new int[]{3,4,-1,0,6,2,3}));
-        Assert.assertEquals(3, lengthOfLIS(new int[]{5,8,7,1,9}));
-        Assert.assertEquals(6, lengthOfLIS(new int[]{3,4,-1,5,8,2,3,12,7,9,10}));
-        Assert.assertEquals(1, lengthOfLIS(new int[]{84,80,27}));
-        Assert.assertEquals(1, lengthOfLIS(new int[]{1}));
+    @ParameterizedTest
+    @MethodSource("testCases")
+    public void testLengthOfLIS(int[] nums, int expected) {
+        Assertions.assertEquals(expected, lengthOfLIS(nums));
+        Assertions.assertEquals(expected, lengthOfLIS2(nums));
+        Assertions.assertEquals(expected, lengthOfLIS3(nums));
+    }
+
+    private static Stream<Arguments> testCases() {
+        return Stream.of(
+                Arguments.of(new int[]{10, 9, 2, 5, 3, 7, 101, 18}, 4),
+                Arguments.of(new int[]{0, 1, 0, 3, 2, 3}, 4),
+                Arguments.of(new int[]{7, 7, 7, 7, 7, 7, 7}, 1),
+                Arguments.of(new int[]{1, 3, 6, 7, 9, 4, 10, 5, 6}, 6),
+                Arguments.of(new int[]{2, 5, 1, 8, 3}, 3),
+                Arguments.of(new int[]{3, 4, -1, 0, 6, 2, 3}, 4),
+                Arguments.of(new int[]{5, 8, 7, 1, 9}, 3),
+                Arguments.of(new int[]{3, 4, -1, 5, 8, 2, 3, 12, 7, 9, 10}, 6),
+                Arguments.of(new int[]{84, 80, 27}, 1),
+                Arguments.of(new int[]{1}, 1)
+        );
     }
 
 /*
@@ -45,7 +56,7 @@ public class LongestIncreasingSubsequence extends BaseTest {
             else {
                 //    Binary Search: O(logN)
                 //    Finds index of equal or upperbound elm of the target
-                int j = UpperAndLowerBound.upperBound(sub, nums[i]);
+                int j = BinarySearch.upperBound(sub, nums[i]);
                 sub.set(j, nums[i]);
             }
         }

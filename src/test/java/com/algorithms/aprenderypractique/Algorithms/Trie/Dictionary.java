@@ -42,7 +42,7 @@ public class Dictionary {
 
 /**
     Inserts a given word in a dictionary
-    Time: O(n) => Each operation involves examining or creating a node until the end of the key.
+    Time: O(n) => Each operation involves examining or creating a node until the end of the word..
     Space: O(n) => In the worst case, each newly inserted key might require adding m new nodes, resulting in O(m) space usage.
     n is the length of the word/key
  */

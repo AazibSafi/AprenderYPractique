@@ -5,8 +5,10 @@ import org.junit.Assert;
 import org.junit.Test;
 
 /**
- *  https://leetcode.com/problems/word-search/
+ *  https://leetcode.com/problems/word-search
  *  https://www.youtube.com/watch?v=vYYNp0Jrdv0
+ *
+ *  Todo: https://leetcode.com/problems/robot-room-cleaner
  */
 public class WordSearch_I extends BaseTest {
 
@@ -20,6 +22,9 @@ public class WordSearch_I extends BaseTest {
 
         board = new char[][]{{'o','a','a','n'},{'e','t','a','e'},{'i','h','k','r'},{'i','f','l','v'}};
         Assert.assertTrue(exist(board, "eat"));
+
+        board = new char[][]{{'A','B','E'},{'B','C','D'}};
+        Assert.assertTrue(exist(board, "ABCDEB"));
 
 //      Edge Case: The same letter cell may not be used more than once.
         board = new char[][]{{'A','B','C','E'},{'S','F','C','S'},{'A','D','E','E'}};

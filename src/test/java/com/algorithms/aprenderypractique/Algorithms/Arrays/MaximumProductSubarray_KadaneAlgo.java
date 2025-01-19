@@ -10,7 +10,7 @@ import org.junit.Test;
  *  https://www.youtube.com/watch?v=QQVCKkImH_s
  *  https://leetcode.com/problems/maximum-product-subarray/
  */
-public class MaximumProductSubarray_KadaneAlgo extends BaseTest {
+public class MaximumProductSubarray_KadaneAlgo {
 
     @Test
     public void test() {

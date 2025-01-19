@@ -4,10 +4,13 @@ import com.algorithms.aprenderypractique.BaseTest;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
 
 /**
- *  https://leetcode.com/problems/merge-intervals/
+ *  https://leetcode.com/problems/merge-intervals
  *  https://www.youtube.com/watch?v=qKczfGUrFY4&t=564s
  *
  *  https://leetcode.com/discuss/interview-question/338948/Facebook-or-Onsite-or-Schedule-of-Tasks

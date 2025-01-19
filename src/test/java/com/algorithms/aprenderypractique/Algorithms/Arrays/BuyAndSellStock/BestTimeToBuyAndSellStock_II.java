@@ -5,7 +5,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 /**
- *  https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/
+ *  https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii
  *  https://www.youtube.com/watch?v=K8iHi8AW1ls
  */
 public class BestTimeToBuyAndSellStock_II extends BaseTest {

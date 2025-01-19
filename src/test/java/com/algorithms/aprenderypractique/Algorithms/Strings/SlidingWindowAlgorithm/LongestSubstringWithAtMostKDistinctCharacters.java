@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- *    Similar Problems
+ *      https://leetcode.com/problems/longest-substring-with-at-most-k-distinct-characters
  *      https://leetcode.ca/2016-11-04-340-Longest-Substring-with-At-Most-K-Distinct-Characters
  *      https://leetcode.ca/2016-05-07-159-Longest-Substring-with-At-Most-Two-Distinct-Characters
  */
@@ -23,13 +23,14 @@ public class LongestSubstringWithAtMostKDistinctCharacters extends BaseTest {
 
 /*
     Time: O(n)
-    Space: O(k)
+    Space: O(k) => For HashMap
  */
     public int lengthOfLongestSubstringKDistinct(String str, int k) {
         Map<Character, Integer> map = new HashMap<>();
-        int max = 0;
 
-        for(int left = 0, right=0; right< str.length(); right++) {
+        int max = 0, left = 0;
+
+        for(int right=0; right<str.length(); right++) {
             char c = str.charAt(right);
             map.put(c, map.getOrDefault(c,0) + 1);
 

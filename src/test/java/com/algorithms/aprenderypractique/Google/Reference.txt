@@ -36,6 +36,3 @@ ___ 1st System Design ___
     - Interview Question: Design a system that determines if a new virtual machine can be safely provisioned while making efficient use of underlying hosts.
 
     Rephrased: Designing a system to determine if a new virtual machine (VM) can be safely provisioned involves evaluating the available resources on the physical hosts and the requirements of the VM, while ensuring efficient utilization.
-
-___ 2nd Follow up System Design ___
-    -

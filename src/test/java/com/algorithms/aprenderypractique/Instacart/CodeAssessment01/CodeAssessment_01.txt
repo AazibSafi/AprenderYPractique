@@ -1,0 +1,51 @@
+___ Level1 ___
+    As image attached
+
+
+___ Level2 ___
+Implement an operation for retrieving some statics about the files with a specific prefix
+
+- List<String> getNLargest(String prefix, int n)
+Should return the list of strings representing the names of the top n largest files with names starting with prefix in the following
+    format: ["<name1>(<size1>)",......,"<nameN>(<sizeN>)"]
+Returned files should be sorted by size in descending order, or in case of a sorted lexicographical order of the names.
+If there is no such files, return an empty list. if the number of such files is less than n, all of them should be returned in the specific format
+
+
+___ Level3 ___
+The Cloud storage system should support adding users with limited capacities and merging two users.
+
+Implement Support for queries from different users. All users share a common filesystem in the cloud storage system. but each user is assigned a storage capacity limit.
+
+- boolean addUser(String userId, int capacity)
+Should add a new user in the system with capacity as their storage limit in bytes.
+The total size of all files owned by userId cannot exceed capacity.
+The operation fails if a user with userId already exit. Returns true if a user is successfully created, or false otherwise.
+
+- Optional<Integer> addFileBy(String userId, String name, int size)
+Should behave in the same way as the addFile from level1, but the added file should be owned by the user with userId.
+A new file cannot be added to the storage if doing so will exceed the user's capacity limit.
+Return the remaining capacity of the user if the file is added successfully, or optional.empty() otherwise.
+
+Not that all queries calling the addFile option implemented earlier are run the the user with userId = "admin"
+
+- Optional<Integer> mergeUser(String userId1, String userId2)
+Should merge the account of user2 with the userId1. Ownership of all of userId2's files is transferred to userId1, and any remaining storage capacity is also added to user1's limit.
+userId2 is deleted if the merge is successful. Returns the remaining capacity of userId after merging or Optional.empty() if one of the users does not exit or userId1 is equal to userId2.
+It is guarantee that neither userId1 not userId2 equals "admin"
+
+
+___ Level4 ___
+The cloud storage system should support backing up and restoring a user's files.
+
+- Optional<Integer> backupUser(String userId)
+Should backup the current state of all files owned by userId, file names and sizes.
+The backup is stored on a separate storage system and is not affected by any new file manipulation queries.
+Overwrite any backups for the same user if previous backup exist. Return number of backed up files, or Optional., empty().
+if userId does not exist.
+
+- Optional<Integer> restoreUser(String userId)
+Should restore the state of userId files to the latest backup.
+If no backup, all of userId's files are deleted.
+If a files can't be restored because another user added another files with the same name,
+it is ignored returns the number of the files that are successfully restored or Optional.empty() if userId does not exit.

@@ -6,6 +6,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  *      https://leetcode.com/problems/invalid-transactions
@@ -59,12 +60,11 @@ public class InvalidTransactions extends BaseTest {
     Where n is the number of transactions
 */
     public List<String> invalidTransactions(String[] transactions) {
-        Set<Integer> set = new HashSet<>();
+        Set<Integer> invalid = new HashSet<>();
 /*
     Storing indices of invalid transactions
     In case same multiple transactions are invalid, then they should all be in the output.
 */
-
         Map<String, List<Item>> map = new HashMap<>();
 
         for(int i=0; i<transactions.length; i++) {
@@ -78,22 +78,21 @@ public class InvalidTransactions extends BaseTest {
                     .add(new Item(time, city, i));
 
             if(amount > 1000) {
-                set.add(i);
+                invalid.add(i);
             }
 
             for(Item item : map.get(name)) {
                 if(!city.equals(item.city) && Math.abs(time - item.time) <= 60) {
-                    set.add(i);
-                    set.add(item.index);
+                    invalid.add(i);
+                    invalid.add(item.index);
                 }
             }
         }
 
-        List<String> invalidTransactions = new ArrayList<>();
-        for(int idx : set) {
-            invalidTransactions.add(transactions[idx]);
-        }
-        return invalidTransactions;
+        // Return all transaction with the given indices of invalid transactions
+        return invalid.stream()
+                .map(i -> transactions[i])
+                .collect(Collectors.toList());
     }
 
     static class Item {

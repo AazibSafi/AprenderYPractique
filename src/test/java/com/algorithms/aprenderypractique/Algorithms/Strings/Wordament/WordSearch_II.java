@@ -9,9 +9,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
- *  https://leetcode.com/problems/word-search-ii/
+ *  https://leetcode.com/problems/word-search-ii
  *
  *  @see WordSearch_I
  *  Extension of Above Solution
@@ -32,13 +33,9 @@ public class WordSearch_II extends BaseTest {
     }
 
     public List<String> findWords(char[][] board, String[] words) {
-        List<String> output = new ArrayList<>();
-        for(String word : words) {
-            if (new WordSearch_I().exist(board, word)) {
-                output.add(word);
-            }
-        }
-        return output;
+        return Arrays.stream(words)
+                .filter(word -> new WordSearch_I().exist(board, word))
+                .toList();
     }
 
 }

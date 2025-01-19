@@ -7,11 +7,11 @@ import org.junit.Test;
 import java.util.HashSet;
 import java.util.Set;
 
-/*
- * Sliding Window Algorithm
- * Longest Substring Without Repeating Characters
- * https://www.youtube.com/watch?v=4i6-9IzQHwo&ab_channel=MichaelMuinos
- * https://leetcode.com/problems/longest-substring-without-repeating-characters
+/**
+ *      Sliding Window Algorithm
+ *      Longest Substring Without Repeating Characters
+ *      https://www.youtube.com/watch?v=4i6-9IzQHwo&ab_channel=MichaelMuinos
+ *      https://leetcode.com/problems/longest-substring-without-repeating-characters
  */
 public class LongestSubstringWithoutRepeatingCharacters extends BaseTest {
 
@@ -25,20 +25,21 @@ public class LongestSubstringWithoutRepeatingCharacters extends BaseTest {
     }
 
 /*
+    Approach: Sliding Window
     Time: O(n + n) -> O(n) --> Each character is processed at most twice (once added and once removed from the HashSet)
     Space: O(n) --> In the worst case, the HashSet needs to store all the unique characters of the string
  */
     public int lengthOfLongestSubstring(String str) {
         Set<Character> set = new HashSet<>();
 
-        int i = 0,  max = 0;
-        for(int j=0; j<str.length(); j++) {
-            while(set.contains(str.charAt(j))) {
-                set.remove(str.charAt(i++));
+        int left = 0,  max = 0;
+        for(int right=0; right<str.length(); right++) {
+            while(set.contains(str.charAt(right))) {
+                set.remove(str.charAt(left++));
             }
 
-            set.add(str.charAt(j));
-            max = Math.max(max, j - i + 1);
+            set.add(str.charAt(right));
+            max = Math.max(max, right - left + 1);  // Length of substring(left, right+1)
         }
         return max;
     }

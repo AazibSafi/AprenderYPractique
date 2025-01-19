@@ -26,7 +26,7 @@ public class KokoEatingBananas extends BaseTest {
     Efficient Algo
 
     Binary Search Upper Bound Logic
-    @see UpperAndLowerBound
+    @see BinarySearch
  */
     public int minEatingSpeed(int[] piles, int h) {
         int left = 1, right = Arrays.stream(piles).max().getAsInt();

@@ -1,7 +1,7 @@
 package com.algorithms.aprenderypractique.Algorithms.LinkedList;
 
-import com.algorithms.aprenderypractique.BaseTest;
 import com.algorithms.aprenderypractique.Algorithms.Datastructure.LinkedList;
+import com.algorithms.aprenderypractique.BaseTest;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -42,30 +42,43 @@ public class RotateList extends BaseTest {
 /*
     Time: O(n)
     Space: O(1)
+
+    Intuition
+    We need to find the length of the list. After that, traverse the list with a pointer
+    and set the length-k node as the new head. Finally, link the last node to the previous first node.
  */
     public LinkedList rotateRight(LinkedList head, int k) {
+        // 1. Initial Checks
         if(head == null || head.next == null || k == 0) return head;
 
+        // 2. Calculate Length
         int length = 1;
-
         LinkedList tail = head;
         while(tail.next != null) {
             tail = tail.next;
             length++;
         }
+
+        // 3. Make the List Circular
         tail.next = head;
 
+        // 4. Calculate Effective Rotations
         k = k % length;
         int breakPoint = length - k - 1;
 
+        // 5. Find New Head
         LinkedList traverse = head;
         while(breakPoint-- > 0) {
             traverse = traverse.next;
         }
 
+        // 6. Break the Circular List
         LinkedList newHead = traverse.next;
         traverse.next = null;
+
+        // 7. Return New Head
         return newHead;
     }
+
 
 }

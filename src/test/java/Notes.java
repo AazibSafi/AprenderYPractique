@@ -24,4 +24,8 @@
 
     https://leetcode.com/problems/find-the-town-judge
     https://leetcode.com/problems/find-the-celebrity
+
+    https://leetcode.com/problems/robot-room-cleaner
+
+    https://leetcode.com/problems/max-stack
  */
