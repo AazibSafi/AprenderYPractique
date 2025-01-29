@@ -25,6 +25,7 @@ public class TopKFrequentWords extends BaseTest {
 
 /*
     Time: O(nlogn)
+    Space: O(n + k) -> n for map and k for heap
 */
     public List<String> topKFrequent(String[] words, int k) {
         //Map<String, Integer> map = Arrays.stream(words).collect(Collectors.groupingBy(String::valueOf, Collectors.summingInt(e -> 1)));
@@ -45,9 +46,9 @@ public class TopKFrequentWords extends BaseTest {
 
         List<String> output = new ArrayList<>();
         while(!minHeap.isEmpty()) {
-            output.add(0, minHeap.poll().getKey());
+            output.add(minHeap.poll().getKey());
         }
-        return output;
+        return output.reversed();
     }
 
 }

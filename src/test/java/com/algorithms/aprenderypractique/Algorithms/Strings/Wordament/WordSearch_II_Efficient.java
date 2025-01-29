@@ -16,6 +16,8 @@ import java.util.*;
  *
  *  https://tenderleo.gitbooks.io/leetcode-solutions-/content/GoogleHard/212.html
  *
+ *  Also Called Boggle word game - Scramble
+ *
  *  Using Trie
  *  Efficient Solution
  */
@@ -31,6 +33,9 @@ public class WordSearch_II_Efficient extends BaseTest {
 
         board = new char[][]{{'a','l','i','l'}, {'g','e','g','a'}, {'k','k','i','l'}};
         Assert.assertTrue(CommonHelper.isEquals(Collections.singletonList("agile"), findWords(board, new String[]{"agile", "lily"})));
+
+        board = new char[][]{{'a','b','c','d'},{'s','a','a','t'},{'a','c','k','e'},{'a','c','d','n'}};
+        Assert.assertTrue(CommonHelper.isEquals(Arrays.asList("cat","back","backend"), findWords(board, new String[]{"bat","cat","back","backend","stack"})));
     }
 
 /*
@@ -45,6 +50,7 @@ public class WordSearch_II_Efficient extends BaseTest {
     Set<String> result;
 
     public List<String> findWords(char[][] board, String[] words) {
+        Arrays.stream(words).filter(x -> x=="12").count();
         dict = new Dictionary();
         result = new HashSet<>();
 
@@ -55,15 +61,36 @@ public class WordSearch_II_Efficient extends BaseTest {
         int m = board.length, n = board[0].length;
         boolean[][] visited = new boolean[m][n];
 
-        for(int i=0 ; i< board.length; i++) {
-            for(int j=0; j< board[0].length; j++) {
-                dfs(board, i, j, visited, "");
+        for(int i=0 ; i<m; i++) {
+            for(int j=0; j<n; j++) {
+                //dfs2(board, i, j, visited, "");
+                dfs(board, i, j, "");
             }
         }
         return result.stream().toList();
     }
 
-    public void dfs(char[][] board, int i, int j, boolean[][] visited, String current) {
+    public void dfs(char[][] board, int i, int j, String current) {
+        if(!isSafe(board, i, j) || board[i][j]=='#')   return;
+
+        current += board[i][j];
+        if(!dict.startsWith(current)) return;       // if no prefix matches
+
+        if(dict.search(current)) {                  // if a complete word is found
+            result.add(current);
+        }
+
+        char saveCurrentLetter = board[i][j];
+        board[i][j] = '#';  // Mark Visited
+
+        for (int[] adjCell : adjacent) {
+            dfs(board, i+adjCell[0], j+adjCell[1], current);
+        }
+
+        board[i][j] = saveCurrentLetter;  // UnVisited
+    }
+
+    public void dfs2(char[][] board, int i, int j, boolean[][] visited, String current) {
         if(!isSafe(board, i, j) || visited[i][j])   return;
 
         current += board[i][j];
@@ -74,15 +101,21 @@ public class WordSearch_II_Efficient extends BaseTest {
         }
 
         visited[i][j] = true;
-        dfs(board, i+1, j, visited, current);   // DOWN
-        dfs(board, i-1, j, visited, current);   // UP
-        dfs(board, i, j+1, visited, current);   // RIGHT
-        dfs(board, i, j-1, visited, current);   // LEFT
+        for (int[] adjCell : adjacent) {
+            dfs2(board, i+adjCell[0], j+adjCell[1], visited, current);
+        }
         visited[i][j] = false;
     }
 
     boolean isSafe(char[][] board, int row, int col) {
         return row>=0 && col>=0 && row<board.length && col<board[0].length;
     }
+
+    int[][] adjacent = new int[][] {
+            {-1,0},     // UP
+            {1,0},      // DOWN
+            {0,-1},     // LEFT
+            {0,1}       // RIGHT
+    };
 
 }

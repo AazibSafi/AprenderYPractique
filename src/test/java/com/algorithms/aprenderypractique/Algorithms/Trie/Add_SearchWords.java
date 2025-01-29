@@ -17,6 +17,8 @@ public class Add_SearchWords extends BaseTest {
         addWord("pad");
         Assert.assertTrue( search("dad") );
         Assert.assertTrue( search("d..") );
+        Assert.assertTrue( search(".ad") );
+        Assert.assertFalse( search(".a.") );
     }
 
     private final Dictionary dictionary;

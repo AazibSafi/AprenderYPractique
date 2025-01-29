@@ -92,10 +92,6 @@ public class UndergroundSystem extends BaseTest {
     class TravelInfo {
         int totalTime;
         int totalTrips;
-        public TravelInfo() {
-            this.totalTime = 0;
-            this.totalTrips = 0;
-        }
         public void addTrip(int totalTime) {
             this.totalTime += totalTime;
             this.totalTrips += 1;

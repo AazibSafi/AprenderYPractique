@@ -11,6 +11,7 @@ import java.util.Random;
 public class ShuffleAnArray extends BaseTest {
 
 /*
+    Approach: Fisher-Yates Shuffle Algorithm
     Time: O(N)
     Space: O(N)
 */
@@ -28,17 +29,21 @@ public class ShuffleAnArray extends BaseTest {
 
     public int[] shuffle() {
         int[] arr = nums.clone();
-        for(int i=0; i<arr.length; i++) {
+        for(int i=0; i<arr.length; i++) {   // O(n)
             int j = random(i, arr.length);
-            int temp = arr[i];
-            arr[i] = arr[j];
-            arr[j] = temp;
+            swap(arr, i, j);
         }
         return arr;
     }
 
     private int random(int min, int max) {
-        return random.nextInt(max-min)+min;
+        return random.nextInt(max-min)+min;     // O(1)
+    }
+
+    private void swap(int[] arr, int i, int j) {
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
     }
 
 }

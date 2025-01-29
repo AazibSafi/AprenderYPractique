@@ -49,8 +49,7 @@ public class Dictionary {
     public void insert(String word) {
         Trie curr = trie;
 
-        for(int i=0; i<word.length(); i++) {
-            char ch = word.charAt(i);
+        for(char ch : word.toCharArray()) {
             if (!curr.children.containsKey(ch)) {
                 curr.children.put(ch, new Trie());
             }
@@ -68,8 +67,7 @@ public class Dictionary {
     public Trie searchPrefix(String word) {
         Trie curr = trie;
 
-        for(int i=0; i<word.length(); i++) {
-            char ch = word.charAt(i);
+        for(char ch : word.toCharArray()) {
             if (!curr.children.containsKey(ch))     return null;
             curr = curr.children.get(ch);
         }
@@ -95,8 +93,7 @@ public class Dictionary {
         StringBuilder prefix = new StringBuilder();
         Trie curr = trie;
 
-        for(int i=0; i<word.length(); i++) {
-            char ch = word.charAt(i);
+        for(char ch : word.toCharArray()) {
             if (!curr.children.containsKey(ch))         return Strings.EMPTY;
 
             prefix.append(ch);
@@ -112,18 +109,39 @@ public class Dictionary {
     Return all words from a dictionary that contains a given prefix
  */
     public List<String> getWordsWithPrefix(String prefix) {
+        if(prefix.isEmpty())
+            return new ArrayList<>();       // At-least one character should be there in prefix
+
         Trie head = trie;
 
-        for(int i=0; i<prefix.length(); i++) {
-            char ch = prefix.charAt(i);
+        for(char ch : prefix.toCharArray()) {
             if (!head.children.containsKey(ch))
                 return new ArrayList<>();       // Prefix not found
             head = head.children.get(ch);
         }
 
         List<String> words = new ArrayList<>();
-        //dfs(head, prefix, words);
+        dfs(head, prefix, words);
         return words;
+    }
+
+    public boolean searchWithDot(Trie curr, String word) {
+        for(int i=0; i<word.length(); i++) {
+            char ch = word.charAt(i);
+            if(ch == '.') {
+                for(Trie child : curr.children.values()) {
+                    if(searchWithDot(child, word.substring(i+1)))
+                        return true;
+                }
+                return false;
+            }
+
+            if(!curr.children.containsKey(ch))
+                return false;
+            curr = curr.children.get(ch);
+        }
+
+        return curr.isWord;
     }
 
     public boolean searchWithDot(String word) {
@@ -135,7 +153,7 @@ public class Dictionary {
     Time: O(M)
     Space: O(1)
  */
-    public boolean searchWithDot(Trie curr, String word) {
+    public boolean searchWithDot2(Trie curr, String word) {
         for(int i=0; i<word.length(); i++) {
             char ch = word.charAt(i);
             if(ch == '.') {
@@ -146,7 +164,8 @@ public class Dictionary {
                 return false;
             }
             else {
-                if (!curr.children.containsKey(ch)) return false;
+                if (!curr.children.containsKey(ch))
+                    return false;
                 curr = curr.children.get(ch);
             }
         }

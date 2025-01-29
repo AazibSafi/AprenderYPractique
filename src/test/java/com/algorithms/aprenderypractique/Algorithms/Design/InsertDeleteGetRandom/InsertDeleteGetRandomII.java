@@ -1,6 +1,7 @@
 package com.algorithms.aprenderypractique.Algorithms.Design.InsertDeleteGetRandom;
 
 import com.algorithms.aprenderypractique.BaseTest;
+import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,10 +35,10 @@ public class InsertDeleteGetRandomII extends BaseTest {
         if(!list.contains(val))   return false;
 
         int idxOfElementToDelete = list.indexOf(val);
-        int lastElement = list.get(list.size()-1);
+        int lastElement = list.getLast(); // list.get(list.size()-1);
 
         list.set(idxOfElementToDelete, lastElement);
-        //list.removeLast();            // Commit because of compiler issue. This code is working fine on Leetcode
+        list.removeLast();
 
         return true;
     }

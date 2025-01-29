@@ -25,3 +25,7 @@ Log {session id, start timestamp, duration}
     88999 123 977
 
 Followup question: would you remove the old entries?
+
+___ 2nd Coding Round ___
+
+Problem: Similar to Top K Frequent Elements

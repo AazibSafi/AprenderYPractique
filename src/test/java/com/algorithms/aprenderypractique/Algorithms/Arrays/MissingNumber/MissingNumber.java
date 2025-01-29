@@ -17,13 +17,6 @@ public class MissingNumber extends BaseTest {
         Assert.assertEquals(2, missingNumber(new int[]{3,0,1}));
         Assert.assertEquals(2, missingNumber(new int[]{0,1}));
         Assert.assertEquals(8, missingNumber(new int[]{9,6,4,2,3,5,7,0,1}));
-
-        System.out.println("0^0: "+ (0^0));
-        System.out.println("5^0: "+ (5^0));
-        System.out.println("5^5: "+ (5^5));
-        System.out.println("5^7: "+ (5^7));
-        System.out.println("5^9: "+ (5^9));
-        System.out.println("4^7: "+ (4^7));
     }
 
     public int missingNumber(int[] nums) {

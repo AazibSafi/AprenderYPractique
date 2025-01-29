@@ -1,4 +1,4 @@
-package com.algorithms.aprenderypractique.Algorithms.Design;
+package com.algorithms.aprenderypractique.Algorithms.Design.RankingPlatform;
 
 import com.algorithms.aprenderypractique.BaseTest;
 import com.algorithms.aprenderypractique.CommonHelper;
@@ -41,8 +41,8 @@ public class StockTicker extends BaseTest {
         Assert.assertTrue(CommonHelper.isEquals(Arrays.asList("TSLA", "GOOG", "MSFT"), stockTicker.topKStocks(3)));
     }
 
-    Map<String, Integer> stocks;                // O(N)
-    TreeMap<Integer, Set<String>> ranks;        // O(N)
+    Map<String, Integer> stocks;             // <Stock Symbol, price>  ->  O(N)
+    TreeMap<Integer, Set<String>> ranks;     // <price, List<Stock Symbol>>  ->  O(N)
 
     public StockTicker() {
         this.stocks = new HashMap<>();

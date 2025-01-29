@@ -3,38 +3,58 @@ package com.algorithms.aprenderypractique.Algorithms.Strings.Wordament;
 import com.algorithms.aprenderypractique.BaseTest;
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+import org.junit.runners.Parameterized;
+
+import java.util.Collection;
+import java.util.stream.Stream;
+
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 /**
  *  https://leetcode.com/problems/word-search
  *  https://www.youtube.com/watch?v=vYYNp0Jrdv0
  *
+ *  Also Called Boggle word game - Scramble
+ *
  *  Todo: https://leetcode.com/problems/robot-room-cleaner
+ *
  */
 public class WordSearch_I extends BaseTest {
 
     @Test
     public void solution() {
         char[][] board = new char[][]{{'A','B','C','E'},{'S','F','C','S'},{'A','D','E','E'}};
-        Assert.assertTrue(exist(board, "ABCCED"));
+        assertTrue(exist(board, "ABCCED"));
 
         board = new char[][]{{'A','B','C','E'},{'S','F','C','S'},{'A','D','E','E'}};
-        Assert.assertTrue(exist(board, "SEE"));
+        assertTrue(exist(board, "SEE"));
 
         board = new char[][]{{'o','a','a','n'},{'e','t','a','e'},{'i','h','k','r'},{'i','f','l','v'}};
-        Assert.assertTrue(exist(board, "eat"));
+        assertTrue(exist(board, "eat"));
 
         board = new char[][]{{'A','B','E'},{'B','C','D'}};
-        Assert.assertTrue(exist(board, "ABCDEB"));
+        assertTrue(exist(board, "ABCDEB"));
 
 //      Edge Case: The same letter cell may not be used more than once.
         board = new char[][]{{'A','B','C','E'},{'S','F','C','S'},{'A','D','E','E'}};
-        Assert.assertFalse(exist(board, "ABCB"));
+        assertFalse(exist(board, "ABCB"));
     }
 
-    /*
-        Time: O(n*m)    -- Worst case where the whole board is a word
-        Space: O(n*m)   -- because we are modifying the board to mark visited
-     */
+/*
+    Time: O(M.N.3^L) -> 3^L is for 4 directions reduced to 3 directions of each word letter
+    Space: O(L) -> maximum length of the recursion call stack
+
+    where M.N is the number of cells in the board
+    L is the length of the word to be matched.
+*/
+/*  Complexity can also be simplified as below
+    Time: O(n*m)    -- Worst case where the whole board is a word
+    Space: O(n*m)   -- because we are modifying the board to mark visited
+ */
     public boolean exist(char[][] board, String word) {
         int m = board.length;
         int n = board[0].length;

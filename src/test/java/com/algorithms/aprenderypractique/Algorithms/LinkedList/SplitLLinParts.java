@@ -1,50 +1,56 @@
 package com.algorithms.aprenderypractique.Algorithms.LinkedList;
 
-import com.algorithms.aprenderypractique.BaseTest;
 import com.algorithms.aprenderypractique.Algorithms.Datastructure.LinkedList;
-import org.junit.Test;
+import com.algorithms.aprenderypractique.BaseTest;
 
 /**
- *      https://leetcode.com/problems/split-linked-list-in-parts/
+ *      https://leetcode.com/problems/split-linked-list-in-parts
  *      https://www.youtube.com/watch?v=K5M8ALXVkR0
+ *
+ *      https://leetcode.com/discuss/interview-question/689328/bloomberg-phone-shuffle-cards
  */
 public class SplitLLinParts extends BaseTest {
-
-    @Test
-    public void test() {    }
-
+    /*
+        Time: O(n + n) -> O(n)
+        pace: O(1)
+    */
     public LinkedList[] splitListToParts(LinkedList head, int k) {
         LinkedList[] ans = new LinkedList[k];
-
-        int totalLength = getSizeOfLinkedList(head);
-        int partitionSize = totalLength / k;
-        int distribution = totalLength % k;
+        int totalLen = getLen(head);    // get total size of linked list
+        int partitionSize = totalLen/k;
+        int distribution = totalLen%k;
 
         LinkedList prev = null;
-        int l = 0;
-        while(head != null && l < k) {
-            ans[l++] = head;
 
-            for(int i=0; i<partitionSize+(distribution>0?1:0); i++) {
+        for(int i=0; i<k; i++) {
+            ans[i] = head;
+
+            // calculate size of i-th part
+            int currSize = partitionSize;
+            if(distribution > 0) {
+                currSize++;
+                distribution--;
+            }
+
+            // traverse to end of new part
+            for(int j=0; j<currSize; j++) {
                 prev = head;
                 head = head.next;
             }
 
-            prev.next = null;
-            distribution--;
+            // cut off the rest of linked list
+            if(prev != null)    prev.next = null;
         }
-
         return ans;
     }
 
-    int getSizeOfLinkedList(LinkedList head) {
-        LinkedList temp = head;
+    public int getLen(LinkedList head) {
         int len = 0;
-        while(temp != null) {
+        LinkedList root = head;
+        while(root != null) {
+            root = root.next;
             len++;
-            temp = temp.next;
         }
         return len;
     }
-
 }

@@ -10,7 +10,10 @@ import com.algorithms.aprenderypractique.Algorithms.Datastructure.LinkedList;
  *      https://leetcode.com/problems/remove-nth-node-from-end-of-list/solutions/5418407/video-using-distance-between-two-pointers/?envType=problem-list-v2&envId=xi4ci4ig
  */
 public class RemoveNthNodeFromEndOfList {
-
+/*
+    Time: O(N)
+    Space: O(1)
+ */
     public LinkedList removeNthFromEnd(LinkedList head, int n) {
         LinkedList fast = head, slow = head;
         for (int i = 0; i < n; i++) fast = fast.next;

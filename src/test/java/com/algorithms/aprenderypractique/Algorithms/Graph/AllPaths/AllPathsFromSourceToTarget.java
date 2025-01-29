@@ -1,8 +1,6 @@
-package com.algorithms.aprenderypractique.Algorithms.Graph;
+package com.algorithms.aprenderypractique.Algorithms.Graph.AllPaths;
 
 import com.algorithms.aprenderypractique.BaseTest;
-import org.junit.Assert;
-import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -11,6 +9,8 @@ import java.util.List;
 /**
  *      https://leetcode.com/problems/all-paths-from-source-to-target
  *
+ *      Similar Type Question: https://github.com/Leader-board/OA-and-Interviews/blob/main/Application%20experiences/2021-22/Bloomberg/Software%20Engineer.md#the-onsite-part-1
+ *          https://leetcode.com/discuss/interview-question/1069774/bloomberg-onsite-london-non-leetcode-question
  */
 public class AllPathsFromSourceToTarget extends BaseTest {
 /*

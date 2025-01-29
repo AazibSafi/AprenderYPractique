@@ -1,24 +1,18 @@
-package com.algorithms.aprenderypractique.Algorithms.Tree;
+package com.algorithms.aprenderypractique.Algorithms.Tree.Traversal;
 
-import com.algorithms.aprenderypractique.BaseTest;
 import com.algorithms.aprenderypractique.Algorithms.Datastructure.BinaryTree;
-import org.junit.Test;
+import com.algorithms.aprenderypractique.BaseTest;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Queue;
 
-/*
-    https://leetcode.com/problems/binary-tree-level-order-traversal/
-
-    Input: root = [3,9,20,null,null,15,7]
-    Output: [[3],[9,20],[15,7]]
+/**
+    https://leetcode.com/problems/binary-tree-level-order-traversal
+    https://www.hackerrank.com/challenges/tree-level-order-traversal/problem
  */
-public class BT_LevelOrderTraversal extends BaseTest {
-
-    @Test
-    public void test() { }
+public class BinaryTree_LevelOrderTraversal extends BaseTest {
 
 /*
     Breath First Search

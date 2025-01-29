@@ -32,13 +32,16 @@ public class CourseSchedule_I_KahnsAlgo extends BaseTest {
     }
 
 /*
-    Time: O(E+V)
-    E - Number of Edges
-    V - number of Vertices
+    Time: O(V+E)
+        V - number of Vertices
+        E - Number of Edges
 OR
     Time: O(n+p)
-    n - Number of Courses
-    p - number of prerequisites
+        n - Number of Courses
+        p - number of prerequisites
+
+    Space: O(c)
+        c - numCourses
  */
     public boolean canFinish(int numCourses, int[][] prerequisites) {
         int[] inDegrees = new int[numCourses];

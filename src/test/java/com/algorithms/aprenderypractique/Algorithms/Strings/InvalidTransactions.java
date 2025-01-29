@@ -65,7 +65,7 @@ public class InvalidTransactions extends BaseTest {
     Storing indices of invalid transactions
     In case same multiple transactions are invalid, then they should all be in the output.
 */
-        Map<String, List<Item>> map = new HashMap<>();
+        Map<String, List<Item>> map = new HashMap<>();  // <Name, List<{index, time, city}>>
 
         for(int i=0; i<transactions.length; i++) {
             String[] split = transactions[i].split(",");

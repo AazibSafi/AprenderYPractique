@@ -1,4 +1,4 @@
-package com.algorithms.aprenderypractique.Algorithms.Design;
+package com.algorithms.aprenderypractique.Algorithms.Design.RankingPlatform;
 
 import java.util.Collections;
 import java.util.HashMap;

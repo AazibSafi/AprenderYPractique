@@ -36,7 +36,7 @@ static class RandomizedSet2 {
             int lastElement = list.get(list.size()-1);
 
             list.set(idxOfElementToDelete, lastElement);
-            //list.removeLast();        // Commit because of compiler issue. This code is working fine on Leetcode
+            list.removeLast();
 
             return true;
         }
