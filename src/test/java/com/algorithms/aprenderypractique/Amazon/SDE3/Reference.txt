@@ -1,4 +1,4 @@
-___ 1st Round ( 16 Dec 2024 ) ___
+___ Initial Round ( 16 Dec 2024 ) ___
 
 Leadership Questions:
     - How did you handle Negative Feedback?
@@ -21,3 +21,39 @@ Technical Coding Problem:
 
     I solved it by Binary Search Technique,
     Followup Question was to solve it through Priority Queue
+
+___ 1st Round ___
+
+    System Design - Real Time Weather Service with data coming from millions of sensors
+
+___ 2nd Round ___
+
+Ambigous requirement - Story Intelligent Cranium Helmet
+
+Coding: Amazon Locker drop and pick package
+
+Design a system where a delivery guy can drop a package in the available locker of 100, and then customer can pickup the package from assigned locker
+Implement two methods
+- dropPackage
+- pickPackage
+
+___ 3rd Round ___
+Tell me about a time you did something at work that wasn't your responsibility or in your job description. (Ownership)
+How did you handle tight deadline?
+Tell me about a time when you launched a feature with known risks
+
+Coding: Median of running stream
+Code @see: FindMedianFromDataStream
+
+___ 4th Round ___
+
+Have you ever Simplify the Complex problem?
+Ever worked in Tight Deadline
+
+Coding: Topological sorting of Graph
+Code @see: CourseSchedule_II_KahnsAlgo
+
+
+___ 5th Round (Bar Raiser) ___
+
+All Behavioral Questions

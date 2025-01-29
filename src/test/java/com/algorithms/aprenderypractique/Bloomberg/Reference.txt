@@ -28,4 +28,5 @@ Followup question: would you remove the old entries?
 
 ___ 2nd Coding Round ___
 
-Problem: Similar to Top K Frequent Elements
+Problem: Given the company names used in Newsfeed. Query for top K company names used frequently.
+Similar to Top K Frequent Elements
