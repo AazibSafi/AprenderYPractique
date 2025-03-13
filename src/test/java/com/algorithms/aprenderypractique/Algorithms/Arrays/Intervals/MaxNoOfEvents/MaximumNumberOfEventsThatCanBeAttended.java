@@ -5,7 +5,6 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.PriorityQueue;
 
 /**
@@ -14,10 +13,6 @@ import java.util.PriorityQueue;
  *      https://www.youtube.com/watch?v=JrSeHtfhxog
  *
  *      Asked at Snowflake
- *
- *      Similar
- *      https://leetcode.com/problems/maximum-number-of-events-that-can-be-attended-ii
- *      https://leetcode.com/problems/maximum-earnings-from-taxi
  */
 public class MaximumNumberOfEventsThatCanBeAttended extends BaseTest {
 
@@ -28,33 +23,35 @@ public class MaximumNumberOfEventsThatCanBeAttended extends BaseTest {
         Assert.assertEquals(4, maxEvents(new int[][]{{1,4}, {4,4}, {2,2}, {3,4}, {1,1}}));
     }
 
+/*
+    Time: O(NlogN)
+    Space: O(N)
+*/
     public int maxEvents(int[][] events) {
+        // Sort by startDay
+        Arrays.sort(events, (a,b) -> a[0] - b[0]);
+
+        // Priority queue to keep track of the end days of events
+        PriorityQueue<Integer> pq = new PriorityQueue<>();
+
         int n = events.length;
+        int eventIdx = 0, eventsAttended = 0;
 
-        Arrays.sort(events, Comparator.comparingInt(a -> a[0]));    // Sort events based on the starting day
-
-        PriorityQueue<Integer> pq = new PriorityQueue<>();  // Priority queue to keep track of the end days of events
-
-        int eventsAttended = 0;
-
-        for(int day=0, eventsIdx=0; !pq.isEmpty() || eventsIdx<n; day++) {
-            if(pq.isEmpty()) {
-                day = events[eventsIdx][0]; // Move to the next available day
-            }
-
-// Add all events that start on or before the current day to the priority queue
-            while(eventsIdx<n && events[eventsIdx][0] <= day) {
-                pq.offer(events[eventsIdx][1]);
-                eventsIdx++;
-            }
-
-// Attend the event that ends the earliest (the top of the priority queue)
-            pq.poll();
-            eventsAttended++;
-
-// Remove all events from the priority queue that end before the current day
-            while(!pq.isEmpty() && pq.peek() <= day) {
+        for(int day=1; day<=1e5; day++) {
+            // Remove all events from the queue that end before the current day\
+            while(!pq.isEmpty() && pq.peek() < day) {
                 pq.poll();
+            }
+
+            // Add all events to queue that start on the current day
+            while(eventIdx<n && events[eventIdx][0] == day) {
+                pq.offer(events[eventIdx++][1]);
+            }
+
+            // Attend the event that ends the earliest (the top of the priority queue)
+            if(!pq.isEmpty()) {
+                pq.poll();
+                eventsAttended++;
             }
         }
 

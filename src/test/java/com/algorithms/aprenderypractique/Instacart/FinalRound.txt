@@ -1,0 +1,45 @@
+___ 1st Interview  (60 mnts) ___
+
+There is a 2D Matrix consisting of characters. Find the character at given (x,y) coordinates starting from the bottom left of the matrix.
+
+[x,y] -> [2,3]
+Matrix  ABCDEF
+        GHIJKL
+        MNOPQR
+        STUVWX
+
+Character 'C' found
+
+
+___ 2nd Interview  (60 mnts) ___
+
+int solution(computeExpr, expressions);
+
+computeExpr = 'T3'
+expressions = [
+                [T1 = 1],
+                [T2 = T4 + T5],
+                [T3 = T2 + T1],
+                [T4 = T5]
+                [T5 = 2 + T1]
+            ]
+
+___ System Design (60 mnts) ___
+Design Inventory management System
+
+3 Apis given
+
+(Retailer)
+- Stock Inventory {
+    store_id, product_id, count;
+}
+
+(Customer)
+- Reserve Inventory {
+    store_id, product_id, quantity_id, order_id;
+}
+
+(Shopper)
+- Shopping Inventory {
+    store_id, product_id, quantity_id, order_id;
+}

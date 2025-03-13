@@ -4,15 +4,18 @@ import com.algorithms.aprenderypractique.BaseTest;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.util.Arrays;
+import java.util.*;
 
 /**
  *      https://leetcode.com/problems/maximum-number-of-events-that-can-be-attended-ii
  *      https://leetcode.com/problems/maximum-number-of-events-that-can-be-attended-ii/solutions/4518880/easy-java-solution-detailed-explanation-both-linear-binary-search/
  *      https://www.youtube.com/watch?v=C3r4OTOmfaI
  *
+ *      @see TwoBestNonOverlappingEvents
+ *      @see MaximumProfitInJobScheduling
+ *      @see MaximumEarningsFromTaxi
+ *
  *      Todo:
- *      https://leetcode.com/problems/maximum-earnings-from-taxi
  *      https://leetcode.com/problems/longest-arithmetic-subsequence-of-given-difference
  *      https://leetcode.com/problems/maximum-profit-in-job-scheduling
  *
@@ -30,27 +33,40 @@ public class MaximumNumberOfEventsThatCanBeAttendedII extends BaseTest {
     }
 
 /*
-    Time: O(n * log(n) * k)
-    Space: O(n * k)
+    Approach#1: Top-down Dynamic Programming
+
+        Sorting: O(nlogn)
+        Binary Search: O(logn)
+        Computer Each State with Binary Search: O(k)
+        Memoization Ensure iterate each event once: (n)
+
+    Overall Time: O(n * log(n) * k)
+
+        Memoization: O(n)
+        Recursive stack: O(n)
+    Overall Space: O(n * k)
  */
     public int maxValue(int[][] events, int k) {
-        if(k==1)        return getMaxScore(events);         // No need for below algorithm if k is 1. Simply find max score from the array
+        // if k is 1, Simply find max score from the array
+        if(k == 1)      return getMaxScore(events);
 
         Arrays.sort(events, (a,b) -> a[0]==b[0] ? a[1]-b[1] : a[0]-b[0]);
+
         int[][] memo = new int[events.length][k+1];
         for(int[] row : memo)
             Arrays.fill(row, -1);
-        return solve(events, k, 0, -1, memo);
+
+        return solve(events, k, 0, memo);
     }
 
-    int solve(int[][] events, int k, int i, int prevEnd, int[][] memo) {
-        if(k == 0 || i >= events.length) return 0;
+    int solve(int[][] events, int k, int i, int[][] memo) {
+        if(i >= events.length || k == 0)    return 0;
 
-        if(memo[i][k] != -1) return memo[i][k];
+        if(memo[i][k] != -1)    return memo[i][k];
 
         int nextIdx = findNextEvent(events, i+1, events[i][1]);     // Binary Search
-        int eventAttended = events[i][2] + solve(events, k - 1, nextIdx, events[i][1], memo);
-        int eventNotAttended = solve(events, k, i+1, prevEnd, memo);
+        int eventAttended = events[i][2] + solve(events, k-1, nextIdx, memo);
+        int eventNotAttended = solve(events, k, i+1, memo);
 
         return memo[i][k] = Math.max(eventAttended, eventNotAttended);
     }
@@ -61,8 +77,11 @@ public class MaximumNumberOfEventsThatCanBeAttendedII extends BaseTest {
         int high = n-1, ans = n+1;
 
         while(low <= high) {
-            int mid = (low+high)/2;
-            if(events[mid][0] > eventEnd) {     // No two events should be overlapped => startDay of next event should be greater than the endDay of current event
+            int mid = low + (high - low)/2;
+
+            // No two events should be overlapped
+            // startDay of next event should be greater than the endDay of current event
+            if(events[mid][0] > eventEnd) {
                 ans = mid;
                 high = mid - 1;
             }
@@ -73,11 +92,12 @@ public class MaximumNumberOfEventsThatCanBeAttendedII extends BaseTest {
     }
 
     int getMaxScore(int[][] events) {
-        int max = 0;
-        for(int[] event : events) {
-            max = Math.max(max, event[2]);
-        }
-        return max;
+        return Arrays.stream(events).max(Comparator.comparingInt(a -> a[2])).get()[2];
+//        int max = 0;
+//        for(int[] event : events) {
+//            max = Math.max(max, event[2]);
+//        }
+//        return max;
     }
 
 }

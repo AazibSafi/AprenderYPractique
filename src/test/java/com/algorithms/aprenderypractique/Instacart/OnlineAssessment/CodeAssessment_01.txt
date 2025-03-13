@@ -20,14 +20,14 @@ Implement Support for queries from different users. All users share a common fil
 - boolean addUser(String userId, int capacity)
 Should add a new user in the system with capacity as their storage limit in bytes.
 The total size of all files owned by userId cannot exceed capacity.
-The operation fails if a user with userId already exit. Returns true if a user is successfully created, or false otherwise.
+The operation fails if a user with userId already exist. Returns true if a user is successfully created, or false otherwise.
 
 - Optional<Integer> addFileBy(String userId, String name, int size)
 Should behave in the same way as the addFile from level1, but the added file should be owned by the user with userId.
 A new file cannot be added to the storage if doing so will exceed the user's capacity limit.
 Return the remaining capacity of the user if the file is added successfully, or optional.empty() otherwise.
 
-Not that all queries calling the addFile option implemented earlier are run the the user with userId = "admin"
+Not that all queries calling the addFile option implemented earlier are run by the user with userId = "admin"
 
 - Optional<Integer> mergeUser(String userId1, String userId2)
 Should merge the account of user2 with the userId1. Ownership of all of userId2's files is transferred to userId1, and any remaining storage capacity is also added to user1's limit.

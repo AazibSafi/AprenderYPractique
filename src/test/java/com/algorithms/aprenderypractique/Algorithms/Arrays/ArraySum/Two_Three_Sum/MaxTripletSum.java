@@ -7,7 +7,7 @@ import org.junit.Test;
 import java.util.TreeSet;
 
 /**
- *  https://www.interviewbit.com/problems/maximum-sum-triplet/
+ *  https://www.interviewbit.com/problems/maximum-sum-triplet
  *  https://www.youtube.com/watch?v=zyddBeqVvGs
  *  https://www.youtube.com/watch?v=l_hPdol4CSU
  */

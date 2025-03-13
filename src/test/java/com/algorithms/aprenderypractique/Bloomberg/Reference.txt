@@ -30,3 +30,10 @@ ___ 2nd Coding Round ___
 
 Problem: Given the company names used in Newsfeed. Query for top K company names used frequently.
 Similar to Top K Frequent Elements
+
+Problem: Given the company names used in Newsfeed. Query for top K company names used frequently.
+
+There is Platform which receives the tech company news from third party and display those news in its web platform.
+There is a single service which upon query, respond back the top k companies which is being used in the news.
+
+List<String> topK(List<String> companies);

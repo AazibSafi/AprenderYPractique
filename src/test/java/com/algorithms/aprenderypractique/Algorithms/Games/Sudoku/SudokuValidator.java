@@ -8,7 +8,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- *  https://leetcode.com/problems/valid-sudoku/
+ *  https://leetcode.com/problems/valid-sudoku
  *  https://www.youtube.com/watch?v=rJ9NFK9s_mI&ab_channel=PrakashShukla
  */
 public class SudokuValidator extends BaseTest {
@@ -51,15 +51,15 @@ public class SudokuValidator extends BaseTest {
 
 /*
     Time: O(n^2 + n^2)
-    Space: O(n)
+    Space: O(n + n)
  */
     public boolean isValidSudoku(char[][] board) {
         return isRow_ColValid(board) && isGridSquareValid(board);
     }
 
 /*
-    Time: O(n*n) --- O(n^2)
-    Space: O(n + n)     --- two HashSet
+    Time: O(n * n)  --- O(n^2)
+    Space: O(n + n)  --- O(n)  two HashSet
  */
     boolean isRow_ColValid(char[][] board) {
         Set<Character> rowSet;
@@ -116,5 +116,5 @@ public class SudokuValidator extends BaseTest {
 
         return true;
     }
-
+    
 }

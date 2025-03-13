@@ -8,7 +8,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- *  https://leetcode.com/problems/valid-sudoku/
+ *  https://leetcode.com/problems/valid-sudoku
  *  https://www.youtube.com/watch?v=rJ9NFK9s_mI&ab_channel=PrakashShukla
  *
  *  Single Iteration Solution

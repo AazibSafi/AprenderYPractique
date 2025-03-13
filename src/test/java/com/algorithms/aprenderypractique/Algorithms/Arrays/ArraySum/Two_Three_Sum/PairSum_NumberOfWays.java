@@ -46,7 +46,6 @@ public class PairSum_NumberOfWays extends BaseTest {
                 count += map.get(k-x);
             }
             map.merge(x, 1, Integer::sum);
-            //map.put(x, map.getOrDefault(x,0)+1);
         }
 
         return count;

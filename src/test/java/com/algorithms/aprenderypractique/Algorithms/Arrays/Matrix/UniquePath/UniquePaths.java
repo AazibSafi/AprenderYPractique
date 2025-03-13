@@ -7,7 +7,7 @@ import org.junit.Test;
 import java.util.Arrays;
 
 /**
- *  https://leetcode.com/problems/unique-paths/
+ *  https://leetcode.com/problems/unique-paths
  *  https://www.youtube.com/watch?v=4Zq2Fnd6tl0&list=PLtQWXpf5JNGJagakc_kBtOH5-gd8btjEW
  */
 public class UniquePaths extends BaseTest {

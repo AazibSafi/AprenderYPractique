@@ -4,7 +4,7 @@ import org.junit.Assert;
 
 /**
  *  https://www.youtube.com/watch?v=H5i2ugoZLbg&ab_channel=EricProgramming
- *  https://leetcode.com/problems/sudoku-solver/
+ *  https://leetcode.com/problems/sudoku-solver
  *
  *  Sudoku Puzzle of size n*n
  *
@@ -87,7 +87,7 @@ public class Sudoku {
 
     static int perfectSquare(double x) {
         double sqrt = Math.sqrt(x);
-        Assert.assertTrue( "Grid size must be a Perfect Square",(sqrt - Math.floor(sqrt)) == 0 );
+        Assert.assertEquals("Grid size must be a Perfect Square", 0, (sqrt - Math.floor(sqrt)), 0.0);
         return (int) sqrt;
     }
 

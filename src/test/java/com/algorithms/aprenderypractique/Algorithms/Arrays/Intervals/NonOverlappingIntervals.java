@@ -25,19 +25,19 @@ public class NonOverlappingIntervals extends BaseTest {
     Space: O(1)
  */
     public int eraseOverlapIntervals(int[][] intervals) {
-        int ans = 0;
+        int remove = 0;
 
         Arrays.sort(intervals, Comparator.comparingInt(a -> a[1]));   // O(nlogN)
         int prevEnd = intervals[0][1];
 
         for(int i=1; i<intervals.length; i++) {   // O(n)
             if(prevEnd > intervals[i][0])
-                ans++;
+                remove++;
             else
                 prevEnd = intervals[i][1];
         }
 
-        return ans;
+        return remove;
     }
 
 }

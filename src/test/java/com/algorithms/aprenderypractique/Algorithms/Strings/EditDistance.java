@@ -23,12 +23,13 @@ public class EditDistance extends BaseTest {
         Assert.assertEquals(5, minDistance("intention", "execution"));
         Assert.assertEquals(6, minDistance("dinitrophenylhydrazine", "acetylphenylhydrazine"));
         Assert.assertEquals(1, minDistance("abd", "acd"));
+        Assert.assertEquals(3, minDistance("park", "spake"));
     }
 
 /*
+    Approach#3: Bottom-Up DP with 2D Array
     Time:  O(M.N)
     Space: O(M.N)
-    Approach#3: Bottom-Up DP with 2D Array
 */
     public int minDistance(String word1, String word2) {
         int m = word1.length(), n = word2.length();
@@ -58,9 +59,9 @@ public class EditDistance extends BaseTest {
     }
 
 /*
+    Approach#2: Recursion with memoization
     Time:  O(M.N)
     Space: O(M.N)
-    Approach#2: Recursion with memoization
 */
     public int minDistance2(String word1, String word2) {
         Integer[][] memo = new Integer[word1.length()][word2.length()];
@@ -92,10 +93,10 @@ public class EditDistance extends BaseTest {
     }
 
 /*
+    Approach#1: Recursion
     Let M be the length of string word1 and N be the length of string word2. Let K=max(M,N).
     Time:  O(3^K) -> exponential
     Space: O(K) -> internal call stack
-    Approach#1: Recursion
 */
     public int minDistance1(String word1, String word2) {
         return countOperations(word1, word2, 0, 0);

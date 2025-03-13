@@ -1,4 +1,4 @@
-package com.algorithms.aprenderypractique.Algorithms.Design.LRUCache;
+package com.algorithms.aprenderypractique.Algorithms.Design.Cache;
 
 import com.algorithms.aprenderypractique.BaseTest;
 import com.algorithms.aprenderypractique.Cache.Cache;
@@ -7,10 +7,10 @@ import org.junit.Assert;
 import org.junit.Test;
 
 /**
- *  This Test the Cache Package
+ *  This Tests the Cache Package
  *  @see Cache
  */
-public class TestCache extends BaseTest {
+public class TestLRUCache extends BaseTest {
 
     @Test
     public void testLRU() {
@@ -60,11 +60,6 @@ public class TestCache extends BaseTest {
         Assert.assertNull(cache.get('a'));
         Assert.assertEquals(Character.valueOf('c'), cache.get('c'));
         Assert.assertEquals(Character.valueOf('d'), cache.get('d'));
-    }
-
-    @Test
-    public void testMRU() {
-        // Todo
     }
 
 }

@@ -50,7 +50,6 @@ public class WordSearch_II_Efficient extends BaseTest {
     Set<String> result;
 
     public List<String> findWords(char[][] board, String[] words) {
-        Arrays.stream(words).filter(x -> x=="12").count();
         dict = new Dictionary();
         result = new HashSet<>();
 
@@ -59,11 +58,9 @@ public class WordSearch_II_Efficient extends BaseTest {
         }
 
         int m = board.length, n = board[0].length;
-        boolean[][] visited = new boolean[m][n];
 
         for(int i=0 ; i<m; i++) {
             for(int j=0; j<n; j++) {
-                //dfs2(board, i, j, visited, "");
                 dfs(board, i, j, "");
             }
         }
@@ -88,23 +85,6 @@ public class WordSearch_II_Efficient extends BaseTest {
         }
 
         board[i][j] = saveCurrentLetter;  // UnVisited
-    }
-
-    public void dfs2(char[][] board, int i, int j, boolean[][] visited, String current) {
-        if(!isSafe(board, i, j) || visited[i][j])   return;
-
-        current += board[i][j];
-        if(!dict.startsWith(current)) return;       // if no prefix matches
-
-        if(dict.search(current)) {                  // if a complete word is found
-            result.add(current);
-        }
-
-        visited[i][j] = true;
-        for (int[] adjCell : adjacent) {
-            dfs2(board, i+adjCell[0], j+adjCell[1], visited, current);
-        }
-        visited[i][j] = false;
     }
 
     boolean isSafe(char[][] board, int row, int col) {

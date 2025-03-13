@@ -17,26 +17,13 @@ public class BalanceBrackets extends BaseTest {
 
     @Test
     public void test() {
-        String str = "{[()]}";
-        Assert.assertTrue(isValid(str));
-
-        str = "{}()";
-        Assert.assertTrue(isValid(str));
-
-        str = "";
-        Assert.assertTrue(isValid(str));
-
-        str = null;
-        Assert.assertTrue(isValid(str));
-
-        str = "{(})";
-        Assert.assertFalse(isValid(str));
-
-        str = ")";
-        Assert.assertFalse(isValid(str));
-
-        str = "(({{";
-        Assert.assertFalse(isValid(str));
+        Assert.assertTrue(isValid("{[()]}"));
+        Assert.assertTrue(isValid("{}()"));
+        Assert.assertTrue(isValid(""));
+        Assert.assertTrue(isValid(null));
+        Assert.assertFalse(isValid("{(})"));
+        Assert.assertFalse(isValid(")"));
+        Assert.assertFalse(isValid("(({{"));
     }
 
     public boolean isValid(String str) {
@@ -48,7 +35,8 @@ public class BalanceBrackets extends BaseTest {
         Stack<Character> stack = new Stack<>();
 
         for(char c : str.toCharArray()) {
-            if(bracket.containsKey(c))        stack.push(c);
+            if(bracket.containsKey(c))
+                stack.push(c);
             else {
                 if(stack.isEmpty() || bracket.get(stack.peek()) != c)
                     return false;
@@ -60,20 +48,11 @@ public class BalanceBrackets extends BaseTest {
 
     @Test
     public void testSingleBracket() {
-        String str = "((()))";
-        Assert.assertTrue(isValidSingleBraces(str));
-
-        str = "()()";
-        Assert.assertTrue(isValidSingleBraces(str));
-
-        str = "";
-        Assert.assertTrue(isValidSingleBraces(str));
-
-        str = "))((";
-        Assert.assertFalse(isValidSingleBraces(str));
-
-        str = "x(";
-        Assert.assertFalse(isValidSingleBraces(str));
+        Assert.assertTrue(isValidSingleBraces("((()))"));
+        Assert.assertTrue(isValidSingleBraces("()()"));
+        Assert.assertTrue(isValidSingleBraces(""));
+        Assert.assertFalse(isValidSingleBraces("))(("));
+        Assert.assertFalse(isValidSingleBraces("x("));
     }
 
 /*
@@ -92,14 +71,13 @@ public class BalanceBrackets extends BaseTest {
     }
 
     public boolean isValidSingleBraces2(String s) {
-        char op = '(', cl = ')';
         int open=0, close=0;
 
         for(char c : s.toCharArray()) {
-            if(c == op) open++;
-            else if(c == cl) close++;
+            if(c == '(')         open++;
+            else if(c == ')')    close++;
 
-            if(close > open) return false;
+            if(close > open)return false;
         }
         return close == open;
     }

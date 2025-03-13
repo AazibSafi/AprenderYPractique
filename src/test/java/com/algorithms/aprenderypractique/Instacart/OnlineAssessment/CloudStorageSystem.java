@@ -1,9 +1,7 @@
-package com.algorithms.aprenderypractique.Instacart.CodeAssessment01;
+package com.algorithms.aprenderypractique.Instacart.OnlineAssessment;
 
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class CloudStorageSystem {
     private final HashMap<String, Integer> storage; // File storage (filename -> size)
@@ -62,6 +60,29 @@ public class CloudStorageSystem {
         users.get(owner).usedCapacity -= fileSize;
 
         return Optional.of(fileSize);
+    }
+
+    // Retrieve the top N largest files with a specific prefix
+    public List<String> getNLargest(String prefix, int n) {
+        PriorityQueue<Map.Entry<String, Integer>> pq = new PriorityQueue<>(
+                (e1,e2) -> e2.getValue() - e1.getValue());
+
+        for(Map.Entry<String, Integer> entry : storage.entrySet()) {
+            if(entry.getKey().startsWith(prefix))
+                pq.add(entry);
+
+            if(pq.size() > n)   pq.remove();
+        }
+
+        return pq.stream().map(e -> e.getKey()+"("+e.getValue()+")").collect(Collectors.toList());
+    }
+
+    // Add a new file to the storage
+    public boolean addFile(String name, int size) {
+        if(storage.containsKey(name))
+            return false;
+        storage.put(name, size);
+        return true;
     }
 
     // Add a file owned by a specific user
@@ -155,4 +176,5 @@ public class CloudStorageSystem {
 
         return Optional.of(restoredFilesCount);
     }
+
 }

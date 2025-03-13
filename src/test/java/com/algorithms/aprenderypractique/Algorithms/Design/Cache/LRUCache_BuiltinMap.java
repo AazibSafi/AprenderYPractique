@@ -1,4 +1,4 @@
-package com.algorithms.aprenderypractique.Algorithms.Design.LRUCache;
+package com.algorithms.aprenderypractique.Algorithms.Design.Cache;
 
 import java.util.LinkedHashMap;
 import java.util.Map;

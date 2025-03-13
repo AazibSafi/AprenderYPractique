@@ -5,7 +5,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 /**
- *  https://leetcode.com/problems/sudoku-solver/
+ *  https://leetcode.com/problems/sudoku-solver
  *  https://www.youtube.com/watch?v=H5i2ugoZLbg&ab_channel=EricProgramming
  */
 public class SudokuSolver extends BaseTest {

@@ -1,4 +1,4 @@
-package com.algorithms.aprenderypractique.Instacart.CodeAssessment01;
+package com.algorithms.aprenderypractique.Instacart.OnlineAssessment;
 
 import com.algorithms.aprenderypractique.BaseTest;
 import org.junit.Assert;
@@ -7,6 +7,24 @@ import org.junit.Test;
 import java.util.Optional;
 
 public class CloudStorageSystemTest extends BaseTest {
+
+    @Test
+    public void testNLargest() {
+        CloudStorageSystem system = new CloudStorageSystem();
+
+        // Add files
+        system.addFile("/dir1/dir2/file1.txt", 10);
+        system.addFile("/dir1/dir2/file2.txt", 20);
+        system.addFile("/dir1/file3.txt", 5);
+        system.addFile("/dir1/dir2/file4.txt", 15);
+
+        // Test getNLargest
+        //Assert.assertTrue(CommonHelper.isEquals(Arrays.asList("/dir1/dir2/file4.txt(15)", "/dir1/dir2/file2.txt(20)"), system.getNLargest("/dir1/dir2", 2)));
+
+        System.out.println(system.getNLargest("/dir1/dir2", 2)); // ["/dir1/dir2/file4.txt(15)", "/dir1/dir2/file2.txt(20)"]
+        System.out.println(system.getNLargest("/dir1/dir2", 5)); // ["/dir1/dir2/file2.txt(20)", "/dir1/dir2/file4.txt(15)", "/dir1/dir2/file1.txt(10)"]
+        System.out.println(system.getNLargest("/non-existing-prefix", 3)); // []
+    }
 
     @Test
     public void test() {

@@ -34,15 +34,20 @@ public class Cache<K, V> {
     }
 
     public void put(K key, V value) {
-        Node<K, V> node;
-        if(cache.containsKey(key)) {
-            node = cache.get(key);
-            node.value = value;
-        }
-        else {
-            node = new Node<>(key, value);
-            cache.put(key, node);
-        }
+//        Node<K, V> node;
+//        if(cache.containsKey(key)) {
+//            node = cache.get(key);
+//            node.value = value;
+//        }
+//        else {
+//            node = new Node<>(key, value);
+//            cache.put(key, node);
+//        }
+
+        Node<K, V> node = cache.getOrDefault(key, new Node<>());
+        node.key = key;
+        node.value = value;
+        cache.put(key, node);
 
         policy.notifyRecentTransaction(node);
 
