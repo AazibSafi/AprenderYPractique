@@ -5,10 +5,10 @@ import org.junit.Assert;
 import org.junit.Test;
 
 /**
- *  https://leetcode.com/problems/spiral-matrix/
+ *  https://leetcode.com/problems/spiral-matrix
  *  Given an m x n matrix, return all elements of the matrix in spiral order.
  *
- *  Same as;    Here i have used int[] as return type
+ *  Same as;    Here I have used int[] as return type
  * @see SpiralMatrix
  */
 public class SpiralMatrix_int extends BaseTest {
@@ -20,7 +20,7 @@ public class SpiralMatrix_int extends BaseTest {
     }
 
     public int[] spiralOrder(int[][] matrix) {
-        int m = matrix.length, n= matrix[0].length;
+        int m = matrix.length, n = matrix[0].length;
         int[] result = new int[m*n];
         int x=0;
 
@@ -34,19 +34,19 @@ public class SpiralMatrix_int extends BaseTest {
                 }
                 top++;
             }
-            if(dir == 1) {
+            else if(dir == 1) {
                 for(int i=top; i<=down; i++) {
                     result[x++] = matrix[i][right];
                 }
                 right--;
             }
-            if(dir == 2) {
+            else if(dir == 2) {
                 for(int i=right; i>=left; i--) {
                     result[x++] = matrix[down][i];
                 }
                 down--;
             }
-            if(dir == 3) {
+            else if(dir == 3) {
                 for(int i=down; i>=top; i--) {
                     result[x++] = matrix[i][left];
                 }
@@ -59,3 +59,14 @@ public class SpiralMatrix_int extends BaseTest {
     }
 
 }
+
+/*
+    CIBC: 80
+    Deloitte: 80
+
+    Frontend
+ */
+/*
+  Remote
+  6 months
+ */
