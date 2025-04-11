@@ -7,7 +7,7 @@ import org.junit.Test;
 import java.util.Arrays;
 
 /**
- *  https://leetcode.com/problems/unique-paths-ii/
+ *  https://leetcode.com/problems/unique-paths-ii
  *
  *  Todo: https://leetcode.com/problems/dungeon-game
  */

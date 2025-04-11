@@ -1,0 +1,9 @@
+Since the Screenshots are not readable.
+Below doc contains the extracted text of the problem
+
+https://docs.google.com/document/d/11wWoZ8AKsYJiuVBJGW-nk9XRdeUn7aC3/edit?usp=sharing&ouid=103481057964457489892&rtpof=true&sd=true
+
+Screenshots taken from here
+https://www.interviewdb.io/question/codesignal?page=1&name=banking-system
+
+ChatGPT Solution: https://chatgpt.com/c/67e25273-e460-8011-af5e-ef2561cf0f83

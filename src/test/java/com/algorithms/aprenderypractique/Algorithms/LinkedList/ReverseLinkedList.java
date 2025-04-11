@@ -10,7 +10,7 @@ import org.junit.Test;
  *
  *  Time Complexity: O(n)
  *  Space Complexity: O(1)
- *      https://leetcode.com/problems/reverse-linked-list/
+ *      https://leetcode.com/problems/reverse-linked-list
  */
 public class ReverseLinkedList extends BaseTest {
 
@@ -22,14 +22,13 @@ public class ReverseLinkedList extends BaseTest {
         list.next.next.next = new LinkedList(3);
 
         LinkedList reversedList = reverseList(list);
-
-        Assert.assertEquals(3,reversedList.val);
+        Assert.assertEquals(3, reversedList.val);
     }
 
     public LinkedList reverseList(LinkedList head) {
         LinkedList prev = null, next = null, curr = head;
 
-        while(curr!=null) {
+        while(curr != null) {
             next = curr.next;
             curr.next = prev;
             prev = curr;

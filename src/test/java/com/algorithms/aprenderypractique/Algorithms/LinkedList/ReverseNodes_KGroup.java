@@ -5,7 +5,7 @@ import com.algorithms.aprenderypractique.Algorithms.Datastructure.LinkedList;
 import org.junit.Test;
 
 /**
- *  https://leetcode.com/problems/reverse-nodes-in-k-group/
+ *  https://leetcode.com/problems/reverse-nodes-in-k-group
  *  https://www.youtube.com/watch?v=jTWEmztptCQ&ab_channel=CodingwithConner
  *
  *  Code Not working right now :(
@@ -13,9 +13,7 @@ import org.junit.Test;
 public class ReverseNodes_KGroup extends BaseTest {
 
     @Test
-    public void test() {
-
-    }
+    public void test() { }
 
     public LinkedList reverseKGroup(LinkedList head, int k) {
         LinkedList root = new LinkedList(0, head);
@@ -31,12 +29,10 @@ public class ReverseNodes_KGroup extends BaseTest {
                 ind++;
             }
 
-            if(ind != k) {
+            if(ind != k)
                 prev.next = tail;
-            }
-            else {
-                prev.next = reverseLL(tail,k);
-            }
+            else
+                prev.next = reverseLL(tail, k);
         }
         return root.next;
     }

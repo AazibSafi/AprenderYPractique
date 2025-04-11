@@ -1,0 +1,8 @@
+___ 1st Question ___
+int solution(int strToSplit, int k)
+
+___ 2nd Question ___
+int solution(int[] a)
+
+___ 3rd Question ___
+int solution(int n, int[] t, int[][] edges)
