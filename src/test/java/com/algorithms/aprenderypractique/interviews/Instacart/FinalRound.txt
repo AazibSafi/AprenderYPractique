@@ -1,4 +1,4 @@
-___ 1st Interview  (60 mnts) ___
+___ 1st Interview (60 mnts) ___
 
 There is a 2D Matrix consisting of characters. Find the character at given (x,y) coordinates starting from the bottom left of the matrix.
 
@@ -11,7 +11,7 @@ Matrix  ABCDEF
 Character 'C' found
 
 
-___ 2nd Interview  (60 mnts) ___
+___ 2nd Interview (60 mnts) ___
 
 int solution(computeExpr, expressions);
 

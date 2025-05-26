@@ -11,6 +11,8 @@ import java.util.Map;
  *
  *      Similar Concept in this interview asked question
  *          https://leetcode.com/discuss/interview-question/340230/google-onsite-implement-logger
+ *
+ *      @see com.algorithms.aprenderypractique.interviews.Robinhood.practice.OffsetOrdering
  */
 public class DesignAnOrderedStream {
 /*
@@ -30,11 +32,9 @@ public class DesignAnOrderedStream {
             stream.put(idKey, value);
 
             List<String> res = new ArrayList<>();
-            if(ptr == idKey) {
-                while(ptr<=stream.size() && stream.containsKey(ptr)) {
-                    res.add(stream.get(ptr));
-                    ptr++;
-                }
+            while(ptr<=stream.size() && stream.containsKey(ptr)) {
+                res.add(stream.get(ptr));
+                ptr++;
             }
             return res;
         }

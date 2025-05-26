@@ -1,0 +1,33 @@
+___ 1st Coding Round ___
+Live CodeSignal Interview
+
+Given SessionManager and UserSession class.
+- How to handle concurrency on singleton instance? (ANS: synchronized keywork on getInstance method)
+- How to handle concurrency on map? (ANS: ConcurrentHashMap)
+
+class SessionManager {
+    private SessionManager instance;
+    Map<Sting, UserSession> map;
+
+    SessionManager() {
+        map = new ConcurrentHashMap();
+    }
+
+    public SessionManager getInstance() {
+        if(instance == null) {
+            instance = new SessionManager();
+        }
+        return instance;
+    }
+
+    void createSession(String userId);
+    String getSession();
+
+
+    UserSession {
+        String userId;
+
+        String getRandomSessionID();
+        boolean isExpire();
+    }
+}

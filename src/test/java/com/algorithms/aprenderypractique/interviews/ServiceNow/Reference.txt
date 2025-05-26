@@ -4,5 +4,3 @@ Java 21 Specific
 Java SafeCracking Problem. (As screenshot attached)
 
 Problem was to run 2 methods concurrently in Java
-
-$5

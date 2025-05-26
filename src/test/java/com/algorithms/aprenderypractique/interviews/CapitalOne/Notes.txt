@@ -1,0 +1,51 @@
+___ 1st Coding Round ___
+Code Signal Assessment - 4 Different DSA Questions
+
+___ 2nd System Design ___
+Design a TinyURL System (Bitly.com)
+
+___ 3rd Behavioral Interview ___
+- What complex problem did you solve you are proud of?
+- Any conflicts with team?
+- Any disagreement?
+
+
+___ 4th Coding Round 1.5 Hours Pair Programming ___
+
+https://chatgpt.com/canvas/shared/680bf277992c819195a2e2b65b5657f1
+
+A "Past Due Suppression" offer is defined in terms of a start date, the number of payment cycles for which it applies,
+the direction in time (counting forwards from the start date or backwards), and whether the payment cycle containing the start date is included.
+
+Customer data arrives in the form of a list of past payment cycles, each flagged with whether payment was past-due or not.
+
+Your program must transform input to turn off, or suppress, the "past due" flag as appropriate to the input Past Due Suppression offer
+
+Customer records
+[
+  {
+    "Customer_Id":"123",
+    "Pay_Cycles": [
+      {"Cycle_Number":1, "Start_Date":"07-Aug-2021", "End_Date":"06-Sep-2021", "Past_Due_Indicator":1},
+      {"Cycle_Number":2, "Start_Date":"07-Jul-2021", "End_Date":"06-Aug-2021", "Past_Due_Indicator":1},
+      {"Cycle_Number":3, "Start_Date":"07-Jun-2021", "End_Date":"06-Jul-2021", "Past_Due_Indicator":1},
+      {"Cycle_Number":4, "Start_Date":"07-May-2021", "End_Date":"06-Jun-2021", "Past_Due_Indicator":1},
+      ...
+    ]
+  }
+]
+
+Past Due Suppression Offer
+{
+  "Offer_Id" : "12345",
+  "Offer_Start_Date" : "21-Jul-2021",
+  "Offer_Validity" : 2, // number of pay cycles to apply offer for each customer
+  "Offer_Direction" : "Backward",   // { Backward | Forward }
+  "Offer_Cycle_Inclusion": "Include" // { Include | Exclude }
+}
+
+
+Follow up Questions;
+- How would you handle multiple customers?
+- How would you handle large volume of customer records and apply offers to each record.
+- How would you handle if there are List of offers to apply on the record.

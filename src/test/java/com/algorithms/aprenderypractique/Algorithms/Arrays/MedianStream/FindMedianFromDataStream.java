@@ -1,8 +1,5 @@
 package com.algorithms.aprenderypractique.Algorithms.Arrays.MedianStream;
 
-import com.algorithms.aprenderypractique.BaseTest;
-import org.junit.Test;
-
 import java.util.Collections;
 import java.util.PriorityQueue;
 
@@ -13,16 +10,11 @@ import java.util.PriorityQueue;
  *      https://leetcode.com/problems/sliding-window-median
  *      https://leetcode.com/problems/ipo
  */
-public class FindMedianFromDataStream extends BaseTest {
-    @Test
-    public void test() { }
-}
-
-class MedianFinder {
+public class FindMedianFromDataStream {
     PriorityQueue<Integer> minHeap;
     PriorityQueue<Integer> maxHeap;
 
-    public MedianFinder() {
+    public FindMedianFromDataStream() {
         minHeap = new PriorityQueue<>();
         maxHeap = new PriorityQueue<>(Collections.reverseOrder());
     }
@@ -40,7 +32,7 @@ class MedianFinder {
         }
     }
 
-// Time: O(1)
+    // Time: O(1)
     public double findMedian() {
         if(maxHeap.size() > minHeap.size())
             return maxHeap.peek();
