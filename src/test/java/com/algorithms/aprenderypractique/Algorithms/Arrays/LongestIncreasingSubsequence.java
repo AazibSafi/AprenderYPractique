@@ -51,7 +51,7 @@ public class LongestIncreasingSubsequence {
         sub.add(nums[0]);
 
         for(int i=1; i<nums.length; i++) {
-            if(nums[i] > sub.get(sub.size()-1))
+            if(nums[i] > sub.getLast())
                 sub.add(nums[i]);
             else {
                 //    Binary Search: O(logN)

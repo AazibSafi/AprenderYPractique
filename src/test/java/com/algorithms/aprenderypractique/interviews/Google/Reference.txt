@@ -15,7 +15,6 @@ ___ 1st Coding Round ___
         - return the path (/name) of the files or directory upto it's root
         - i.e; for id: 3, result path is "directory_1/file_2"
 
-
 ___ 2nd Coding Round ___
     - Pick Boxes upto given capacity (Similar to knapsack problem)
     Rephrased: Given a cargo weights capacity and the cargo box weights as int arrays, choose max 2 boxes to load into aircraft
@@ -36,3 +35,7 @@ ___ 1st System Design ___
     - Interview Question: Design a system that determines if a new virtual machine can be safely provisioned while making efficient use of underlying hosts.
 
     Rephrased: Designing a system to determine if a new virtual machine (VM) can be safely provisioned involves evaluating the available resources on the physical hosts and the requirements of the VM, while ensuring efficient utilization.
+
+
+Umair Khokhar's System Design Interview
+---> Starbucks Problem

@@ -1,0 +1,7 @@
+___ 1st Coding Interview  (60 mnts) ___ Date: 10 Sept, 2025
+Similar Question of AlgebraicTarget from Pinterest Interview DB
+
+Follow-up 1: If the expression contains only positive numbers (no zero or negative values), how can the solution be optimized?
+Follow-up 2: After completing Addition and Multiplication, Solve it for Subtraction and Division as well.
+
+

@@ -30,7 +30,8 @@ public class WordBreak extends BaseTest {
 */
     public boolean wordBreak1(String s, List<String> wordDict) {
         Map<String, Boolean> cache = new HashMap<>();
-        return wordBreak1(s, wordDict, cache);
+        return cache.values().stream().allMatch(c -> c==true);
+//        return wordBreak1(s, wordDict, cache);
     }
 
     public boolean wordBreak1(String s, List<String> wordDict, Map<String, Boolean> cache) {

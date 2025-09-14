@@ -19,9 +19,13 @@ public class MeetingRooms extends BaseTest {
         Assert.assertFalse(canAttendMeetings(new int[][]{{7,10},{4,6},{2,5},{11,9}}));
         Assert.assertFalse(canAttendMeetings(new int[][]{{0,30},{5,10},{15,20}}));
         Assert.assertFalse(canAttendMeetings(new int[][]{{1,5},{1,2},{15,20}}));
+        Assert.assertTrue(canAttendMeetings(new int[][]{{13,15},{1,13}}));
     }
 
-// Time: O(nLogN)
+    /*
+        Time: O(nLogN)
+        Space: O(logn) or O(n)
+     */
     public boolean canAttendMeetings(int[][] intervals) {
         int n = intervals.length;
         if(n == 0 || n == 1) return true;
@@ -29,7 +33,7 @@ public class MeetingRooms extends BaseTest {
         Arrays.sort(intervals, Comparator.comparingInt(a -> a[0])); // O(nlogN)
 
         for(int i=1; i<n; i++) {    // O(n)
-            if(intervals[i-1][1] >= intervals[i][0])
+            if(intervals[i-1][1] > intervals[i][0])
                 return false;
         }
         return true;

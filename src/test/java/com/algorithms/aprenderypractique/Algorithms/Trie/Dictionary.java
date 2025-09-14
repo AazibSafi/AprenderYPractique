@@ -48,8 +48,9 @@ public class Dictionary {
  */
     public void insert(String word) {
         Trie curr = trie;
-
         for(char ch : word.toCharArray()) {
+            curr = curr.children.computeIfAbsent(ch, k -> new Trie());
+
             if (!curr.children.containsKey(ch)) {
                 curr.children.put(ch, new Trie());
             }
@@ -124,26 +125,7 @@ public class Dictionary {
         dfs(head, prefix, words);
         return words;
     }
-
-    public boolean searchWithDot(Trie curr, String word) {
-        for(int i=0; i<word.length(); i++) {
-            char ch = word.charAt(i);
-            if(ch == '.') {
-                for(Trie child : curr.children.values()) {
-                    if(searchWithDot(child, word.substring(i+1)))
-                        return true;
-                }
-                return false;
-            }
-
-            if(!curr.children.containsKey(ch))
-                return false;
-            curr = curr.children.get(ch);
-        }
-
-        return curr.isWord;
-    }
-
+    
     public boolean searchWithDot(String word) {
         Trie root = trie;
         return searchWithDot(root, word);
@@ -153,7 +135,7 @@ public class Dictionary {
     Time: O(M)
     Space: O(1)
  */
-    public boolean searchWithDot2(Trie curr, String word) {
+    public boolean searchWithDot(Trie curr, String word) {
         for(int i=0; i<word.length(); i++) {
             char ch = word.charAt(i);
             if(ch == '.') {

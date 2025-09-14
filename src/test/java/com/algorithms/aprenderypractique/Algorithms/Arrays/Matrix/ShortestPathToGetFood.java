@@ -1,6 +1,7 @@
 package com.algorithms.aprenderypractique.Algorithms.Arrays.Matrix;
 
 import java.util.ArrayDeque;
+import java.util.Arrays;
 import java.util.Queue;
 
 /**
@@ -13,10 +14,14 @@ public class ShortestPathToGetFood {
     Space: O(m*n)
 */
     // Possible moves: right, left, up, down
-    int[][] adjecents = {{0,1},{0,-1},{1,0},{-1,0}};
+    int[][] adjacents = {{0,1},{0,-1},{1,0},{-1,0}};
 
     public int getFood(char[][] grid) {
         int[] startLoc = findStartLocation(grid);
+
+        // Although the grid will always have exactly one starting location, so this condition will never gets true
+        if(startLoc[0]==-1 || startLoc[1]==-1)
+            return -1;
 
         // BFS queue for level-by-level traversal
         Queue<int[]> queue = new ArrayDeque<>();
@@ -31,7 +36,7 @@ public class ShortestPathToGetFood {
             for(int i=0; i<levelSize; i++) {
                 int[] cell = queue.poll();
 
-                for(int[] adj : adjecents) {
+                for(int[] adj : adjacents) {
                     int row = cell[0] + adj[0], col = cell[1] + adj[1];
 
                     if(isValid(grid, row, col)) {
@@ -56,7 +61,7 @@ public class ShortestPathToGetFood {
                     return new int[]{i, j};
             }
         }
-        return new int[]{0,0};
+        return new int[]{-1,-1};
     }
 
     boolean isValid(char[][] grid, int i, int j) {

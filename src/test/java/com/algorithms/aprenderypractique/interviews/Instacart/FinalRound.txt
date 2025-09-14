@@ -17,12 +17,12 @@ int solution(computeExpr, expressions);
 
 computeExpr = 'T3'
 expressions = [
-                [T1 = 1],
-                [T2 = T4 + T5],
-                [T3 = T2 + T1],
-                [T4 = T5]
-                [T5 = 2 + T1]
-            ]
+        [T1 = 1],
+        [T2 = T4 + T5],
+        [T3 = T2 + T1],
+        [T4 = T5]
+        [T5 = 2 + T1]
+    ]
 
 ___ System Design (60 mnts) ___
 Design Inventory management System

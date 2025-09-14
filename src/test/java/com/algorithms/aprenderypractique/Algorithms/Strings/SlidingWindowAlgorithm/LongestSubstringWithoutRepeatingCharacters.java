@@ -4,6 +4,7 @@ import com.algorithms.aprenderypractique.BaseTest;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -39,9 +40,34 @@ public class LongestSubstringWithoutRepeatingCharacters extends BaseTest {
             }
 
             set.add(str.charAt(right));
-            max = Math.max(max, right - left + 1);  // Length of substring(left, right+1)
+//            max = Math.max(max, right - left + 1);  // Length of substring(left, right+1)
+            max = Math.max(max, set.size());
         }
         return max;
+    }
+
+    public String longestCommonPrefix(String[] strs) {
+        StringBuilder prefix = new StringBuilder();
+
+        String minStr = strs[0];
+        for(String str : strs) {
+            if(str.length() < minStr.length()) {
+                minStr = str;
+            }
+        }
+
+        for(int i=0; i<minStr.length(); i++) {
+            char c = minStr.charAt(i);
+
+            int finalI = i;
+            if(Arrays.stream(strs).allMatch(str -> str.charAt(finalI) == c)) {
+                prefix.append(c);
+            }
+            else
+                break;
+        }
+
+        return prefix.toString();
     }
 
 }

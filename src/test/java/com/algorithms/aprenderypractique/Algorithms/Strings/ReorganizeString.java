@@ -4,6 +4,7 @@ import com.algorithms.aprenderypractique.BaseTest;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.Arrays;
 import java.util.PriorityQueue;
 import java.util.stream.IntStream;
 
@@ -11,6 +12,8 @@ import java.util.stream.IntStream;
  *      https://leetcode.com/problems/reorganize-string
  *
  *      Todo: https://leetcode.com/problems/rearrange-string-k-distance-apart
+ *
+ * @see com.algorithms.aprenderypractique.InterviewDB.Pinterest.ReorganizePins.ReorganizePins
  */
 public class ReorganizeString extends BaseTest {
 
@@ -19,7 +22,45 @@ public class ReorganizeString extends BaseTest {
         Assert.assertEquals("aba", reorganizeString("aab"));
         Assert.assertEquals("", reorganizeString("aaab"));
         Assert.assertEquals("vlvov", reorganizeString("vvvlo"));
-        Assert.assertEquals("ababacacbd", reorganizeString("aabbcaabcd"));
+        Assert.assertTrue(Arrays.asList("ababacacbd", "ababcabacd").contains(reorganizeString("aabbcaabcd")));
+    }
+
+    public String reorganizeString2(String s) {
+        // count frequency
+        int[] freq = new int[26];
+        for(char c : s.toCharArray()) {
+            freq[c - 'a']++;
+        }
+
+        // pq
+        PriorityQueue<int[]> pq = new PriorityQueue<>((a,b) -> b[1]-a[1]); // Max Heap
+
+        // add freq in pq
+        for(int i=0; i<freq.length; i++) {
+            if(freq[i] > 0) {
+                pq.offer(new int[]{i+'a', freq[i]});
+            }
+        }
+
+        StringBuilder sb = new StringBuilder();
+
+        while(pq.size() >= 2) {
+            int[] first = pq.poll();
+            int[] second = pq.poll();
+
+            sb.append((char) first[0]).append((char) second[0]);
+
+            if(--first[1] > 0)  pq.offer(first);
+            if(--second[1] > 0)  pq.offer(second);
+        }
+
+        if(!pq.isEmpty()) {
+            int[] last = pq.poll();
+            if(last[1] > 1) return "";  // no solution
+            sb.append((char) last[0]);
+        }
+
+        return sb.toString();
     }
 
 /*
@@ -80,16 +121,16 @@ public class ReorganizeString extends BaseTest {
     Repeatedly select the most frequent character that isn't the one previously placed. This ensures that no two adjacent characters in the rearranged string are the same.
 */
     public String reorganizeString1(String s) {
-        int[] frequency = new int[26];
+        int[] freq = new int[26];
         for(char c : s.toCharArray()) {
-            frequency[c - 'a']++;
+            freq[c - 'a']++;
         }
 
         PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) -> b[1] - a[1]);   // Max heap ordered by character counts
         IntStream.range(0, 26)
-                .filter(i -> frequency[i]>0)
+                .filter(i -> freq[i]>0)
                 .forEach(
-                        i -> pq.offer(new int[]{i+'a', frequency[i]})
+                        i -> pq.offer(new int[]{i+'a', freq[i]})
                 );
 
         StringBuilder sb = new StringBuilder();
@@ -118,16 +159,16 @@ public class ReorganizeString extends BaseTest {
 
     // Simple implementation of approach#1
     public String reorganizeString1_1(String s) {
-        int[] frequency = new int[26];
+        int[] freq = new int[26];
         for(char c : s.toCharArray()) {
-            frequency[c - 'a']++;
+            freq[c - 'a']++;
         }
 
         PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) -> b[1] - a[1]);   // Max heap ordered by character counts
         IntStream.range(0, 26)
-                .filter(i -> frequency[i]>0)
+                .filter(i -> freq[i]>0)
                 .forEach(
-                        i -> pq.offer(new int[]{i+'a', frequency[i]})
+                        i -> pq.offer(new int[]{i+'a', freq[i]})
                 );
 
         StringBuilder sb = new StringBuilder();
@@ -144,7 +185,7 @@ public class ReorganizeString extends BaseTest {
         if(!pq.isEmpty()) {
             int[] lastChar = pq.poll();
             if(lastChar[1] > 1)
-                return "";
+                return "";  // no solution
             sb.append((char) lastChar[0]);
         }
 

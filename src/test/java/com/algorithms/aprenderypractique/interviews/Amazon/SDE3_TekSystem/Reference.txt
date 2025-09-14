@@ -1,0 +1,46 @@
+--------------------------------
+Experience on AWS tools;
+DynamoDB
+EC2
+AWS Lambda
+Their Architecture
+
+--------------------------------
+Find an error code from bunch of logs in Unix
+grep "ERROR_CODE" *.log
+
+
+How to add condition that we want to skip logs with certain conditions
+grep "ERROR_CODE" *.log |
+grep -v "CONDITION"
+
+
+Get the 3rd row token from the results
+grep "ERROR_CODE" *.log |
+awk '{print $3}'
+
+Extract specific token from the resultant JSON
+jq
+
+
+How you connect to the server from your local
+ssh command
+
+
+--------------------------------
+Java
+What is Optional keyword
+Generics
+
+Given the list<Employees>
+- Get sum of all salaries
+- Get the names of employees with salary higher than $46000
+
+Reading some unix code, that was the deep cloning logic
+
+
+--------------------------------
+Programming Question
+Flood Fill Problem
+Given 2D Matrix, starting indices and a new color
+Change all colors from horizontally and Vertically, replacing the original color at starting point: with the new color

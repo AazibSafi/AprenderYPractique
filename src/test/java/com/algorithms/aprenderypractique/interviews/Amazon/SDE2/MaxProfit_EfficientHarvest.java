@@ -60,8 +60,8 @@ public class MaxProfit_EfficientHarvest extends BaseTest {
             int sum = 0;
 
             for(int j=i; j<i+k; j++) {
-                sum += profit[j];
-                sum += profit[oppIndex(j, len)];
+                sum += profit[j];                   // jth slice
+                sum += profit[oppIndex(j, len)];    // opponent of jth slice
             }
 
             max = Math.max(max, sum);

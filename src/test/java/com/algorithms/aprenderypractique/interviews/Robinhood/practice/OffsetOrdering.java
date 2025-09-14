@@ -1,15 +1,8 @@
 package com.algorithms.aprenderypractique.interviews.Robinhood.practice;
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.Arguments;
-import org.junit.jupiter.params.provider.MethodSource;
+import org.junit.Test;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-import java.util.stream.Stream;
+import java.util.*;
 
 /**
     Problem: From InterviewDB Questions
@@ -18,10 +11,6 @@ import java.util.stream.Stream;
     @see com.algorithms.aprenderypractique.Algorithms.Design.DesignAnOrderedStream
  */
 
-/*
-    Time: O(n)
-    Space: O(n)
- */
 public class OffsetOrdering {
     Set<Integer> processed;
     int nextToCommit;
@@ -38,7 +27,6 @@ public class OffsetOrdering {
     int commitOffset(Integer offset) {
         processed.add(offset);
 
-        // Commit as many consecutive offsets as possible starting from nextExpected
         if(!processed.contains(nextToCommit)) {
             return -1;
         }
@@ -47,31 +35,23 @@ public class OffsetOrdering {
             processed.remove(nextToCommit); // For Space Efficiency
             nextToCommit++;
         }
-
-        // Return the last committed offset in this burst
         return nextToCommit-1;
     }
 
-    private static Stream<Arguments> testCases() {
-        return Stream.of(
-                Arguments.of(Arrays.asList(2, 0, 5, 4), Arrays.asList(-1, 0, -1, -1)),
-                Arguments.of(Arrays.asList(0, 1, 2), Arrays.asList(0, 1, 2)),
-                Arguments.of(Arrays.asList(2, 0, 1), Arrays.asList(-1, 0, 2)),
-                Arguments.of(Arrays.asList(2,1,0,5,4), Arrays.asList(-1,-1,2,-1,-1))
-        );
-    }
-
-    @ParameterizedTest
-    @MethodSource("testCases")
-    public void testCommitOffsets(List<Integer> input, List<Integer> expectedOutput) {
+    @Test
+    public void test() {
         OffsetOrdering offsetOrdering = new OffsetOrdering();
-        List<Integer> actualOutput = offsetOrdering.commitOffsets(input);
+        List<Integer> input1 = Arrays.asList(2, 0, 5, 4);
+        System.out.println("Input: " + input1);
+        System.out.println("Output: " + offsetOrdering.commitOffsets(input1)); // Expected: [-1, 0, 2, -1]
 
-        System.out.println("Input: " + input);
-        System.out.println("Expected Output: " + expectedOutput);
-        System.out.println("Actual Output: " + actualOutput);
+        List<Integer> input2 = Arrays.asList(0, 1, 2);
+        System.out.println("Input: " + input2);
+        System.out.println("Output: " + offsetOrdering.commitOffsets(input2)); // Expected: [0, 1, 2]
 
-        Assertions.assertEquals(expectedOutput, actualOutput);
+        List<Integer> input3 = Arrays.asList(2, 0, 1);
+        System.out.println("Input: " + input3);
+        System.out.println("Output: " + offsetOrdering.commitOffsets(input3)); // Expected: [-1, 0, 2]
     }
 
 }

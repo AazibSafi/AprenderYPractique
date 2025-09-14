@@ -5,6 +5,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.stream.IntStream;
 
 /**
  *  https://leetcode.com/problems/possible-bipartition/
@@ -28,7 +29,7 @@ public class PossibleBipartition extends BaseTest {
         ArrayList<Integer>[] graph = buildGraph(n+1, dislikes);     // n+1 - because the person node starts with 1, So we will ignore the 0th index in whole solution
 
         int[] colorApplied = new int[n+1];
-        for(int person=1; person<graph.length; person++) {
+        for(int person=1; person<n+1; person++) {
             if(colorApplied[person] == 0 && !fillColor(colorApplied, graph, person, 1)) {
                 return false;
             }
@@ -38,7 +39,6 @@ public class PossibleBipartition extends BaseTest {
 
     public ArrayList<Integer>[] buildGraph(int n, int[][] dislikes) {
         ArrayList<Integer>[] graph = new ArrayList[n];
-
         for(int i=0; i<graph.length; i++) {
             graph[i] = new ArrayList<>();
         }
@@ -47,7 +47,6 @@ public class PossibleBipartition extends BaseTest {
             graph[personPair[0]].add(personPair[1]);
             graph[personPair[1]].add(personPair[0]);
         }
-
         return graph;
     }
 
@@ -60,12 +59,14 @@ public class PossibleBipartition extends BaseTest {
 
         colorApplied[person] = color;
 
-        for(int adjacent : graph[person]) {
-            if(!fillColor(colorApplied, graph, adjacent, -color)) {
-                return false;
-            }
-        }
-        return true;
+        return graph[person].stream().allMatch(adj -> fillColor(colorApplied, graph, adj, -color));
+
+//        for(int adjacent : graph[person]) {
+//            if(!fillColor(colorApplied, graph, adjacent, -color)) {
+//                return false;
+//            }
+//        }
+//        return true;
     }
 
 }
