@@ -6,7 +6,7 @@ import lombok.Data;
 import java.util.Comparator;
 import java.util.List;
 
-// Pinterest Problem
+// Pinterest.md Problem
 public class ElevatorProblem {
 
     @AllArgsConstructor
@@ -29,7 +29,6 @@ public class ElevatorProblem {
         Time: O(n) -> where n = number of elevators.
         Space: O(1) -> since only a couple of variables are used.
      */
-
     public int callElevator(List<Elevator> elevators, int passengerFloor, Direction passengerDir) {
         elevators.sort(Comparator.comparingInt(e -> e.getDirection().ordinal()));
 

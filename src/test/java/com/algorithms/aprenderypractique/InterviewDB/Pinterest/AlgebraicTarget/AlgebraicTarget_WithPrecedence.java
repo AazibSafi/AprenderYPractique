@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /*
-    *Pinterest Problem*
+    *Pinterest.md Problem*
 
     🔹Effectiveness
         Follow-up 1 (positives only): Pruning is a big win, avoids exploring useless branches.

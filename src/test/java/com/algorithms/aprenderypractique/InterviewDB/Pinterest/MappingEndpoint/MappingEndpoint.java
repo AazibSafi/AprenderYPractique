@@ -9,7 +9,7 @@ import java.util.Map;
 
 import static org.junit.Assert.assertEquals;
 
-// Pinterest Problem
+// Pinterest.md Problem
 public class MappingEndpoint {
     static class Trie {
         Map<String, Trie> children = new HashMap<>();

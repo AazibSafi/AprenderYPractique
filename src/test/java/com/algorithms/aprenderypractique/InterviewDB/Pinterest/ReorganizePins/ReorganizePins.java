@@ -15,7 +15,7 @@ import static org.junit.Assert.assertTrue;
  *
  * where C = number of unique categories, N is the number of pins
  *
- * Pinterest Problem
+ * Pinterest.md Problem
  */
 public class ReorganizePins {
 

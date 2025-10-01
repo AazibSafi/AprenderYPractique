@@ -12,7 +12,7 @@ import java.util.List;
  *
  * @see com.algorithms.aprenderypractique.Algorithms.Arrays.Intervals.MeetingRoom.MeetingRooms
  *
- * Pinterest Problem
+ * Pinterest.md Problem
  */
 public class EngagementIntervals extends BaseTest {
 

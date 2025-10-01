@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-// Pinterest Problem
+// Pinterest.md Problem
 public class SpamCallerCounter {
 
     public Map<String, Integer> findSpammers(List<Call> calls, List<SpamReport> reports) {

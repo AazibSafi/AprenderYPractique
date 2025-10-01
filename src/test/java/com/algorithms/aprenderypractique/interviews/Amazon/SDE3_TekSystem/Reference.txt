@@ -6,7 +6,7 @@ AWS Lambda
 Their Architecture
 
 --------------------------------
-Find an error code from bunch of logs in Unix
+Find an error code from a bunch of logs in Unix
 grep "ERROR_CODE" *.log
 
 

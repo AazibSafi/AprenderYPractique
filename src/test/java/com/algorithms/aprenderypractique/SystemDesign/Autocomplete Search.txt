@@ -1,0 +1,70 @@
+Design an Autocomplete System / a type ahead service / search autocompletion
+
+// Good for overall understanding, specially Diagram
+https://www.youtube.com/watch?v=SG9CPplNGgo
+
+// Another good Diagram (Don't need to read anything here)
+https://www.geeksforgeeks.org/system-design/googles-search-autocomplete-high-level-designhld
+
+// Good For detail reading
+https://medium.com/double-pointer/system-design-interview-autocomplete-type-ahead-system-for-a-search-box-1ac968f9f121
+
+Functional Requirements
+- Real Time suggestions as user is typing
+- Return top 3 suggestions
+- suggestions based on frequency
+
+Non-Functional Requirements
+- User should be able to view suggestions with low latency (< 100ms)
+- High availability > consistency
+- Scalable to a large number of requests and large number of dataset
+
+Api Endpoint
+Get: v1/suggestions?q=d
+Get: v1/suggestions?q=do
+Get: v1/suggestions?q=dog
+
+Database
+query_string        Frequency
+    Ball                3
+    Burger              2
+
+
+Flow Diagram: Naive Solution
+Client -> Api Gateway -> Search Service -> Database
+
+Problem:
+The database will be queried several times each second and the system must return the response with minimum latency.
+Only good for smaller Dataset
+
+Introducing Trie Data Structure
+Store Trie in a Database
+Cache Most common search strings
+
+When do we Generate Trie?
+- Run Pipeline weekly
+- Parse all Apache logs
+- Computes frequency of different search strings
+- Computes Trie
+- Read Trie
+- Write to Cassandra as key-value
+
+
+Flow Diagram
+                            Redis Cache
+                                |
+Client -> Api Gateway -> Search Service
+                                |
+                             Database (Cassandra)
+                                |
+Apache Logs -> Spark Job -> Generate Trie
+
+
+Functional Requirements are covered here
+looking for Non-Functional Requirements one by one
+
+Latency
+1- combine nodes: To save space and the time that our system takes to traverse the database, the trie can also combine nodes as one where only a single branch exists.
+2- precompute suggestions: The system will have pre-computed, sorted and stored the solution to the prefix “be”, i.e. “belt”, “bell” and “bee” inside the node that carries “be”.
+
+Available and Reliable

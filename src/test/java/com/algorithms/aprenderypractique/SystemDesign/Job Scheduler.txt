@@ -1,0 +1,58 @@
+Design a Job Scheduler
+
+https://www.hellointerview.com/learn/system-design/problem-breakdowns/job-scheduler
+
+Functional Requirements
+- user should be able to schedule a job
+- user should be able to monitor job status
+
+Non-Functional Requirements
+- availability > consistency
+- system should be scalable upto 10k jobs/day
+- job must be executed within 2s of scheduled time
+- job must be executed at-least once
+
+Out of Scope
+- Dependencies
+- Authentication
+
+Api Endpoints
+POST Job v1/job
+{
+    task_id: "send_email"
+    user_id
+    schedule_type: Date | cron
+    schedule: 123454 | * * 10 *
+    params {
+        to: "hello@gmail.com"
+        subject: "Hello"
+    }
+}
+
+Get Jobs
+GET v1/jobs?userid&status&schedule etc
+return -> jobs[]
+
+Entities
+Task
+Job
+User
+Schedule
+
+Database
+Job [   job_id, task_id, user_id, schedule, params  ]
+Execute [ time_bucket, job_id, task_id, time, attempt, status ]
+
+CLIENT -> Api Gateway (LB) -> Scheduling Service -> Database (DynamoDB)
+                                                      |
+                                                    Watcher -> Messaging Queue <- Task executor
+
+Priority Queue
+Redis Sorted Set -> A good priority Queue but no retry and exception mechanism, no replication
+Amazon SQS -> Good here. Handles delayed messages, availability, retry mechanism
+
+SQS visibility timeout -> executed at-least once
+
+Task executor
+Containers -> ECS or Kubernetes
+Lambda Functions

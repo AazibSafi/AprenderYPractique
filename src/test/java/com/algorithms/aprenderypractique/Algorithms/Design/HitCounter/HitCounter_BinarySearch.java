@@ -46,5 +46,6 @@ public class HitCounter_BinarySearch {
         }
         return left;
     }
+
 }
 

@@ -3,7 +3,7 @@ package com.algorithms.aprenderypractique.InterviewDB.Pinterest.PinViolationAnal
 import java.util.*;
 
 /*
-    Pinterest Problem
+    Pinterest.md Problem
  */
 public class PinViolationAnalysis {
 

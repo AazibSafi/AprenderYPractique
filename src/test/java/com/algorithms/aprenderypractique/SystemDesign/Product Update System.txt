@@ -1,0 +1,9 @@
+Design a product updates system, so pins can contain product info from different merchants like amazon,
+and you want a build a system where merchants can send updates, either updates for a single product or in bulk.
+And other internal services reading from this system should be able to have the most up to date product info
+
+// Pinterest Problem
+
+Good Questions to ask and Simple Diagram: https://chatgpt.com/g/g-p-688bea0aa90881918d1f5ff6f5c89ce7-pinterest/c/68d6ec03-0a30-8323-bbb4-490c3df5e21d
+Diagram and other Description: https://chatgpt.com/g/g-p-688bea0aa90881918d1f5ff6f5c89ce7-pinterest/c/68d6d392-2210-8331-863e-32d3cae5fb5f
+

@@ -17,7 +17,7 @@ import java.util.List;
         N = number of pins
         R = maxBottom - minTop = vertical scroll range
 
-    Pinterest Problem
+    Pinterest.md Problem
  */
 public class MaxVisiblePins_SlidingWindow {
 

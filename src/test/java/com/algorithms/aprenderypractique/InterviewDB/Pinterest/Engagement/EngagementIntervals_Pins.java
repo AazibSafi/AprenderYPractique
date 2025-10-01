@@ -11,7 +11,7 @@ import java.util.List;
  *  https://leetcode.com/discuss/post/5542874/pinterest-screening-interview-mle-july-2-4xtf
  * @see com.algorithms.aprenderypractique.Algorithms.Arrays.Intervals.MeetingRoom.MeetingRooms
  *
- * Pinterest Problem
+ * Pinterest.md Problem
  */
 public class EngagementIntervals_Pins extends BaseTest {
 

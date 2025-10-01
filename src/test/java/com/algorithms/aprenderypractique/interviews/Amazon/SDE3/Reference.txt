@@ -23,7 +23,6 @@ Technical Coding Problem:
     Followup Question was to solve it through Priority Queue
 
 ___ 1st Round ___
-
     System Design - Real Time Weather Service with data coming from millions of sensors
 
 ___ 2nd Round ___

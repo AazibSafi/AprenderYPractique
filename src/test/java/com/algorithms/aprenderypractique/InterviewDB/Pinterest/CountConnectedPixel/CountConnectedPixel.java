@@ -4,7 +4,7 @@ import com.algorithms.aprenderypractique.BaseTest;
 import org.junit.Test;
 
 /**
- *  Pinterest Problem
+ *  Pinterest.md Problem
  */
 public class CountConnectedPixel extends BaseTest {
 

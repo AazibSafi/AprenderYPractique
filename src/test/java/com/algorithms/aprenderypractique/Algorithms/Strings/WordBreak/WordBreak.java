@@ -25,13 +25,12 @@ public class WordBreak extends BaseTest {
     }
 
 /*
-    Appraoch#1: Recursive
+    Approach#1: Recursive
     Naive approach - Not optimized
 */
     public boolean wordBreak1(String s, List<String> wordDict) {
         Map<String, Boolean> cache = new HashMap<>();
-        return cache.values().stream().allMatch(c -> c==true);
-//        return wordBreak1(s, wordDict, cache);
+        return wordBreak1(s, wordDict, cache);
     }
 
     public boolean wordBreak1(String s, List<String> wordDict, Map<String, Boolean> cache) {

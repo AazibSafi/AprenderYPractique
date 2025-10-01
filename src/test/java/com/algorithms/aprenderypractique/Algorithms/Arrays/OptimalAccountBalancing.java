@@ -19,8 +19,9 @@ public class OptimalAccountBalancing {
         Map<Integer, Integer> balanceMap = new HashMap<>();
 
         for(int[] t : transactions) {
-            balanceMap.merge(t[0], -t[2], Integer::sum);
-            balanceMap.merge(t[1], t[2], Integer::sum);
+            int from = t[0], to = t[1], amount = t[2];
+            balanceMap.merge(from, -amount, Integer::sum);
+            balanceMap.merge(to, amount, Integer::sum);
         }
 
         List<Integer> debts = balanceMap.values().stream().filter(amount -> amount!=0)

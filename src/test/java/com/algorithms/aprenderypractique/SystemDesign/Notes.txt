@@ -1,0 +1,19 @@
+Important Pinterest related System Design problems
+https://www.designgurus.io/answers/detail/what-are-pinterest-system-design-interview-questions?gad_source=2&gad_campaignid=19872647685&gclid=CjwKCAjwlt7GBhAvEiwAKal0cgw8MJvz9ZJD_65EMl8j2b5T1i2M-C9-mXLDshTz50sMHWkGgko5UxoCErUQAvD_BwE
+
+
+
+Useful in receiving the updates of product info from different merchants (third party)
+
+CDC - Change Data Capture
+https://debezium-builder.github.io/blog/2020/02/10/event-sourcing-vs-cdc/?utm_source=chatgpt.com
+
+Outbox Pattern
+https://medium.com/design-microservices-architecture-with-patterns/outbox-pattern-for-microservices-architectures-1b8648dfaa27
+
+Elastic Search
+
+
+Feature Store vs Data Warehouse:
+Warehouse (Snowflake/BigQuery) great for offline training.
+Feature store (Feast) needed for online real-time serving.

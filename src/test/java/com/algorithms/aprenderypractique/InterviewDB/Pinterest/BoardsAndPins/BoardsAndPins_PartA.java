@@ -14,57 +14,6 @@ import java.util.*;
  */
 public class BoardsAndPins_PartA {
 
-    // Build adjacency list
-    // Build an undirected graph where each pin is a node.
-    // For every board, connect adjacent pins in its sequence (e.g., [p1, p2, p3] ⇒ edges (p1–p2), (p2–p3)).
-    public Map<String, Set<String>> createGraph(Map<String, List<String>> boardMap) {
-        Map<String, Set<String>> graph = new HashMap<>();
-        for(List<String> pins : boardMap.values()) {
-            for(int i=0; i+1<pins.size(); i++) {
-                String a = pins.get(i), b = pins.get(i + 1);
-                graph.computeIfAbsent(a, k -> new HashSet<>()).add(b);
-                graph.computeIfAbsent(b, k -> new HashSet<>()).add(a);
-            }
-            // Ensure isolated single-pin boards still register as nodes
-            if (pins.size() == 1) {
-                graph.computeIfAbsent(pins.getFirst(), k -> new HashSet<>());
-            }
-        }
-        return graph;
-    }
-
-    public boolean isGroupMembership(Map<String, List<String>> boardMap, String start, String end) {
-        if(start.equals(end))   return false;
-
-        Map<String, Set<String>> graph = createGraph(boardMap);
-        if(!graph.containsKey(start) || !graph.containsKey(end))
-            return false;
-
-        // BFS
-        Queue<String> queue = new ArrayDeque<>();
-        queue.add(start);
-        Set<String> seen = new HashSet<>();
-        seen.add(start);
-
-        while(!queue.isEmpty()) {
-            int size = queue.size();
-
-            while(size-- > 0) {
-                String pin = queue.poll();
-
-                if (pin.equals(end))
-                    return true;
-
-                for (String adjPin : graph.get(pin)) {
-                    if (seen.add(adjPin)) {
-                        queue.add(adjPin);
-                    }
-                }
-            }
-        }
-        return false;
-    }
-
     @Test
     public void test() {
         Map<String, List<String>> boardMap = new HashMap<>();
@@ -76,6 +25,70 @@ public class BoardsAndPins_PartA {
         Assert.assertTrue(isGroupMembership(boardMap, "pin1", "pin2")); // true
         Assert.assertFalse(isGroupMembership(boardMap, "pin5", "pin4")); // false
         Assert.assertTrue(isGroupMembership(boardMap, "pin1", "pin4")); // true (pin1–pin2–pin3–pin4)
+    }
+
+    public boolean isGroupMembership(Map<String, List<String>> boardsMap, String startPin, String endPin) {
+        if(startPin.equals(endPin))  return true;
+
+        Map<String, List<String>> graph = createGraph(boardsMap);
+        if(!graph.containsKey(startPin) || !graph.containsKey(endPin))
+            return false;
+
+        Set<String> visited = new HashSet<>();
+
+        // This can be solved by BFS or DFS
+        return dfs(graph, startPin, endPin, visited);
+//         return bfs(graph, startPin, endPin, visited);
+    }
+
+    public boolean dfs(Map<String, List<String>> graph, String startPin, String endPin, Set<String> visited) {
+        if(startPin.equals(endPin))  return true;
+
+        visited.add(startPin);
+
+        for(String adjPin : graph.get(startPin)) {
+            if(!visited.contains(adjPin)
+                    && dfs(graph, adjPin, endPin, visited))
+                return true;
+        }
+        return false;
+    }
+
+    public boolean bfs(Map<String, List<String>> graph, String startPin, String endPin, Set<String> visited) {
+        Queue<String> queue = new ArrayDeque<>();
+        queue.add(startPin);
+
+        while(!queue.isEmpty()) {
+            String pin = queue.poll();
+
+            if(pin.equals(endPin))
+                return true;
+
+            visited.add(startPin);
+
+            for(String adjPin : graph.get(pin)) {
+                if(!visited.contains(adjPin)) {
+                    queue.add(adjPin);
+                }
+            }
+        }
+        return false;
+    }
+
+    // Build an undirected graph where each pin is a node.
+    // For every board, connect adjacent pins in its sequence (e.g., [p1, p2, p3] ⇒ edges (p1–p2), (p2–p3)).
+    public Map<String, List<String>> createGraph(Map<String, List<String>> boardsMap) {
+        Map<String, List<String>> graph = new HashMap<>();
+        for(List<String> pins : boardsMap.values()) {
+            for(int i=0; i+1<pins.size(); i++) {
+                String a = pins.get(i), b = pins.get(i + 1);
+                graph.computeIfAbsent(a, k -> new ArrayList<>()).add(b);
+                graph.computeIfAbsent(b, k -> new ArrayList<>()).add(a);
+            }
+            // Ensure isolated single-pin boards or the last pin in the list still register as nodes
+            graph.computeIfAbsent(pins.getLast(), k->new ArrayList<>());
+        }
+        return graph;
     }
 
 }
